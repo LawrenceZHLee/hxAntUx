@@ -1,0 +1,64 @@
+@import '~antd/lib/style/themes/default.less';
+//index-sider
+:global {
+  .ant-menu-item {
+    a {
+      span {
+        color: #346d9c;
+      }
+    }
+  }
+  //拓展头部
+
+  .self-header {
+    height: 100px;
+    display: flex;
+    background-color: @primary-color;
+    color: white;
+    .self-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      img {
+        width: 60px;
+        height: 60px;
+        display: block;
+      }
+    }
+    .self-title {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      flex: 1;
+    }
+    .self-module-con {
+      display: flex;
+      flex: 2;
+      position: relative;
+      .self-out-con {
+        display: flex;
+        flex-wrap: wrap;
+        z-index: 999;
+        position: absolute;
+        background-color: fade(@primary-5, 50%);
+        height: 100px;
+        &:hover {
+          height: auto;
+        }
+        .self-module-item {
+          flex-wrap: wrap;
+          cursor: hand;
+          cursor: pointer;
+          padding: 20px;
+          .self-module-title {
+            text-align: center;
+            margin: 0;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
