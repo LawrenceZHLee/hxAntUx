@@ -10,6 +10,10 @@ import 'moment/locale/zh-cn';
 import './rollbar';
 
 import './index.less';
+import './less/iconfont.less';
+
+import './less/index1.less';
+
 // 1. Initialize
 const app = dva({
   history: createHistory(),
