@@ -1,26 +1,26 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Icon, message } from 'antd';
+import {Layout, Icon, message} from 'antd';
 import DocumentTitle from 'react-document-title';
-import { connect } from 'dva';
-import { Route, Redirect, Switch, routerRedux } from 'dva/router';
-import { ContainerQuery } from 'react-container-query';
+import {connect} from 'dva';
+import {Route, Redirect, Switch, routerRedux} from 'dva/router';
+import {ContainerQuery} from 'react-container-query';
 import classNames from 'classnames';
-import { enquireScreen, unenquireScreen } from 'enquire-js';
+import {enquireScreen, unenquireScreen} from 'enquire-js';
 import GlobalHeader from '../components/GlobalHeader';
 import GlobalFooter from '../components/GlobalFooter';
 import SiderMenu from '../components/SiderMenu';
 import NotFound from '../routes/Exception/404';
-import { getRoutes } from '../utils/utils';
+import {getRoutes} from '../utils/utils';
 import Authorized from '../utils/Authorized';
-import { getMenuData } from '../common/menu';
+import {getMenuData} from '../common/menu';
 import logo from '../assets/logo.svg';
 import selfLogo1 from './../img/logo.png';
 
 import menuList from './../common/menuList';
 
-const { Content, Header, Footer } = Layout;
-const { AuthorizedRoute, check } = Authorized;
+const {Content, Header, Footer} = Layout;
+const {AuthorizedRoute, check} = Authorized;
 
 const moduleColumn = [
   {
@@ -108,10 +108,11 @@ class BasicLayout extends React.PureComponent {
   };
   state = {
     isMobile,
+    menuData: getMenuData(menuList.menuData2)
   };
 
   getChildContext() {
-    const { location, routerData } = this.props;
+    const {location, routerData} = this.props;
     return {
       location,
       breadcrumbNameMap: getBreadcrumbNameMap(getMenuData(), routerData),
@@ -134,8 +135,8 @@ class BasicLayout extends React.PureComponent {
   }
 
   getPageTitle() {
-    const { routerData, location } = this.props;
-    const { pathname } = location;
+    const {routerData, location} = this.props;
+    const {pathname} = location;
     let title = 'Ant Design Pro';
     if (routerData[pathname] && routerData[pathname].name) {
       title = `${routerData[pathname].name} - Ant Design Pro`;
@@ -154,7 +155,7 @@ class BasicLayout extends React.PureComponent {
       urlParams.searchParams.delete('redirect');
       window.history.replaceState(null, 'redirect', urlParams.href);
     } else {
-      const { routerData } = this.props;
+      const {routerData} = this.props;
       // get the first authorized route path in routerData
       const authorizedPath = Object.keys(routerData).find(
         item => check(routerData[item].authority, item) && item !== '/'
@@ -176,7 +177,7 @@ class BasicLayout extends React.PureComponent {
       payload: type,
     });
   };
-  handleMenuClick = ({ key }) => {
+  handleMenuClick = ({key}) => {
     if (key === 'triggerError') {
       this.props.dispatch(routerRedux.push('/exception/trigger'));
       return;
@@ -195,7 +196,9 @@ class BasicLayout extends React.PureComponent {
     }
   };
   changeModule = menuName => {
-    console.log('$PARANSmenuName', menuName);
+    this.setState({
+      menuData: getMenuData(menuName)
+    })
   };
 
   render() {
@@ -208,17 +211,22 @@ class BasicLayout extends React.PureComponent {
       match,
       location,
     } = this.props;
+    const {
+      isMobile,
+      menuData
+    } = this.state;
+    console.log('$PARANSmenuData', menuData)
     const bashRedirect = this.getBashRedirect();
     const layout = (
       <Layout>
-        <Header style={{ padding: 0 }}>
+        <Header style={{padding: 0}}>
           <GlobalHeader
             logo={logo}
             currentUser={currentUser}
             fetchingNotices={fetchingNotices}
             notices={notices}
             collapsed={collapsed}
-            isMobile={this.state.isMobile}
+            isMobile={isMobile}
             onNoticeClear={this.handleNoticeClear}
             onCollapse={this.handleMenuCollapse}
             onMenuClick={this.handleMenuClick}
@@ -232,17 +240,17 @@ class BasicLayout extends React.PureComponent {
             // If you do not have the Authorized parameter
             // you will be forced to jump to the 403 interface without permission
             Authorized={Authorized}
-            menuData={getMenuData(menuList.menuData2)}
+            menuData={menuData}
             collapsed={collapsed}
             location={location}
-            isMobile={this.state.isMobile}
+            isMobile={isMobile}
             onCollapse={this.handleMenuCollapse}
           />
           <Layout>
-            <Content style={{ margin: '24px 24px 0', height: '100%' }}>
+            <Content style={{margin: '24px 24px 0', height: '100%'}}>
               <Switch>
                 {redirectData.map(item => (
-                  <Redirect key={item.from} exact from={item.from} to={item.to} />
+                  <Redirect key={item.from} exact from={item.from} to={item.to}/>
                 ))}
                 {getRoutes(match.path, routerData).map(item => (
                   <AuthorizedRoute
@@ -254,11 +262,11 @@ class BasicLayout extends React.PureComponent {
                     redirectPath="/exception/403"
                   />
                 ))}
-                <Redirect exact from="/" to={bashRedirect} />
-                <Route render={NotFound} />
+                <Redirect exact from="/" to={bashRedirect}/>
+                <Route render={NotFound}/>
               </Switch>
             </Content>
-            <Footer style={{ padding: 0 }}>
+            <Footer style={{padding: 0}}>
               <GlobalFooter
                 links={[
                   {
@@ -269,7 +277,7 @@ class BasicLayout extends React.PureComponent {
                   },
                   {
                     key: 'github',
-                    title: <Icon type="github" />,
+                    title: <Icon type="github"/>,
                     href: 'https://github.com/ant-design/ant-design-pro',
                     blankTarget: true,
                   },
@@ -282,7 +290,7 @@ class BasicLayout extends React.PureComponent {
                 ]}
                 copyright={
                   <Fragment>
-                    Copyright <Icon type="copyright" /> 2018 蚂蚁金服体验技术部出品
+                    Copyright <Icon type="copyright"/> 2018 蚂蚁金服体验技术部出品
                   </Fragment>
                 }
               />
@@ -292,9 +300,9 @@ class BasicLayout extends React.PureComponent {
       </Layout>
     );
 
-    const moduleContent = moduleColumn.map(item => (
-      <div className="self-module-item" onClick={this.changeModule(item.menu)}>
-        <i className={`iconfont ${item.icon} f20 p10 br10 self-color-${item.color}`} />
+    const moduleContent = moduleColumn.map((item, index) => (
+      <div className="self-module-item" key={index} onClick={() => (this.changeModule(item.menu))}>
+        <i className={`iconfont ${item.icon} f20 p10 br10 self-color-${item.color}`}/>
         <p className="self-module-title">{item.name}</p>
       </div>
     ));
@@ -303,15 +311,11 @@ class BasicLayout extends React.PureComponent {
       <div>
         <div className="self-header">
           <div className="self-img">
-            <img src={selfLogo1} alt="" />
+            <img src={selfLogo1} alt=""/>
           </div>
           <p className="self-title">安徽省安全生产信息平台</p>
           <div className="self-module-con">
             <div className="self-out-con">
-              <div className="self-module-item">
-                <i className="iconfont icon-one f20 p10 br10 self-color-red" />
-                <p className="self-module-title">一企一档</p>
-              </div>
               {moduleContent}
             </div>
           </div>
@@ -326,7 +330,7 @@ class BasicLayout extends React.PureComponent {
   }
 }
 
-export default connect(({ user, global, loading }) => ({
+export default connect(({user, global, loading}) => ({
   currentUser: user.currentUser,
   collapsed: global.collapsed,
   fetchingNotices: loading.effects['global/fetchNotices'],

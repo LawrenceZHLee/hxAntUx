@@ -202,6 +202,8 @@ export default class SiderMenu extends PureComponent {
     if (!selectedKeys.length) {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
+    console.log('$PARANSpropsmenu',this.props)
+    console.log('$PARANSthis.menus',this.menus)
     return (
       <Sider
         trigger={null}

@@ -312,6 +312,4 @@ menuList.menuData2 = [
   },
 ];
 
-console.log('$PARANS');
-
 module.exports = menuList;
