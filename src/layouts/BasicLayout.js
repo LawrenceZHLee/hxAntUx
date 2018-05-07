@@ -324,7 +324,7 @@ class BasicLayout extends React.PureComponent {
           <div className="self-img">
             <img src={selfLogo1} alt=""/>
           </div>
-          <p className="self-title">安徽省安全生产信息 平台</p>
+          <p className="self-title">安徽省安全生产信息平台</p>
           <div className="self-module-con">
             <div className="self-out-con">
               {moduleContent}
