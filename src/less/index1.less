@@ -1,15 +1,45 @@
 @import '~antd/lib/style/themes/default.less';
 //index-sider
 :global {
-  .ant-menu-item {
-    a {
-      span {
-        color: #346d9c;
-      }
+  //.ant-menu-item {
+  //  a {
+  //    span {
+  //      color: #346d9c;
+  //    }
+  //  }
+  //}
+  .ant-layout-sider-children {
+    .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+      box-shadow: none;
     }
   }
-  //拓展头部
 
+  .ant-layout {
+    .ant-layout-header {
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+
+  //自定义表格
+  .self-table {
+    .ant-table-thead > tr > th {
+      color: white;
+      background-color: @primary-color;
+    }
+    .ant-table-tbody {
+      .ant-table-row {
+        &:nth-child(2n) {
+          background-color: #D8DADC;
+        }
+      }
+    }
+    .ant-table-thead > tr.ant-table-row-hover > td, .ant-table-tbody > tr.ant-table-row-hover > td, .ant-table-thead > tr:hover > td, .ant-table-tbody > tr:hover > td{
+      background: none;
+    }
+  }
+
+  //拓展头部
   .self-header {
     height: 100px;
     display: flex;
@@ -27,7 +57,9 @@
       }
     }
     .self-title {
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
       display: flex;
       align-items: center;
       margin: 0;
@@ -37,6 +69,7 @@
       display: flex;
       flex: 2;
       position: relative;
+      max-width: 650px;
       .self-out-con {
         display: flex;
         flex-wrap: wrap;
@@ -44,6 +77,7 @@
         position: absolute;
         background-color: fade(@primary-5, 50%);
         height: 100px;
+        overflow: hidden;
         &:hover {
           height: auto;
         }
@@ -51,7 +85,11 @@
           flex-wrap: wrap;
           cursor: hand;
           cursor: pointer;
-          padding: 20px 20px 0;
+          padding: 15px 0;
+          width: 130px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
           .self-module-title {
             text-align: center;
             margin: 0;
@@ -59,6 +97,30 @@
           }
         }
       }
+    }
+  }
+
+  //统计表格底部
+  .self-footer {
+    .self-footer-text {
+      text-align: right;
+    }
+  }
+
+  //统计表格
+  .self-table-header {
+    background-color: @primary-color;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+    line-height: 60px;
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+  .self-table {
+    .ant-table.ant-table-bordered .ant-table-title {
+      padding: 0;
     }
   }
 }

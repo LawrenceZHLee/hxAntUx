@@ -1,24 +1,31 @@
 const menuList = {};
 
+//一企一档
 menuList.menuData1 = [
   {
-    name: 'dashboard',
+    name: '企业统计汇总',
     icon: 'dashboard',
     path: 'dashboard',
     children: [
       {
-        name: '分析页',
-        path: 'analysis',
+        name: '企业注册数量统计',
+        path: 'coStatistics',
       },
       {
-        name: '监控页',
+        name: '按监管行业分布统计',
         path: 'monitor',
       },
       {
-        name: '工作台',
-        path: 'workplace',
-        // hideInBreadcrumb: true,
-        // hideInMenu: true,
+        name: '按所在地区分布统计',
+        path: 'monitor1',
+      },
+      {
+        name: '按重大危险源等级统计',
+        path: 'monitor2',
+      },
+      {
+        name: '三无企业按地区分布统计',
+        path: 'monitor3',
       },
     ],
   },
@@ -34,11 +41,6 @@ menuList.menuData1 = [
       {
         name: '分步表单',
         path: 'step-form',
-      },
-      {
-        name: '高级表单',
-        authority: 'admin',
-        path: 'advanced-form',
       },
     ],
   },
@@ -58,24 +60,6 @@ menuList.menuData1 = [
       {
         name: '卡片列表',
         path: 'card-list',
-      },
-      {
-        name: '搜索列表',
-        path: 'search',
-        children: [
-          {
-            name: '搜索列表（文章）',
-            path: 'articles',
-          },
-          {
-            name: '搜索列表（项目）',
-            path: 'projects',
-          },
-          {
-            name: '搜索列表（应用）',
-            path: 'applications',
-          },
-        ],
       },
     ],
   },
@@ -311,5 +295,119 @@ menuList.menuData2 = [
     ],
   },
 ];
+
+//模块类目
+menuList.moduleColumn = [
+  {
+    name: '一企一档',
+    menu: menuList.menuData1,
+    icon: 'icon-one',
+    color: 'selected',
+    selected:true
+  },
+  {
+    name: '隐患排查',
+    menu: menuList.menuData2,
+    icon: 'icon-two',
+    color: 'unSelected',
+  },
+  {
+    name: '行政执法',
+    menu: menuList.menuData2,
+    icon: 'icon-three',
+    color: 'unSelected',
+  },
+  {
+    name: '职业健康',
+    menu: menuList.menuData2,
+    icon: 'icon-four',
+    color: 'unSelected',
+  },
+  {
+    name: '重大危险源',
+    menu: menuList.menuData2,
+    icon: 'icon-five',
+    color: 'unSelected',
+  },
+  {
+    name: '安全标准化',
+    menu: menuList.menuData2,
+    icon: 'icon-six',
+    color: 'unSelected',
+  },
+  {
+    name: '教育培训',
+    menu: menuList.menuData2,
+    icon: 'icon-seven',
+    color: 'unSelected',
+  },
+  {
+    name: '诚信管理',
+    menu: menuList.menuData2,
+    icon: 'icon-eight',
+    color: 'unSelected',
+  },
+  {
+    name: '危化品登记',
+    menu: menuList.menuData2,
+    icon: 'icon-nine',
+    color: 'unSelected',
+  },
+  {
+    name: '事故管理',
+    menu: menuList.menuData2,
+    icon: 'icon-ten',
+    color: 'unSelected',
+  },
+  {
+    name: '应急管理',
+    menu: menuList.menuData2,
+    icon: 'icon-eleven',
+    color: 'unSelected',
+  },
+  {
+    name: '应急值守',
+    menu: menuList.menuData2,
+    icon: 'icon-twelve',
+    color: 'unSelected',
+  },
+  {
+    name: '信用信息共享',
+    menu: menuList.menuData2,
+    icon: 'icon-thirteen',
+    color: 'unSelected',
+  },
+  {
+    name: '电子监察',
+    menu: menuList.menuData2,
+    icon: 'icon-fourteen',
+    color: 'unSelected',
+  },
+  {
+    name: '安全知识库',
+    menu: menuList.menuData2,
+    icon: 'icon-fifteen',
+    color: 'unSelected',
+  },
+  {
+    name: '通知公告',
+    menu: menuList.menuData2,
+    icon: 'icon-sixteen',
+    color: 'unSelected',
+  },
+  {
+    name: '监控监测',
+    menu: menuList.menuData2,
+    icon: 'icon-seventeen',
+    color: 'unSelected',
+  },
+  {
+    name: '中介机构',
+    menu: menuList.menuData2,
+    icon: 'icon-eighteen',
+    color: 'unSelected',
+  },
+];
+
 
 module.exports = menuList;

@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Layout, Icon, message} from 'antd';
+import {Layout, Icon, message, Tabs, Button} from 'antd';
 import DocumentTitle from 'react-document-title';
 import {connect} from 'dva';
 import {Route, Redirect, Switch, routerRedux} from 'dva/router';
@@ -19,23 +19,9 @@ import selfLogo1 from './../img/logo.png';
 
 import menuList from './../common/menuList';
 
+const TabPane = Tabs.TabPane;
 const {Content, Header, Footer} = Layout;
 const {AuthorizedRoute, check} = Authorized;
-
-const moduleColumn = [
-  {
-    name: '一企一档',
-    menu: menuList.menuData1,
-    icon: 'icon-one',
-    color: 'red',
-  },
-  {
-    name: '隐患排查',
-    menu: menuList.menuData2,
-    icon: 'icon-two',
-    color: 'orange',
-  },
-];
 
 /**
  * 根据菜单取得重定向地址.
@@ -108,7 +94,8 @@ class BasicLayout extends React.PureComponent {
   };
   state = {
     isMobile,
-    menuData: getMenuData(menuList.menuData2)
+    menuData: getMenuData(menuList.menuData1),
+    moduleColumn: menuList.moduleColumn
   };
 
   getChildContext() {
@@ -195,7 +182,17 @@ class BasicLayout extends React.PureComponent {
       });
     }
   };
-  changeModule = menuName => {
+  changeModule = (menuName, name) => {
+    const moduleColumn = [...this.state.moduleColumn];
+    moduleColumn.forEach(item => {
+      item.selected = false;
+    });
+    for (const item of moduleColumn){
+      if(item.name === name){
+        item.selected = true;
+        break;
+      }
+    }
     this.setState({
       menuData: getMenuData(menuName)
     })
@@ -213,9 +210,9 @@ class BasicLayout extends React.PureComponent {
     } = this.props;
     const {
       isMobile,
-      menuData
+      menuData,
+      moduleColumn
     } = this.state;
-    console.log('$PARANSmenuData', menuData)
     const bashRedirect = this.getBashRedirect();
     const layout = (
       <Layout>
@@ -245,9 +242,20 @@ class BasicLayout extends React.PureComponent {
             location={location}
             isMobile={isMobile}
             onCollapse={this.handleMenuCollapse}
+            defaultSelectedKeys={["/dashboard", "/dashboard/coStatistics"]}
           />
           <Layout>
             <Content style={{margin: '24px 24px 0', height: '100%'}}>
+              {/*<Tabs*/}
+              {/*hideAdd*/}
+              {/*onChange={this.onChange}*/}
+              {/*activeKey={this.state.activeKey}*/}
+              {/*type="editable-card"*/}
+              {/*onEdit={this.onEdit}*/}
+              {/*>*/}
+              {/*<TabPane tab="11" key="1">111</TabPane>*/}
+              {/*<TabPane tab="22" key="2">22</TabPane>*/}
+              {/*</Tabs>*/}
               <Switch>
                 {redirectData.map(item => (
                   <Redirect key={item.from} exact from={item.from} to={item.to}/>
@@ -266,46 +274,49 @@ class BasicLayout extends React.PureComponent {
                 <Route render={NotFound}/>
               </Switch>
             </Content>
-            <Footer style={{padding: 0}}>
-              <GlobalFooter
-                links={[
-                  {
-                    key: 'Pro 首页',
-                    title: 'Pro 首页',
-                    href: 'http://pro.ant.design',
-                    blankTarget: true,
-                  },
-                  {
-                    key: 'github',
-                    title: <Icon type="github"/>,
-                    href: 'https://github.com/ant-design/ant-design-pro',
-                    blankTarget: true,
-                  },
-                  {
-                    key: 'Ant Design',
-                    title: 'Ant Design',
-                    href: 'http://ant.design',
-                    blankTarget: true,
-                  },
-                ]}
-                copyright={
-                  <Fragment>
-                    Copyright <Icon type="copyright"/> 2018 蚂蚁金服体验技术部出品
-                  </Fragment>
-                }
-              />
-            </Footer>
+            {/*<Footer style={{padding: 0}}>*/}
+            {/*<GlobalFooter*/}
+            {/*links={[*/}
+            {/*{*/}
+            {/*key: 'Pro 首页',*/}
+            {/*title: 'Pro 首页',*/}
+            {/*href: 'http://pro.ant.design',*/}
+            {/*blankTarget: true,*/}
+            {/*},*/}
+            {/*{*/}
+            {/*key: 'github',*/}
+            {/*title: <Icon type="github"/>,*/}
+            {/*href: 'https://github.com/ant-design/ant-design-pro',*/}
+            {/*blankTarget: true,*/}
+            {/*},*/}
+            {/*{*/}
+            {/*key: 'Ant Design',*/}
+            {/*title: 'Ant Design',*/}
+            {/*href: 'http://ant.design',*/}
+            {/*blankTarget: true,*/}
+            {/*},*/}
+            {/*]}*/}
+            {/*copyright={*/}
+            {/*<Fragment>*/}
+            {/*Copyright <Icon type="copyright"/> 2018 蚂蚁金服体验技术部出品*/}
+            {/*</Fragment>*/}
+            {/*}*/}
+            {/*/>*/}
+            {/*</Footer>*/}
           </Layout>
         </Layout>
       </Layout>
     );
 
-    const moduleContent = moduleColumn.map((item, index) => (
-      <div className="self-module-item" key={index} onClick={() => (this.changeModule(item.menu))}>
-        <i className={`iconfont ${item.icon} f20 p10 br10 self-color-${item.color}`}/>
-        <p className="self-module-title">{item.name}</p>
-      </div>
-    ));
+    const moduleContent = moduleColumn.map((item, index) => {
+      const color = item.selected ? "selected":"unSelected";
+      return (
+        <div className="self-module-item" key={index} onClick={() => (this.changeModule(item.menu, item.name))}>
+          <i className={`iconfont ${item.icon} iconfont-module self-color-${color}`}/>
+          <p className="self-module-title">{item.name}</p>
+        </div>
+      )
+    });
 
     return (
       <div>

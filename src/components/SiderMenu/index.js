@@ -4,7 +4,6 @@ import DrawerMenu from 'rc-drawer-menu';
 import SiderMenu from './SiderMenu';
 
 export default props => {
-  console.log('$PARANSprops',props,props.isMobile)
   return (
     props.isMobile ? (
       <DrawerMenu

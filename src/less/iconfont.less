@@ -1,10 +1,12 @@
+@import '~antd/lib/style/themes/default.less';
+
 @font-face {
   font-family: 'iconfont'; /* project id 647001 */
   src: url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.eot');
   src: url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.woff') format('woff'),
-    url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.svg#iconfont') format('svg');
+  url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_647001_bjq1vq8785xw29.svg#iconfont') format('svg');
 }
 
 :global {
@@ -16,11 +18,69 @@
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
   }
+  .iconfont-module {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .icon-one:before {
     content: '\e600';
   }
   .icon-two:before {
     content: '\e601';
+  }
+  .icon-three:before {
+    content: '\e603';
+  }
+  .icon-four:before {
+    content: '\e602';
+  }
+  .icon-five:before {
+    content: '\e604';
+  }
+  .icon-six:before {
+    content: '\e60d';
+  }
+  .icon-seven:before {
+    content: '\e605';
+  }
+  .icon-eight:before {
+    content: '\e606';
+  }
+  .icon-nine:before {
+    content: '\e608';
+  }
+  .icon-ten:before {
+    content: '\e60a';
+  }
+  .icon-eleven:before {
+    content: '\e607';
+  }
+  .icon-twelve:before {
+    content: '\e609';
+  }
+  .icon-thirteen:before {
+    content: '\e60b';
+  }
+  .icon-fourteen:before {
+    content: '\e60c';
+  }
+  .icon-fifteen:before {
+    content: '\e60e';
+  }
+  .icon-sixteen:before {
+    content: '\e610';
+  }
+  .icon-seventeen:before {
+    content: '\e60f';
+  }
+  .icon-eighteen:before {
+    content: '\e611';
   }
   .f20 {
     font-size: 30px;
@@ -51,5 +111,11 @@
   }
   .self-color-purple {
     background-color: purple;
+  }
+  .self-color-selected{
+    background-color: @primary-4;
+  }
+  .self-color-unSelected{
+    background-color: @primary-1;
   }
 }
