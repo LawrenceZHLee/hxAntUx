@@ -194,7 +194,8 @@ class BasicLayout extends React.PureComponent {
       }
     }
     this.setState({
-      menuData: getMenuData(menuName)
+      menuData: getMenuData(menuName),
+      moduleColumn,
     })
   };
 

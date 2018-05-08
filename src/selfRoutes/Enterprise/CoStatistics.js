@@ -10,7 +10,7 @@ import {
   Pie,
   TimelineChart,
 } from 'components/Charts';
-import TraTable from './../../components/SelfTable/TraTable';
+import TraTable from '../../components/SelfTable/TraTable';
 
 
 const columns = [

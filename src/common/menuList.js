@@ -13,7 +13,7 @@ menuList.menuData1 = [
       },
       {
         name: '按监管行业分布统计',
-        path: 'monitor',
+        path: 'industryDistribution',
       },
       {
         name: '按所在地区分布统计',
