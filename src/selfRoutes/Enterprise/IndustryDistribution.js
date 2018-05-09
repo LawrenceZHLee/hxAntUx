@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
-import {Chart, Geom, Axis, Tooltip} from 'bizcharts';
+import {Chart, Geom, Axis, Tooltip, Label} from 'bizcharts';
 import CompositeTable from './../../components/SelfTable/CompositeTable';
+import SearchContainer from './../../components/SelfTable/SearchContent';
 
 const columns = [
   {
@@ -57,6 +58,51 @@ const cols = {
   sold: {alias: '企业数量'},
 };
 
+const searchColumn = [
+  {
+    name: "名称",
+    value: "name",
+    type: "select",
+    option: [
+      {
+        value: "Jack"
+      },
+      {
+        value: "Lucy"
+      },
+      {
+        value: "yiminghe"
+      }
+    ]
+  },
+  {
+    name: "关键字",
+    value: "keyword",
+    type: "input",
+  },
+  {
+    name: "时间",
+    value: "time",
+    type: "date",
+  },
+  {
+    name: "时间段",
+    value: "rangeTime",
+    type: "rangePicker",
+  },
+  {
+    name: "级联选择",
+    value: "selects",
+    type: "selects",
+    provinceData:"安徽省",
+    cityData:['合肥市', '淮北市'],
+    countyData:{
+      合肥市: ['瑶海区', '庐阳区', '蜀山区'],
+      淮北市: ['杜集区', '相山区', '烈山区'],
+    }
+  },
+];
+
 export default class IndustryDistribution extends Component {
   state = {};
 
@@ -70,15 +116,22 @@ export default class IndustryDistribution extends Component {
 
   render() {
     const chartContent = (
-        <Chart width={800} data={chartData} scale={cols} forceFit>
+      <div style={{"margin": "0 auto", "width": "800px"}}>
+        <Chart height={450} data={chartData} scale={cols} forceFit>
           <Axis name="genre"/>
           <Axis name="sold"/>
           <Tooltip />
-          <Geom type="interval" position="genre*sold" color="genre"/>
+          <Geom type="interval" position="genre*sold" color="genre">
+            <Label content={["genre*sold", (genre, sold) => sold]}/>
+          </Geom>
         </Chart>
+      </div>
     );
     return (
       <Fragment>
+        <SearchContainer
+          searchColumn={searchColumn}
+        />
         <CompositeTable
           title="按监管行业分布统计(达标总计 31284 家)"
           chartContent={chartContent}

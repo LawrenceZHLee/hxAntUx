@@ -34,7 +34,7 @@
         }
       }
     }
-    .ant-table-thead > tr.ant-table-row-hover > td, .ant-table-tbody > tr.ant-table-row-hover > td, .ant-table-thead > tr:hover > td, .ant-table-tbody > tr:hover > td{
+    .ant-table-thead > tr.ant-table-row-hover > td, .ant-table-tbody > tr.ant-table-row-hover > td, .ant-table-thead > tr:hover > td, .ant-table-tbody > tr:hover > td {
       background: none;
     }
   }
@@ -125,25 +125,90 @@
   }
 
   //统计表格更换
-  .self-table-change{
-    .self-table-text{
+  .self-table-change {
+    .self-table-text {
       display: flex;
       justify-content: flex-end;
-      .self-table-item{
+      .self-table-item {
         padding: 0 10px;
         cursor: pointer;
         cursor: hand;
-        &:last-child{
+        &:last-child {
           padding-left: 0px;
         }
       }
     }
   }
 
-  .self-chart-title{
+  //图标标题
+  .self-chart-title {
     text-align: center;
     color: @primary-color;
     font-size: 18px;
     font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  //搜索框
+  .self-search-container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    .self-inner-search{
+      flex:1;
+    }
+    .self-button-con {
+      width: 150px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
   }
 }
