@@ -95,7 +95,9 @@ class BasicLayout extends React.PureComponent {
   state = {
     isMobile,
     menuData: getMenuData(menuList.menuData1),
-    moduleColumn: menuList.moduleColumn
+    moduleColumn: menuList.moduleColumn,
+    activeKey: '首页',
+    panes: []
   };
 
   getChildContext() {
@@ -115,6 +117,11 @@ class BasicLayout extends React.PureComponent {
     this.props.dispatch({
       type: 'user/fetchCurrent',
     });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    //console.log('$PARANSnextProps!!!!!!====',nextProps)
+    this.tabContentRender();
   }
 
   componentWillUnmount() {
@@ -187,8 +194,8 @@ class BasicLayout extends React.PureComponent {
     moduleColumn.forEach(item => {
       item.selected = false;
     });
-    for (const item of moduleColumn){
-      if(item.name === name){
+    for (const item of moduleColumn) {
+      if (item.name === name) {
         item.selected = true;
         break;
       }
@@ -199,22 +206,116 @@ class BasicLayout extends React.PureComponent {
     })
   };
 
+  //面板操作
+  onChange = (activeKey) => {
+    const {panes} = this.state;
+    let nowIndex=0;
+    panes.forEach((item,index) => {
+      if(item.key === activeKey){
+        nowIndex = index;
+      }
+    });
+    const href = panes[nowIndex].path;
+    window.location.href = href;
+    this.setState({activeKey});
+  };
+  onEdit = (targetKey, action) => {
+    this[action](targetKey);
+  };
+  remove = (targetKey) => {
+    let activeKey = this.state.activeKey;
+    let lastIndex;
+    this.state.panes.forEach((pane, i) => {
+      if (pane.key === targetKey) {
+        lastIndex = i - 1;
+      }
+    });
+    const panes = this.state.panes.filter(pane => pane.key !== targetKey);
+    if (lastIndex >= 0 && activeKey === targetKey) {
+      activeKey = panes[lastIndex].key;
+      window.location.href = panes[lastIndex].path;
+    }else {
+      window.location.href = panes[0].path;
+    }
+    this.setState({panes, activeKey});
+  };
+
+  //tab切换模板生成
+  tabContentRender = () => {
+    const {
+      routerData,
+      match,
+    } = this.props;
+    const {panes, activeKey} = this.state;
+    const bashRedirect = this.getBashRedirect();
+    let index = panes.length;
+    let noPage = true;
+    let title = '';
+    if (redirectData) {
+      const pageContent = (
+        <Switch>
+          {redirectData.map(item => (
+            <Redirect key={item.from} exact from={item.from} to={item.to}/>
+          ))}
+          {getRoutes(match.path, routerData).map(item => {
+            if(location.hash.substring(1) === item.key){
+              title = item.name;
+              for (const it of panes){
+                if(it.title === title){
+                  noPage = false;
+                  index = it.key;
+                  break;
+                }
+              }
+            }
+            return (
+              <AuthorizedRoute
+                key={item.key}
+                path={item.path}
+                component={item.component}
+                exact={item.exact}
+                authority={item.authority}
+                redirectPath="/exception/403"
+              />
+            )
+          })}
+          <Redirect exact from="/" to={bashRedirect}/>
+          <Route render={NotFound}/>
+        </Switch>
+      );
+      if(noPage){
+        panes.push(
+          {
+            title,
+            content: pageContent,
+            key: title,
+            path:location.hash
+          },
+        );
+      }
+      this.setState({
+        panes,
+        activeKey: title
+      })
+    }
+  };
+
   render() {
     const {
       currentUser,
       collapsed,
       fetchingNotices,
       notices,
-      routerData,
-      match,
       location,
     } = this.props;
     const {
       isMobile,
       menuData,
-      moduleColumn
+      moduleColumn,
+      activeKey,
+      panes
     } = this.state;
-    const bashRedirect = this.getBashRedirect();
+
     const layout = (
       <Layout>
         <Header style={{padding: 0}}>
@@ -247,33 +348,17 @@ class BasicLayout extends React.PureComponent {
           />
           <Layout>
             <Content style={{margin: '24px 24px 0', height: '100%'}}>
-              {/*<Tabs*/}
-              {/*hideAdd*/}
-              {/*onChange={this.onChange}*/}
-              {/*activeKey={this.state.activeKey}*/}
-              {/*type="editable-card"*/}
-              {/*onEdit={this.onEdit}*/}
-              {/*>*/}
-              {/*<TabPane tab="11" key="1">111</TabPane>*/}
-              {/*<TabPane tab="22" key="2">22</TabPane>*/}
-              {/*</Tabs>*/}
-              <Switch>
-                {redirectData.map(item => (
-                  <Redirect key={item.from} exact from={item.from} to={item.to}/>
-                ))}
-                {getRoutes(match.path, routerData).map(item => (
-                  <AuthorizedRoute
-                    key={item.key}
-                    path={item.path}
-                    component={item.component}
-                    exact={item.exact}
-                    authority={item.authority}
-                    redirectPath="/exception/403"
-                  />
-                ))}
-                <Redirect exact from="/" to={bashRedirect}/>
-                <Route render={NotFound}/>
-              </Switch>
+              <Tabs
+                hideAdd
+                type="editable-card"
+                onEdit={this.onEdit}
+                onChange={this.onChange}
+                activeKey={activeKey}
+              >
+                <TabPane tab="首页" key="首页" closable={false}>首页</TabPane>
+                <TabPane tab="地图信息一张图" key="地理" closable={false}>地理信息地图</TabPane>
+                {panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
+              </Tabs>
             </Content>
             {/*<Footer style={{padding: 0}}>*/}
             {/*<GlobalFooter*/}
@@ -310,7 +395,7 @@ class BasicLayout extends React.PureComponent {
     );
 
     const moduleContent = moduleColumn.map((item, index) => {
-      const color = item.selected ? "selected":"unSelected";
+      const color = item.selected ? "selected" : "unSelected";
       return (
         <div className="self-module-item" key={index} onClick={() => (this.changeModule(item.menu, item.name))}>
           <i className={`iconfont ${item.icon} iconfont-module self-color-${color}`}/>

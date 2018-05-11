@@ -80,6 +80,14 @@ export const getRouterData = app => {
     '/dashboard/industryDistribution':{
       component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Enterprise/IndustryDistribution')),
     },
+    //信息初审
+    '/list/initial-registration': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/TablePages/RegistrationInitial')),
+    },
+    //信息复核
+    '/list/review-registration': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/TablePages/Review')),
+    },
     '/dashboard/analysis': {
       component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
     },

@@ -189,7 +189,7 @@ export default class SiderMenu extends PureComponent {
     return this.menus.some(item => key && (item.key === key || item.path === key));
   };
   handleOpenChange = openKeys => {
-    console.log('$PARANSopenKeys', openKeys)
+    //console.log('$PARANSopenKeys', openKeys)
     const lastOpenKey = openKeys[openKeys.length - 1];
     const moreThanOne = openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
     this.setState({
@@ -199,7 +199,7 @@ export default class SiderMenu extends PureComponent {
 
   render() {
     const {collapsed, onCollapse, defaultSelectedKeys} = this.props;
-    console.log('$PARANSdefaultSelectedKeys',defaultSelectedKeys)
+    //console.log('$PARANSdefaultSelectedKeys',defaultSelectedKeys)
     const {openKeys} = this.state;
     // Don't show popup menu when it is been collapsed
     const menuProps = collapsed

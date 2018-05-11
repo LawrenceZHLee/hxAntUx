@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import {Chart, Geom, Axis, Tooltip} from 'bizcharts';
 import TraTable from './TraTable';
 import ChangeButton from './ChangeButton';
 import {

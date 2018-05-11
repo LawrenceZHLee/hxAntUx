@@ -158,14 +158,34 @@
     padding: 20px 15px;
     border-radius: 5px;
     margin-bottom: 20px;
-    .self-inner-search{
-      flex:1;
+    .self-inner-search {
+      flex: 1;
     }
     .self-button-con {
       width: 150px;
       display: flex;
       justify-content: space-around;
     }
+  }
+
+  //步骤条
+  .self-step-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .self-step-text{
+      margin: 0;
+      line-height: 16px;
+      >span{
+        color:red;
+      }
+    }
+  }
+
+  //tabs高度更改
+  .self-tabs.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-nav-container {
+    height: auto;
+
   }
 
   html, body, div, span, applet, object, iframe,
