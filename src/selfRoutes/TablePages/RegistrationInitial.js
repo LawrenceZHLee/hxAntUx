@@ -1,8 +1,9 @@
 import React, {Component, Fragment} from 'react';
-import {Modal,Popover} from 'antd';
+import {Modal, Button} from 'antd';
 
 import StepTable from '../../components/SelfTable/StepTable';
 import Omit from '../../components/SelfModule/Omit';
+import SelfForm from '../../components/SelfModule/SelfForm';
 
 
 export default class RegistrationInitial extends Component {
@@ -10,22 +11,23 @@ export default class RegistrationInitial extends Component {
     super(props);
     this.state = {
       visible: false,
-      text:''
+      readVisible: false,
+      text: ''
     };
     this.columns = [
       {
         tabTitle: "待审核",
         tabIcon: "one",
-        searchColumn:[
+        searchColumn: [
           {
             name: "关键字",
             value: "keyword",
             type: "input",
           },
         ],
-        rowSelection:[
+        rowSelection: [
           {
-            name:"操作"
+            name: "操作"
           }
         ],
         columns: [
@@ -60,7 +62,7 @@ export default class RegistrationInitial extends Component {
         ],
         dataSource: [{
           key: '1',
-          name: '企业名称："中国石化销售有限公司安徽安庆怀宁帝豪加油站" - 行政区划："安徽省 安庆市 怀宁县 高河镇" - 隶属关系："中央" - 法定代表人："潘翀" - 企业联系电话："0556-5204058"',
+          name: '中国石化销售有限公司中国石化销售有限公司中国石化销售有限公司中国石化销售有限公司中国石化销售有限公司',
           age: 32,
           address: '西湖区湖底公园1号'
         }, {
@@ -73,7 +75,7 @@ export default class RegistrationInitial extends Component {
       {
         tabTitle: "已审核",
         tabIcon: "two",
-        searchColumn:[
+        searchColumn: [
           {
             name: "关键字",
             value: "keyword",
@@ -99,7 +101,7 @@ export default class RegistrationInitial extends Component {
             render: (text, record, index) => {
               return (
                 <div>
-                  <a onClick={() => this.showModal(text)}>点击</a>
+                  <a onClick={() => this.showReadModal(text)}>点击</a>
                 </div>
               )
             }
@@ -120,7 +122,7 @@ export default class RegistrationInitial extends Component {
       {
         tabTitle: "已办结",
         tabIcon: "three",
-        searchColumn:[
+        searchColumn: [
           {
             name: "关键字",
             value: "keyword",
@@ -165,6 +167,108 @@ export default class RegistrationInitial extends Component {
         }],
       }
     ];
+
+    this.formColumn = [
+      {
+        name: "企业注册信息",
+        type: "title"
+      },
+      {
+        name: "企业名称",
+        value: "name",
+        type: "input",
+      },
+      {
+        name: "名称",
+        value: "names",
+        type: "select",
+        span: 12,
+        option: [
+          {
+            value: "Jack"
+          },
+          {
+            value: "Lucy"
+          },
+          {
+            value: "yiminghe"
+          }
+        ]
+      },
+      {
+        name: "时间",
+        value: "time",
+        type: "date",
+        span: 12,
+      },
+      {
+        name: "时间段",
+        value: "rangeTime",
+        type: "rangePicker",
+      },
+      {
+        name: "级联选择",
+        value: "selects",
+        type: "selects",
+        provinceData: "安徽省",
+        cityData: ['合肥市', '淮北市'],
+        countyData: {
+          合肥市: ['瑶海区', '庐阳区', '蜀山区'],
+          淮北市: ['杜集区', '相山区', '烈山区'],
+        }
+      },
+    ];
+
+    this.readColumn = [
+      {
+        name: "企业注册信息",
+        type: "title"
+      },
+      {
+        name: "企业名称",
+        value: "name",
+        type: "input",
+      },
+      {
+        name: "名称",
+        value: "names",
+        type: "select",
+        span: 12,
+        option: [
+          {
+            value: "Jack"
+          },
+          {
+            value: "Lucy"
+          },
+          {
+            value: "yiminghe"
+          }
+        ]
+      },
+      {
+        name: "时间",
+        value: "time",
+        type: "date",
+        span: 12
+      },
+      {
+        name: "时间段",
+        value: "rangeTime",
+        type: "rangePicker",
+      },
+      {
+        name: "级联选择",
+        value: "selects",
+        type: "selects",
+        provinceData: "安徽省",
+        cityData: ['合肥市', '淮北市'],
+        countyData: {
+          合肥市: ['瑶海区', '庐阳区', '蜀山区'],
+          淮北市: ['杜集区', '相山区', '烈山区'],
+        }
+      },
+    ];
   }
 
   showModal = (text) => {
@@ -173,33 +277,62 @@ export default class RegistrationInitial extends Component {
       text
     });
   };
+
+  showReadModal = (text) => {
+    this.setState({
+      readVisible: true,
+      text
+    });
+  };
+
   handleOk = (e) => {
     this.setState({
       visible: false,
-      text:''
+      readVisible: false,
+      text: ''
     });
   };
-  handleCancel = (e) => {
+
+  handleCancel = (e, type) => {
+    if (type === "a") {
+      this.refs.infoForm.getForm().resetFields();
+    }
     this.setState({
       visible: false,
-      text:''
+      readVisible: false,
+      text: ''
     });
   };
 
   render() {
-    const {text,visible} = this.state;
+    const {text, visible, readVisible} = this.state;
     return (
       <Fragment>
         <StepTable columns={this.columns}/>
         <Modal
-          title="Basic Modal"
+          title="待处理任务"
           visible={visible}
           onOk={this.handleOk}
-          onCancel={this.handleCancel}
+          onCancel={() => this.handleCancel("a")}
+          width={1000}
+          footer={(
+            <div style={{"textAlign": "center"}}>
+              <Button type="primary">查看</Button>
+              <Button type="primary">查看</Button>
+              <Button type="primary">查看</Button>
+              <Button type="primary" onClick={() => this.handleCancel("a")}>关闭</Button>
+            </div>)}
         >
-          <p>{text.name}</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <SelfForm ref="infoForm" formColumn={this.formColumn} data={text} editable={true}/>
+        </Modal>
+        <Modal
+          title="查看处理任务"
+          visible={readVisible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          width={1000}
+        >
+          <SelfForm ref="readForm" formColumn={this.readColumn} data={text} editable={false}/>
         </Modal>
       </Fragment>
     )
