@@ -173,11 +173,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .self-step-text{
+    .self-step-text {
       margin: 0;
       line-height: 16px;
-      >span{
-        color:red;
+      > span {
+        color: red;
       }
     }
   }
@@ -189,20 +189,76 @@
   }
 
   //自定义的表格
-  .self-form-container{
-    .ant-col-24{
-      border:1px solid #aed0ea;
+  .self-form-container {
+    .ant-col-24 {
+      border: 1px solid #aed0ea;
       height: 60px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .ant-col-12{
-      border:1px solid #aed0ea;
+    .ant-col-12 {
+      border: 1px solid #aed0ea;
       height: 60px;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  }
+
+  //时间轴
+  .self-timeline-container {
+    .time-color-container {
+      display: flex;
+      .color-block {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0 5px 0 15px;
+        &.grey-block {
+          background-color: grey;
+        }
+        &.green-block {
+          background-color: green;
+        }
+        &.dark-block {
+          background-color: darkred;
+        }
+        &.purple-block {
+          background-color: purple;
+        }
+        &.red-block {
+          background-color: red;
+        }
+        &.black-block {
+          background-color: black;
+        }
+      }
+    }
+    .ant-timeline-item-tail {
+      left: 9px;
+    }
+    .ant-timeline-item-head {
+      width: 20px;
+      height: 20px;
+    }
+    .ant-timeline-item-content {
+      padding: 5px 0 0 30px;
+    }
+    .self-time-card {
+      background-color: white;
+      border-radius: 5px;
+      padding: 10px;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-right-color: white;
+        left: 15px;
+        top: 10px;
+      }
     }
   }
 
