@@ -199,7 +199,6 @@ export default class SiderMenu extends PureComponent {
 
   render() {
     const {collapsed, onCollapse, defaultSelectedKeys} = this.props;
-    //console.log('$PARANSdefaultSelectedKeys',defaultSelectedKeys)
     const {openKeys} = this.state;
     // Don't show popup menu when it is been collapsed
     const menuProps = collapsed
@@ -228,8 +227,8 @@ export default class SiderMenu extends PureComponent {
           mode="inline"
           {...menuProps}
           onOpenChange={this.handleOpenChange}
-          // selectedKeys={selectedKeys}
-          defaultSelectedKeys={defaultSelectedKeys}
+          selectedKeys={selectedKeys}
+          //defaultSelectedKeys={defaultSelectedKeys}
           defaultOpenKeys={["/dashboard"]}
           style={{padding: '16px 0', width: '100%'}}
         >

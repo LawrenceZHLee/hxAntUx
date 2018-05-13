@@ -72,6 +72,10 @@ export const getRouterData = app => {
     '/': {
       component: dynamicWrapper(app, ['user', 'login'], () => import('../layouts/BasicLayout')),
     },
+    //文档说明
+    '/doc/document':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Document')),
+    },
     //企业注册数量统计
     '/dashboard/coStatistics':{
       component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Enterprise/CoStatistics')),

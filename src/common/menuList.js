@@ -44,6 +44,17 @@ menuList.menuData1 = [
       },
     ],
   },
+  {
+    name: '文档说明',
+    icon: 'form',
+    path: 'doc',
+    children: [
+      {
+        name: '引用说明',
+        path: 'document',
+      },
+    ],
+  },
   // {
   //   name: '表单页',
   //   icon: 'form',
@@ -158,6 +169,174 @@ menuList.menuData1 = [
 ];
 
 menuList.menuData2 = [
+  {
+    name: '企业统计汇总2',
+    icon: 'dashboard',
+    path: 'dashboard',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '按监管行业分布统计',
+        path: 'industryDistribution',
+      },
+      {
+        name: '企业注册数量统计',
+        path: 'coStatistics',
+      },
+      // {
+      //   name: '按所在地区分布统计',
+      //   path: 'monitor1',
+      // },
+      // {
+      //   name: '按重大危险源等级统计',
+      //   path: 'monitor2',
+      // },
+      // {
+      //   name: '三无企业按地区分布统计',
+      //   path: 'monitor3',
+      // },
+    ],
+  },
+  {
+    name: '注册信息审核',
+    icon: 'table',
+    path: 'list',
+    children: [
+      {
+        name: '注册信息初审',
+        path: 'initial-registration',
+      },
+      {
+        name: '注册信息复核',
+        path: 'review-registration',
+      },
+    ],
+  },
+  {
+    name: '文档说明',
+    icon: 'form',
+    path: 'doc',
+    children: [
+      {
+        name: '引用说明',
+        path: 'document',
+      },
+    ],
+  },
+  // {
+  //   name: '表单页',
+  //   icon: 'form',
+  //   path: 'form',
+  //   children: [
+  //     {
+  //       name: '基础表单',
+  //       path: 'basic-form',
+  //     },
+  //     {
+  //       name: '分步表单',
+  //       path: 'step-form',
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: '列表页',
+  //   icon: 'table',
+  //   path: 'list',
+  //   children: [
+  //     {
+  //       name: '查询表格',
+  //       path: 'table-list',
+  //     },
+  //     {
+  //       name: '标准列表',
+  //       path: 'basic-list',
+  //     },
+  //     {
+  //       name: '卡片列表',
+  //       path: 'card-list',
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: '详情页',
+  //   icon: 'profile',
+  //   path: 'profile',
+  //   children: [
+  //     {
+  //       name: '基础详情页',
+  //       path: 'basic',
+  //     },
+  //     {
+  //       name: '高级详情页',
+  //       path: 'advanced',
+  //       authority: 'admin',
+  //     },
+  //   ],
+  // },
+  {
+    name: '结果页',
+    icon: 'check-circle-o',
+    path: 'result',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '成功',
+        path: 'success',
+      },
+      {
+        name: '失败',
+        path: 'fail',
+      },
+    ],
+  },
+  {
+    name: '异常页',
+    icon: 'warning',
+    path: 'exception',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '403',
+        path: '403',
+      },
+      {
+        name: '404',
+        path: '404',
+      },
+      {
+        name: '500',
+        path: '500',
+      },
+      {
+        name: '触发异常',
+        path: 'trigger',
+        hideInMenu: true,
+      },
+    ],
+  },
+  {
+    name: '账户',
+    icon: 'user',
+    path: 'user',
+    authority: 'guest',
+    children: [
+      {
+        name: '登录',
+        path: 'login',
+      },
+      {
+        name: '注册',
+        path: 'register',
+      },
+      {
+        name: '注册结果',
+        path: 'register-result',
+      },
+    ],
+  },
+];
+
+menuList.menuData3 = [
   {
     name: 'test',
     icon: 'dashboard',
