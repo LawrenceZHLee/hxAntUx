@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import TraTable from '../components/SelfTable/TraTable';
+import Menu from "./Menu";
+import TraTable from '../../components/SelfTable/TraTable';
 import {Tabs} from 'antd';
 const TabPane = Tabs.TabPane;
 
@@ -154,14 +155,19 @@ const data = [
 ];
 
 export default class Document extends Component {
+
   render() {
     return (
       <Fragment>
         <h2>说明文档</h2>
-        <Tabs defaultActiveKey="1">
-          <TabPane tab="表格" key="1">
+        <Tabs defaultActiveKey="0">
+          <TabPane tab="菜单配置" key="0">
+            <Menu/>
+          </TabPane>
+          <TabPane tab="表格配置" key="1">
             <div className="self-document-container">
               <div className="self-document-block">
+                {/*表格一*/}
                 <TraTable
                   columns={columns}
                   data={data}

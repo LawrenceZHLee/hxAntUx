@@ -13,6 +13,7 @@ import {
   TimelineChart,
 } from 'components/Charts';
 
+//复合图表
 export default class CompositeTable extends Component {
   state = {
     buttonColumn: [

@@ -336,7 +336,7 @@ menuList.menuData2 = [
   },
 ];
 
-menuList.menuData3 = [
+menuList.menuData = [
   {
     name: 'test',
     icon: 'dashboard',
@@ -531,78 +531,78 @@ menuList.moduleColumn = [
     icon: 'icon-six',
     color: 'unSelected',
   },
-  {
-    name: '教育培训',
-    menu: menuList.menuData2,
-    icon: 'icon-seven',
-    color: 'unSelected',
-  },
-  {
-    name: '诚信管理',
-    menu: menuList.menuData2,
-    icon: 'icon-eight',
-    color: 'unSelected',
-  },
-  {
-    name: '危化品登记',
-    menu: menuList.menuData2,
-    icon: 'icon-nine',
-    color: 'unSelected',
-  },
-  {
-    name: '事故管理',
-    menu: menuList.menuData2,
-    icon: 'icon-ten',
-    color: 'unSelected',
-  },
-  {
-    name: '应急管理',
-    menu: menuList.menuData2,
-    icon: 'icon-eleven',
-    color: 'unSelected',
-  },
-  {
-    name: '应急值守',
-    menu: menuList.menuData2,
-    icon: 'icon-twelve',
-    color: 'unSelected',
-  },
-  {
-    name: '信用信息共享',
-    menu: menuList.menuData2,
-    icon: 'icon-thirteen',
-    color: 'unSelected',
-  },
-  {
-    name: '电子监察',
-    menu: menuList.menuData2,
-    icon: 'icon-fourteen',
-    color: 'unSelected',
-  },
-  {
-    name: '安全知识库',
-    menu: menuList.menuData2,
-    icon: 'icon-fifteen',
-    color: 'unSelected',
-  },
-  {
-    name: '通知公告',
-    menu: menuList.menuData2,
-    icon: 'icon-sixteen',
-    color: 'unSelected',
-  },
-  {
-    name: '监控监测',
-    menu: menuList.menuData2,
-    icon: 'icon-seventeen',
-    color: 'unSelected',
-  },
-  {
-    name: '中介机构',
-    menu: menuList.menuData2,
-    icon: 'icon-eighteen',
-    color: 'unSelected',
-  },
+  // {
+  //   name: '教育培训',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-seven',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '诚信管理',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-eight',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '危化品登记',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-nine',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '事故管理',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-ten',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '应急管理',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-eleven',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '应急值守',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-twelve',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '信用信息共享',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-thirteen',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '电子监察',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-fourteen',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '安全知识库',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-fifteen',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '通知公告',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-sixteen',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '监控监测',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-seventeen',
+  //   color: 'unSelected',
+  // },
+  // {
+  //   name: '中介机构',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-eighteen',
+  //   color: 'unSelected',
+  // },
 ];
 
 

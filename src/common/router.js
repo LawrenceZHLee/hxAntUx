@@ -74,7 +74,7 @@ export const getRouterData = app => {
     },
     //文档说明
     '/doc/document':{
-      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Document')),
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Document/Document')),
     },
     //企业注册数量统计
     '/dashboard/coStatistics':{

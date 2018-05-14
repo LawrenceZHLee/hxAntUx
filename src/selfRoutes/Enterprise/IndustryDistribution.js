@@ -67,7 +67,7 @@ const cols = {
 const searchColumn = [
   {
     name: "名称",
-    value: "name",
+    value: "name",//随意定
     type: "select",
     option: [
       {

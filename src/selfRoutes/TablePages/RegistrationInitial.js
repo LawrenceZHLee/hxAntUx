@@ -48,7 +48,8 @@ export default class RegistrationInitial extends Component {
             title: '启动人员',
             dataIndex: 'address',
             key: 'address',
-          }, {
+          },
+          {
             title: '操作',
             key: 'operation',
             render: (text) => {
