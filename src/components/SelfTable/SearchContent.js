@@ -88,9 +88,11 @@ class SearchForm extends Component {
         <Select defaultValue={item.provinceData} style={{width: 90}}>
           <Option key={item.provinceData}>{item.provinceData}</Option>
         </Select>
+        -
         <Select value={cityValue} style={{width: 90}} onChange={this.handleCityChange}>
           {cityOptions}
         </Select>
+        -
         <Select value={countyValue} style={{width: 90}} onChange={this.onCountyChange}>
           {countyOptions}
         </Select>
@@ -104,7 +106,7 @@ class SearchForm extends Component {
       switch (item.type) {
         case "select":
           return (
-            <FormItem label={`${item.name}:`} key={`table${index}`}>
+            <FormItem label={`${item.name}`} key={`table${index}`} colon={false}>
               {
                 getFieldDecorator(item.value)(this.selectRender(item))
               }
@@ -112,7 +114,7 @@ class SearchForm extends Component {
           );
         case 'input':
           return (
-            <FormItem label={`${item.name}:`} key={`table${index}`}>
+            <FormItem label={`${item.name}`} key={`table${index}`} colon={false}>
               {
                 getFieldDecorator(item.value)(this.inputRender(item))
               }
@@ -120,7 +122,7 @@ class SearchForm extends Component {
           );
         case 'date':
           return (
-            <FormItem label={`${item.name}:`} key={`table${index}`}>
+            <FormItem label={`${item.name}`} key={`table${index}`} colon={false}>
               {
                 getFieldDecorator(item.value)(this.dateRender(item))
               }
@@ -128,7 +130,7 @@ class SearchForm extends Component {
           );
         case 'rangePicker':
           return (
-            <FormItem label={`${item.name}:`} key={`table${index}`}>
+            <FormItem label={`${item.name}`} key={`table${index}`} colon={false}>
               {
                 getFieldDecorator(item.value)(this.rangePickerRender(item))
               }
@@ -138,7 +140,7 @@ class SearchForm extends Component {
           this.countyData = item.countyData;
           this.cityData = item.cityData;
           return (
-            <FormItem label={`${item.name}:`} key={`table${index}`}>
+            <FormItem label={`${item.name}`} key={`table${index}`} colon={false}>
               {getFieldDecorator(item.value)(this.cascaderSelectRender(item))}
             </FormItem>
           );

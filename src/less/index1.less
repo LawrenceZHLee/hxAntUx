@@ -160,6 +160,37 @@
     margin-bottom: 20px;
     .self-inner-search {
       flex: 1;
+      .ant-select-selection {
+        border: none;
+      }
+      .ant-select-selection--single{
+        height: 32px;
+      }
+      .ant-form-item{
+        border: 1px solid #ddd;
+        height: 36px;
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+      .ant-input{
+        border: none;
+      }
+      .ant-form-item-label {
+        width: 100px;
+        background-color: #fafafa;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        border-right: 1px solid #ddd;
+        line-height: 36px;
+        label{
+          color: #2779aa;
+        }
+      }
+    }
+    .ant-form-item-control{
+      line-height: 36px;
     }
     .self-button-con {
       width: 150px;
@@ -191,19 +222,64 @@
 
   //自定义的表格
   .self-form-container {
+    .self-form-title {
+      margin: 0;
+      border: 1px solid #aed0ea;
+      border-bottom: none;
+      font-size: 16px;
+      line-height: 36px;
+      text-align: center;
+      background-color: #e9fbfe;
+      color: rgba(0, 0, 0, 0.85);
+    }
     .ant-col-24 {
       border: 1px solid #aed0ea;
-      height: 60px;
+      border-bottom: none;
       display: flex;
       justify-content: center;
       align-items: center;
+      &:last-child {
+        border-bottom: 1px solid #aed0ea;
+      }
     }
     .ant-col-12 {
       border: 1px solid #aed0ea;
-      height: 60px;
+      border-bottom: none;
       display: flex;
       justify-content: center;
       align-items: center;
+      &:last-child {
+        border-bottom: 1px solid #aed0ea;
+      }
+      &:nth-last-child(2) {
+        border-bottom: 1px solid #aed0ea;
+      }
+    }
+    .ant-form-item-label {
+      background-color: #e9fbfe;
+      border-right: 1px solid #aed0ea;
+      width: 150px;
+      font-weight: bold;
+    }
+    .ant-row.ant-form-item.ant-form-item-no-colon {
+      display: flex;
+      height: 42px;
+      width: 100%;
+    }
+    .ant-form-item-control-wrapper {
+      flex: 1;
+      padding: 0 10px;
+      color: rgba(0, 0, 0, 0.85);
+    }
+    .ant-input {
+      border-radius: 0;
+      font-size: 12px;
+    }
+    .ant-select-selection {
+      border-radius: 0;
+    }
+    .ant-select {
+      font-size: 12px;
     }
   }
 

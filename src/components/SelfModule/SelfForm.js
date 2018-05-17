@@ -21,7 +21,7 @@ class SelfForm extends Component {
   //搜索框渲染
   selectRender = (item, data) => {
     return (
-      <Select style={{width: 120}}>
+      <Select style={{width: 120}} size="small">
         {item.option.map((it, index) => {
           return (
             <Option value={it.value} key={index}>{it.value}</Option>
@@ -34,7 +34,7 @@ class SelfForm extends Component {
   //input框渲染
   inputRender = (item, data) => {
     return (
-      <Input/>
+      <Input size="small"/>
     )
   };
 
@@ -43,6 +43,7 @@ class SelfForm extends Component {
       <DatePicker
         showTime
         format="YYYY-MM-DD"
+        size="small"
       />
     )
   };
@@ -52,6 +53,7 @@ class SelfForm extends Component {
       <RangePicker
         showTime
         format="YYYY-MM-DD"
+        size="small"
       />
     )
   };
@@ -76,13 +78,15 @@ class SelfForm extends Component {
     const countyOptions = countyData.map(city => <Option key={city}>{city}</Option>);
     return (
       <Fragment>
-        <Select defaultValue={item.provinceData} style={{width: 90}}>
+        <Select defaultValue={item.provinceData} style={{width: 90}} size="small">
           <Option key={item.provinceData}>{item.provinceData}</Option>
         </Select>
-        <Select value={cityValue} style={{width: 90}} onChange={this.handleCityChange}>
+        -
+        <Select value={cityValue} style={{width: 90}} onChange={this.handleCityChange} size="small">
           {cityOptions}
         </Select>
-        <Select value={countyValue} style={{width: 90}} onChange={this.onCountyChange}>
+        -
+        <Select value={countyValue} style={{width: 90}} onChange={this.onCountyChange} size="small">
           {countyOptions}
         </Select>
       </Fragment>
@@ -118,12 +122,12 @@ class SelfForm extends Component {
         switch (item.type) {
           case "title":
             return (
-              <h3 style={{"textAlign": "center"}} key={`form${index}`}>{item.name}</h3>
+              <p className="self-form-title" key={`form${index}`}>{item.name}</p>
             );
           case "select":
             return (
-              <Col span={item.span ? item.span : 24}>
-                <FormItem {...ItemLayout} label={`${item.name}:`} key={`form${index}`} style={{"width": "100%"}}>
+              <Col span={item.span ? item.span : 24} style={item.style}>
+                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
                   {
                     getFieldDecorator(item.value, {
                       initialValue: data[item.value]
@@ -134,8 +138,8 @@ class SelfForm extends Component {
             );
           case 'input':
             return (
-              <Col span={item.span ? item.span : 24}>
-                <FormItem {...ItemLayout} label={`${item.name}:`} key={`form${index}`} style={{"width": "100%"}}>
+              <Col span={item.span ? item.span : 24} style={item.style}>
+                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
                   {
                     getFieldDecorator(item.value, {
                       initialValue: data[item.value]
@@ -146,8 +150,8 @@ class SelfForm extends Component {
             );
           case 'date':
             return (
-              <Col span={item.span ? item.span : 24}>
-                <FormItem {...ItemLayout} label={`${item.name}:`} key={`form${index}`} style={{"width": "100%"}}>
+              <Col span={item.span ? item.span : 24} style={item.style}>
+                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
                   {
                     getFieldDecorator(item.value, {
                       initialValue: data[item.value]
@@ -158,8 +162,8 @@ class SelfForm extends Component {
             );
           case 'rangePicker':
             return (
-              <Col span={item.span ? item.span : 24}>
-                <FormItem {...ItemLayout} label={`${item.name}:`} key={`form${index}`} style={{"width": "100%"}}>
+              <Col span={item.span ? item.span : 24} style={item.style}>
+                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
                   {
                     getFieldDecorator(item.value, {
                       initialValue: data[item.value]
@@ -172,8 +176,8 @@ class SelfForm extends Component {
             this.countyData = item.countyData;
             this.cityData = item.cityData;
             return (
-              <Col span={item.span ? item.span : 24}>
-                <FormItem {...ItemLayout} label={`${item.name}:`} key={`form${index}`} style={{"width": "100%"}}>
+              <Col span={item.span ? item.span : 24} style={item.style}>
+                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
                   {getFieldDecorator(item.value, {
                     initialValue: data[item.value]
                   })(this.cascaderSelectRender(item, data))}
@@ -189,12 +193,12 @@ class SelfForm extends Component {
         const ItemLayout = item.span === 12 ? smallItemLayout : formItemLayout;
         if (item.type === "title") {
           return (
-            <h3 style={{"textAlign": "center"}}>{item.name}</h3>
+            <p className="self-form-title" key={`unForm${index}`}>{item.name}</p>
           )
         } else {
           return (
-            <Col span={item.span ? item.span : 24}>
-              <FormItem {...ItemLayout} label={`${item.name}:`} key={`form${index}`} style={{"width": "100%"}}>
+            <Col span={item.span ? item.span : 24} style={item.style}>
+              <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
                 {data[item.value]}
               </FormItem>
             </Col>

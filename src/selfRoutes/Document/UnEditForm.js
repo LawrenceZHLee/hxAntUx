@@ -33,6 +33,7 @@ const formColumn = [
     value: "time",
     type: "date",
     span: 12,
+    style: {"borderLeft": "none"}
   },
   {
     name: "时间段",
