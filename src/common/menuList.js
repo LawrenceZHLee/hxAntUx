@@ -50,7 +50,7 @@ menuList.menuData1 = [
     path: 'doc',
     children: [
       {
-        name: '引用说明',
+        name: '说明',
         path: 'document',
       },
     ],
@@ -498,38 +498,32 @@ menuList.moduleColumn = [
     name: '一企一档',
     menu: menuList.menuData1,
     icon: 'icon-one',
-    color: 'selected',
     selected:true
   },
   {
     name: '隐患排查',
     menu: menuList.menuData2,
     icon: 'icon-two',
-    color: 'unSelected',
   },
   {
     name: '行政执法',
     menu: menuList.menuData2,
     icon: 'icon-three',
-    color: 'unSelected',
   },
   {
     name: '职业健康',
     menu: menuList.menuData2,
     icon: 'icon-four',
-    color: 'unSelected',
   },
   {
     name: '重大危险源',
     menu: menuList.menuData2,
     icon: 'icon-five',
-    color: 'unSelected',
   },
   {
     name: '安全标准化',
     menu: menuList.menuData2,
     icon: 'icon-six',
-    color: 'unSelected',
   },
   // {
   //   name: '教育培训',

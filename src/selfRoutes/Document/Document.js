@@ -1,158 +1,10 @@
 import React, {Component, Fragment} from 'react';
-import Menu from "./Menu";
-import TraTable from '../../components/SelfTable/TraTable';
+import Menu from './Menu';
+import Table from './Table';
+import TableList from './TableList';
 import {Tabs} from 'antd';
+import './index.less';
 const TabPane = Tabs.TabPane;
-
-const columns = [
-  {
-    title: '行业状态地区',
-    dataIndex: 'type',
-    colSpan: 2,
-    render: (value, row, index) => {
-      const obj = {
-        children: value,
-        props: {},
-      };
-      obj.props.rowSpan = 0;
-      if ((index + 1) % 3 === 1) {
-        obj.props.rowSpan = 3;
-      }
-      return obj;
-    }
-  },
-  {
-    title: '状态',
-    dataIndex: 'status',
-    colSpan: 0,
-    render: (status) => {
-      return {1: "待审核", 2: "审核通过", 3: "审核不通过"}[status]
-    }
-  },
-  {
-    title: '合肥市',
-    dataIndex: 'hefei',
-  },
-  {
-    title: '淮北市',
-    dataIndex: 'huaibei',
-  },
-  {
-    title: '亳州市',
-    dataIndex: 'bozhou',
-  },
-  {
-    title: '宿州市',
-    dataIndex: 'suzhou',
-  },
-  {
-    title: '蚌埠市',
-    dataIndex: 'bangbu',
-  }
-];
-
-const data = [
-  {
-    key: '10',
-    type: '危险化学品企业',
-    status: 1,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 8
-  },
-  {
-    key: '11',
-    type: '危险化学品企业',
-    status: 2,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '12',
-    type: '危险化学品企业',
-    status: 3,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '21',
-    type: '烟花爆竹企业',
-    status: 1,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '22',
-    type: '烟花爆竹企业',
-    status: 2,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '23',
-    type: '烟花爆竹企业',
-    status: 3,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '31',
-    type: '非煤矿山企业',
-    status: 1,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '32',
-    type: '非煤矿山企业',
-    status: 2,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '33',
-    type: '非煤矿山企业',
-    status: 3,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-  {
-    key: '41',
-    type: '工商贸企业',
-    status: 1,
-    hefei: 5,
-    huaibei: 1,
-    bozhou: 0,
-    suzhou: 3,
-    bangbu: 9
-  },
-];
 
 export default class Document extends Component {
 
@@ -164,21 +16,16 @@ export default class Document extends Component {
           <TabPane tab="菜单配置" key="0">
             <Menu/>
           </TabPane>
-          <TabPane tab="表格配置" key="1">
-            <div className="self-document-container">
-              <div className="self-document-block">
-                {/*表格一*/}
-                <TraTable
-                  columns={columns}
-                  data={data}
-                  title="企业注册数量统计表"
-                  footer="统计日期截止至：2018年05月04日"
-                />
-              </div>
-            </div>
+          <TabPane tab="表格" key="1">
+            <Table/>
           </TabPane>
-          <TabPane tab="Tab 2" key="2">Content of Tab Pane 2</TabPane>
-          <TabPane tab="Tab 3" key="3">Content of Tab Pane 3</TabPane>
+          <TabPane tab="列表" key="2">
+            <TableList/>
+          </TabPane>
+          <TabPane tab="表单" key="3">Content of Tab Pane 3</TabPane>
+          <TabPane tab="搜索框" key="4">Content of Tab Pane 3</TabPane>
+          <TabPane tab="时间轴" key="5">Content of Tab Pane 3</TabPane>
+          <TabPane tab="bpmn" key="6">Content of Tab Pane 3</TabPane>
         </Tabs>
       </Fragment>
     )
