@@ -3,18 +3,22 @@ const menuList = {};
 //一企一档
 menuList.menuData1 = [
   {
-    name: '企业统计汇总',
+    name: '烟花爆竹统计',
     icon: 'dashboard',
     path: 'dashboard',
     children: [
+      // {
+      //   name: '企业注册数量统计',
+      //   path: 'coStatistics',
+      // },
+      // {
+      //   name: '按监管行业分布统计',
+      //   path: 'industryDistribution',
+      // },
       {
-        name: '企业注册数量统计',
-        path: 'coStatistics',
-      },
-      {
-        name: '按监管行业分布统计',
-        path: 'industryDistribution',
-      },
+        name: '库存统计',
+        path: 'stockStatistics',
+      }
       // {
       //   name: '按所在地区分布统计',
       //   path: 'monitor1',
@@ -495,36 +499,36 @@ menuList.menuData = [
 //模块类目
 menuList.moduleColumn = [
   {
-    name: '一企一档',
+    name: '烟花爆竹（企业端）',
     menu: menuList.menuData1,
     icon: 'icon-one',
     selected:true
   },
   {
-    name: '隐患排查',
+    name: '烟花爆竹（政府端）',
     menu: menuList.menuData2,
     icon: 'icon-two',
   },
-  {
-    name: '行政执法',
-    menu: menuList.menuData2,
-    icon: 'icon-three',
-  },
-  {
-    name: '职业健康',
-    menu: menuList.menuData2,
-    icon: 'icon-four',
-  },
-  {
-    name: '重大危险源',
-    menu: menuList.menuData2,
-    icon: 'icon-five',
-  },
-  {
-    name: '安全标准化',
-    menu: menuList.menuData2,
-    icon: 'icon-six',
-  },
+  // {
+  //   name: '行政执法',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-three',
+  // },
+  // {
+  //   name: '职业健康',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-four',
+  // },
+  // {
+  //   name: '重大危险源',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-five',
+  // },
+  // {
+  //   name: '安全标准化',
+  //   menu: menuList.menuData2,
+  //   icon: 'icon-six',
+  // },
   // {
   //   name: '教育培训',
   //   menu: menuList.menuData2,

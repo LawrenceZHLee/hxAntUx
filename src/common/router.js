@@ -80,6 +80,10 @@ export const getRouterData = app => {
     '/dashboard/coStatistics':{
       component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Enterprise/CoStatistics')),
     },
+    //企业-烟花爆竹统计
+    '/dashboard/stockStatistics':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/StockStatistics')),
+    },
     //企业注册数量统计
     '/dashboard/industryDistribution':{
       component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Enterprise/IndustryDistribution')),
