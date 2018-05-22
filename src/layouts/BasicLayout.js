@@ -94,7 +94,7 @@ class BasicLayout extends React.PureComponent {
   };
   state = {
     isMobile,
-    menuData: getMenuData(menuList.menuData1),
+    menuData: getMenuData(menuList.moduleColumn[0].menu),
     moduleColumn: menuList.moduleColumn,
     activeKey: '首页',
     panes: []
