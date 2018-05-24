@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Select, Form, Input, DatePicker, Row, Col} from 'antd';
+import {Select, Form, Input, DatePicker, Row, Col, Button} from 'antd';
 
 const Option = Select.Option;
 const FormItem = Form.Item;
@@ -7,11 +7,16 @@ const {RangePicker} = DatePicker;
 
 
 class SelfForm extends Component {
-  state = {
-    cityValue: '',
-    countyData: [],
-    countyValue: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      cityValue: '',
+      countyData: [],
+      countyValue: '',
+      addContent: [],
+    };
+    this.originContent = '';
+  }
 
   componentWillMount = () => {
     this.cityData = [];
@@ -93,7 +98,149 @@ class SelfForm extends Component {
     )
   };
 
+  handleType = (item, index, data, type) => {
+    const {getFieldDecorator} = this.props.form;
+    switch (item.type) {
+      case "title":
+        return (
+          <Col span={24}>
+            <p className="self-form-title" key={`form${index}`}>{item.name}</p>
+          </Col>
+        );
+      case "select":
+        if (type === 'add') {
+          return (
+            <FormItem key={`form${index}`} className={item.className}>
+              {this.selectRender(item, data)}
+            </FormItem>
+          );
+        } else {
+          return (
+            <Col span={item.span ? item.span : 24} style={item.style}>
+              <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
+                {
+                  getFieldDecorator(item.value, {
+                    initialValue: data[item.value]
+                  })(this.selectRender(item, data))
+                }
+              </FormItem>
+            </Col>
+          );
+        }
+      case 'input':
+        if (type === 'add') {
+          return (
+            <FormItem key={`form${index}`} className={item.className}>
+              {this.inputRender(item, data)}
+            </FormItem>
+          )
+        } else {
+          return (
+            <Col span={item.span ? item.span : 24} style={item.style}>
+              <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
+                {
+                  getFieldDecorator(item.value, {
+                    initialValue: data[item.value]
+                  })(this.inputRender(item, data))
+                }
+              </FormItem>
+            </Col>
+          );
+        }
+      case 'date':
+        if (type === 'add') {
+          return (
+            <FormItem key={`form${index}`} className={item.className}>
+              {this.dateRender(item, data)}
+            </FormItem>
+          )
+        } else {
+          return (
+            <Col span={item.span ? item.span : 24} style={item.style}>
+              <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
+                {
+                  getFieldDecorator(item.value, {
+                    initialValue: data[item.value]
+                  })(this.dateRender(item, data))
+                }
+              </FormItem>
+            </Col>
+          );
+        }
+      case 'rangePicker':
+        if (type === 'add') {
+          return (
+            <FormItem key={`form${index}`} className={item.className}>
+              {this.rangePickerRender(item, data)}
+            </FormItem>
+          )
+        } else {
+          return (
+            <Col span={item.span ? item.span : 24} style={item.style}>
+              <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
+                {
+                  getFieldDecorator(item.value, {
+                    initialValue: data[item.value]
+                  })(this.rangePickerRender(item, data))
+                }
+              </FormItem>
+            </Col>
+          );
+        }
+      case 'selects':
+        this.countyData = item.countyData;
+        this.cityData = item.cityData;
+        if (type === 'add') {
+          return (
+            <FormItem key={`form${index}`} className={item.className}>
+              {this.cascaderSelectRender(item, data)}
+            </FormItem>
+          )
+        } else {
+          return (
+            <Col span={item.span ? item.span : 24} style={item.style}>
+              <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
+                {getFieldDecorator(item.value, {
+                  initialValue: data[item.value]
+                })(this.cascaderSelectRender(item, data))}
+              </FormItem>
+            </Col>
+          );
+        }
+      default:
+        break;
+    }
+  };
+
+  //添加行
+  add = () => {
+    const {addContent} = this.state;
+    const index = addContent.length;
+    addContent.push(
+      <Col span={24} className="self-special-col">
+        {this.originContent}
+
+        <Button onClick={() => {
+          this.delete(index)
+        }}>删除</Button>
+      </Col>
+    );
+    this.setState({
+      addContent
+    })
+  };
+
+  //删除行
+  delete = (index) => {
+    const {addContent} = this.state;
+    addContent.splice(index, 1);
+    this.setState({
+      addContent
+    })
+  };
+
   contentRender = (formColumn, data, editable) => {
+    const {addContent} = this.state;
     const {getFieldDecorator} = this.props.form;
     const formItemLayout = {
       labelCol: {
@@ -119,81 +266,52 @@ class SelfForm extends Component {
     if (editable) {
       content = formColumn.map((item, index) => {
         const ItemLayout = item.span === 12 ? smallItemLayout : formItemLayout;
-        switch (item.type) {
-          case "title":
+        if (item.type !== 'add') {
+          return this.handleType(item, index, data, item.type);
+        } else {
+          const content1 = item.names.map((itName, ind) => {
+            return this.handleType(itName, `in${ind}`, data, 'add')
+          });
+          this.originContent = content1;
+          const nameContent = item.names.map((it,i)=>{
             return (
-              <p className="self-form-title" key={`form${index}`}>{item.name}</p>
-            );
-          case "select":
-            return (
-              <Col span={item.span ? item.span : 24} style={item.style}>
-                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
-                  {
-                    getFieldDecorator(item.value, {
-                      initialValue: data[item.value]
-                    })(this.selectRender(item, data))
-                  }
-                </FormItem>
+              <span className="ant-form-item-label" style={it.spanStyle} key={`name${i}`}>
+                {it.name}
+              </span>
+            )
+          });
+          return (
+            <Fragment>
+              <Col span={24} className="self-special-col">
+                {nameContent}
+                <span style={{"width":"96px"}}/>
               </Col>
-            );
-          case 'input':
-            return (
-              <Col span={item.span ? item.span : 24} style={item.style}>
-                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
-                  {
-                    getFieldDecorator(item.value, {
-                      initialValue: data[item.value]
-                    })(this.inputRender(item, data))
-                  }
-                </FormItem>
+              <Col span={24} className="self-special-col">
+                {content1}
+                <Button onClick={() => {
+                  this.delete(0)
+                }} disabled>删除</Button>
               </Col>
-            );
-          case 'date':
-            return (
-              <Col span={item.span ? item.span : 24} style={item.style}>
-                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
-                  {
-                    getFieldDecorator(item.value, {
-                      initialValue: data[item.value]
-                    })(this.dateRender(item, data))
-                  }
-                </FormItem>
+              {addContent}
+              <Col span={24} style={{"justifyContent": "flexStart", "padding": "10px"}}>
+                <Button type="primary" size="small" onClick={() => {
+                  this.add()
+                }}>添加物品信息</Button>
               </Col>
-            );
-          case 'rangePicker':
-            return (
-              <Col span={item.span ? item.span : 24} style={item.style}>
-                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
-                  {
-                    getFieldDecorator(item.value, {
-                      initialValue: data[item.value]
-                    })(this.rangePickerRender(item, data))
-                  }
-                </FormItem>
-              </Col>
-            );
-          case 'selects':
-            this.countyData = item.countyData;
-            this.cityData = item.cityData;
-            return (
-              <Col span={item.span ? item.span : 24} style={item.style}>
-                <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
-                  {getFieldDecorator(item.value, {
-                    initialValue: data[item.value]
-                  })(this.cascaderSelectRender(item, data))}
-                </FormItem>
-              </Col>
-            );
-          default:
-            break;
+            </Fragment>
+          )
         }
+
+
       });
     } else {
       content = formColumn.map((item, index) => {
         const ItemLayout = item.span === 12 ? smallItemLayout : formItemLayout;
         if (item.type === "title") {
           return (
-            <p className="self-form-title" key={`unForm${index}`}>{item.name}</p>
+            <Col span={24}>
+              <p className="self-form-title" key={`unForm${index}`}>{item.name}</p>
+            </Col>
           )
         } else {
           return (

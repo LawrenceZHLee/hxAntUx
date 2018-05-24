@@ -21,7 +21,7 @@ class SearchForm extends Component {
   //搜索框渲染
   selectRender = item => {
     return (
-      <Select style={{width: 120}}>
+      <Select style={{width: 120}} size="small">
         {item.option.map((it, index) => {
           return (
             <Option value={it.value} key={index}>{it.value}</Option>
@@ -34,7 +34,7 @@ class SearchForm extends Component {
   //input框渲染
   inputRender = item => {
     return (
-      <Input/>
+      <Input size="small"/>
     )
   };
 
@@ -43,6 +43,7 @@ class SearchForm extends Component {
       <DatePicker
         showTime
         format="YYYY-MM-DD"
+        size="small"
       />
     )
   };
@@ -52,6 +53,7 @@ class SearchForm extends Component {
       <RangePicker
         showTime
         format="YYYY-MM-DD"
+        size="small"
       />
     )
   };
@@ -85,15 +87,15 @@ class SearchForm extends Component {
     const countyOptions = countyData.map(city => <Option key={city}>{city}</Option>);
     return (
       <Fragment>
-        <Select defaultValue={item.provinceData} style={{width: 90}}>
+        <Select defaultValue={item.provinceData} style={{width: 90}} size="small">
           <Option key={item.provinceData}>{item.provinceData}</Option>
         </Select>
         -
-        <Select value={cityValue} style={{width: 90}} onChange={this.handleCityChange}>
+        <Select size="small" value={cityValue} style={{width: 90}} onChange={this.handleCityChange}>
           {cityOptions}
         </Select>
         -
-        <Select value={countyValue} style={{width: 90}} onChange={this.onCountyChange}>
+        <Select size="small" value={countyValue} style={{width: 90}} onChange={this.onCountyChange}>
           {countyOptions}
         </Select>
       </Fragment>
@@ -162,8 +164,8 @@ class SearchForm extends Component {
           </Form>
         </div>
         <div className="self-button-con">
-          <Button type="primary" onClick={this.handleReset}>清空</Button>
-          <Button type="primary">查询</Button>
+          <Button size="small" type="primary" onClick={this.handleReset}>清空</Button>
+          <Button size="small" type="primary">查询</Button>
         </div>
       </div>
     )

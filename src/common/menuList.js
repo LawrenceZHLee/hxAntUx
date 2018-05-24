@@ -368,34 +368,14 @@ menuList.menuData3 = [
     icon: 'dashboard',
     path: 'dashboard',
     children: [
-      // {
-      //   name: '企业注册数量统计',
-      //   path: 'coStatistics',
-      // },
-      // {
-      //   name: '按监管行业分布统计',
-      //   path: 'industryDistribution',
-      // },
       {
         name: '库存统计',
         path: 'stockStatistics',
       }
-      // {
-      //   name: '按所在地区分布统计',
-      //   path: 'monitor1',
-      // },
-      // {
-      //   name: '按重大危险源等级统计',
-      //   path: 'monitor2',
-      // },
-      // {
-      //   name: '三无企业按地区分布统计',
-      //   path: 'monitor3',
-      // },
     ],
   },
   {
-    name: '注册信息审核',
+    name: '烟花爆竹管理',
     icon: 'table',
     path: 'list',
     children: [
@@ -419,21 +399,13 @@ menuList.menuData3 = [
         name: '烟花爆竹销毁登记',
         path: 'fireDestroy',
       },
-      {
-        name: '注册信息初审',
-        path: 'initial-registration',
-      },
-      {
-        name: '注册信息复核',
-        path: 'review-registration',
-      },
     ],
   },
   {
     name: '文档说明',
     icon: 'form',
     path: 'doc',
-    hideInMenu: true,
+    hideInMenu: false,
     children: [
       {
         name: '说明',
@@ -441,56 +413,6 @@ menuList.menuData3 = [
       },
     ],
   },
-  // {
-  //   name: '表单页',
-  //   icon: 'form',
-  //   path: 'form',
-  //   children: [
-  //     {
-  //       name: '基础表单',
-  //       path: 'basic-form',
-  //     },
-  //     {
-  //       name: '分步表单',
-  //       path: 'step-form',
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: '列表页',
-  //   icon: 'table',
-  //   path: 'list',
-  //   children: [
-  //     {
-  //       name: '查询表格',
-  //       path: 'table-list',
-  //     },
-  //     {
-  //       name: '标准列表',
-  //       path: 'basic-list',
-  //     },
-  //     {
-  //       name: '卡片列表',
-  //       path: 'card-list',
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: '详情页',
-  //   icon: 'profile',
-  //   path: 'profile',
-  //   children: [
-  //     {
-  //       name: '基础详情页',
-  //       path: 'basic',
-  //     },
-  //     {
-  //       name: '高级详情页',
-  //       path: 'advanced',
-  //       authority: 'admin',
-  //     },
-  //   ],
-  // },
   {
     name: '结果页',
     icon: 'check-circle-o',

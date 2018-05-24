@@ -1,15 +1,4 @@
-import React, {Component, Fragment} from 'react';//每个js页面必须得有
-// import {
-//   ChartCard,
-//   yuan,
-//   MiniArea,
-//   MiniBar,
-//   MiniProgress,
-//   Field,
-//   Bar,
-//   Pie,
-//   TimelineChart,
-// } from 'components/Charts';
+import React, {Component, Fragment} from 'react';
 import TraTable from '../../components/SelfTable/TraTable';
 
 
