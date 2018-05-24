@@ -3,55 +3,65 @@ import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
-const dataSource = [{
-  key: '1',
-  name: '喷花类',
-  status: 1,
-  packages: 10,
-  rounds: 32,
-  date: '2018-5-2',
-  doneDate: '2018-5-10',
-}, {
-  key: '2',
-  name: '旋转类',
-  status: 2,
-  packages: 4,
-  rounds: 22,
-  date: '2018-5-5',
-  doneDate: '2018-5-10',
-}, {
-  key: '3',
-  name: '升空类',
-  status: 1,
-  packages: 2,
-  rounds: 15,
-  date: '2018-5-7',
-  doneDate: '2018-5-10',
-}];
+/*
+ * 烟花爆竹销售
+ * */
+const dataSource = [
+  {
+    key: '1',
+    name: '喷花类',
+    status: 1,
+    packages: 10,
+    rounds: 32,
+    date: '2018-5-2',
+    doneDate: '2018-5-10',
+    sales:'xx1店',
+    purchase:'xx1公司',
+  }, {
+    key: '2',
+    name: '旋转类',
+    status: 2,
+    packages: 4,
+    rounds: 22,
+    date: '2018-5-5',
+    doneDate: '2018-5-10',
+    sales:'xx2店',
+    purchase:'xx2公司',
+  }, {
+    key: '3',
+    name: '升空类',
+    status: 1,
+    packages: 2,
+    rounds: 15,
+    date: '2018-5-7',
+    doneDate: '2018-5-10',
+    sales:'xx3店',
+    purchase:'xx3公司',
+  }];
 
 const searchColumn = [
   {
-    name: "登记人",
-    value: "name",
+    name: "销售单位",
+    value: "sales",
     type: "input",
   },
   {
-    name: "状态",
+    name: "购买单位",
+    value: "purchase",
+    type: "input",
+  },
+  {
+    name: "销售状态",
     value: "status",
     type: "select",
     option: [
       {
-        value: "合格"
+        value: "已售"
       },
       {
-        value: "不合格"
+        value: "未售"
       },
     ]
-  },
-  {
-    name: "登记时间",
-    value: "rangeTime",
-    type: "rangePicker",
   },
 ];
 
@@ -89,39 +99,118 @@ export default class SaleInfo extends Component {
         value: "name",
         type: "input",
         span: 12,
+        className: "width260"
       },
       {
-        name: "登记日期",
+        name: "登记时间",
         value: "proDate",
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
+        className: "width260"
       },
       {
-        name: "生产日期",
-        value: "proDate1",
-        type: "date",
+        name: "销售单位",
+        value: "sales",
+        type: "input",
         span: 12,
+        className: "width260"
       },
       {
-        name: "存储状态",
-        value: "status",
-        type: "select",
+        name: "购买单位",
+        value: "purchase",
+        type: "input",
         span: 12,
+        className: "width260",
         style: {"borderLeft": "none"},
-        option: [
+      },
+      {
+        name: "经办人",
+        value: "manager",
+        type: "input",
+        span: 12,
+        className: "width260"
+      },
+      {
+        name: "经办人证件类型",
+        value: "managerType",
+        type: "select",
+        option:[
           {
-            value: "合格"
+            value:'xx1类'
           },
           {
-            value: "不合格"
-          }
-        ]
+            value:'xx2类'
+          },
+          {
+            value:'xx3类'
+          },
+        ],
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
       },
       {
-        name: "存储地点",
-        value: "location",
+        name: "经办人证件号码",
+        value: "managerID",
         type: "input",
+        span: 12,
+        className: "width260"
+      },
+      {
+        name: "销售经办人证件",
+        value: "saleName",
+        type: "input",
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
+      },
+      {
+        name: "销售经办人证件类型",
+        value: "saleType",
+        type: "select",
+        option:[
+          {
+            value:'xx1类'
+          },
+          {
+            value:'xx2类'
+          },
+          {
+            value:'xx3类'
+          },
+        ],
+        span: 12,
+        className: "width260"
+      },
+      {
+        name: "销售经办人证件号码",
+        value: "saleID",
+        type: "input",
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
+      },
+      {
+        name: "销售负责人",
+        value: "saleManger",
+        type: "input",
+        span: 12,
+        className: "width260",
+      },
+      {
+        name: "销售日期",
+        value: "saleDate",
+        type: "date",
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
+      },
+      {
+        name: "零售点",
+        value: "retail",
+        type: "input",
+        className: "width260",
       },
       {
         name: "物品信息",
@@ -187,7 +276,6 @@ export default class SaleInfo extends Component {
         ]
       }
     ];
-
     this.readColumn = [
       {
         name: "基本信息",
@@ -198,78 +286,158 @@ export default class SaleInfo extends Component {
         value: "name",
         type: "input",
         span: 12,
+        className: "width260"
       },
       {
-        name: "登记日期",
+        name: "登记时间",
         value: "proDate",
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
+        className: "width260"
       },
       {
-        name: "生产日期",
-        value: "proDate1",
-        type: "date",
+        name: "销售单位",
+        value: "sales",
+        type: "input",
         span: 12,
+        className: "width260"
       },
       {
-        name: "存储状态",
-        value: "status",
-        type: "select",
+        name: "购买单位",
+        value: "purchase",
+        type: "input",
         span: 12,
+        className: "width260",
         style: {"borderLeft": "none"},
-        option: [
+      },
+      {
+        name: "经办人",
+        value: "manager",
+        type: "input",
+        span: 12,
+        className: "width260"
+      },
+      {
+        name: "经办人证件类型",
+        value: "managerType",
+        type: "select",
+        option:[
           {
-            value: "合格"
+            value:'xx1类'
           },
           {
-            value: "不合格"
-          }
-        ]
+            value:'xx2类'
+          },
+          {
+            value:'xx3类'
+          },
+        ],
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
       },
       {
-        name: "存储地点",
-        value: "location",
+        name: "经办人证件号码",
+        value: "managerID",
         type: "input",
+        span: 12,
+        className: "width260"
+      },
+      {
+        name: "销售经办人证件",
+        value: "saleName",
+        type: "input",
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
+      },
+      {
+        name: "销售经办人证件类型",
+        value: "saleType",
+        type: "select",
+        option:[
+          {
+            value:'xx1类'
+          },
+          {
+            value:'xx2类'
+          },
+          {
+            value:'xx3类'
+          },
+        ],
+        span: 12,
+        className: "width260"
+      },
+      {
+        name: "销售经办人证件号码",
+        value: "saleID",
+        type: "input",
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
+      },
+      {
+        name: "销售负责人",
+        value: "saleManger",
+        type: "input",
+        span: 12,
+        className: "width260",
+      },
+      {
+        name: "销售日期",
+        value: "saleDate",
+        type: "date",
+        span: 12,
+        className: "width260",
+        style: {"borderLeft": "none"},
+      },
+      {
+        name: "零售点",
+        value: "retail",
+        type: "input",
+        className: "width260",
       },
       {
         name: "物品信息",
         type: "title"
       },
     ];
-    this.columns = [{
-      title: '生产日期',
-      dataIndex: 'date',
-      key: 'date',
-    }, {
-      title: '登记人',
-      dataIndex: 'name',
-      key: 'name',
-    }, {
-      title: '箱数量（箱/件）',
-      dataIndex: 'packages',
-      key: 'packages',
-    }, {
-      title: '箱数量（发/个）',
-      dataIndex: 'rounds',
-      key: 'rounds',
-    }, {
-      title: '登记日期',
-      dataIndex: 'doneDate',
-      key: 'doneDate',
-    }, {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
-      render: (level) => {
-        return {1: "合格", 2: "不合格"}[level]
-      }
-    }, {
-      title: '操作',
-      key: 'operation',
-      render: (record, index) => {
-        return (
-          <span>
+    this.columns = [
+      {
+        title: '销售单位',
+        dataIndex: 'sales',
+        key: 'sales',
+      }, {
+        title: '购买单位',
+        dataIndex: 'purchase',
+        key: 'purchase',
+      }, {
+        title: '箱数量（箱/件）',
+        dataIndex: 'packages',
+        key: 'packages',
+      }, {
+        title: '箱数量（发/个）',
+        dataIndex: 'rounds',
+        key: 'rounds',
+      }, {
+        title: '登记日期',
+        dataIndex: 'doneDate',
+        key: 'doneDate',
+      }, {
+        title: '销售状态',
+        dataIndex: 'status',
+        key: 'status',
+        render: (level) => {
+          return {1: "已售", 2: "未售"}[level]
+        }
+      }, {
+        title: '操作',
+        key: 'operation',
+        render: (record, index) => {
+          return (
+            <span>
           <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
             this.showReadModal(record)
           }}>查看详情</a>
@@ -277,9 +445,9 @@ export default class SaleInfo extends Component {
             this.showModal(record)
           }}>修改</a>
           </span>
-        )
+          )
+        }
       }
-    }
     ];
     this.inColumn = [
       {
@@ -375,7 +543,7 @@ export default class SaleInfo extends Component {
             this.add()
           }}>新建</Button>
         </div>
-        <Table dataSource={dataSource} columns={this.columns} pagination={false}/>
+        <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
           title="生产登记详情"
           visible={readVisible}

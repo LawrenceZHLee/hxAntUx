@@ -325,7 +325,7 @@ export default class TransportInfo extends Component {
         value: "name",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"}
+        className: "width260"
       },
       {
         name: "登记时间",
@@ -333,21 +333,21 @@ export default class TransportInfo extends Component {
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
-        spanStyle: {"width":"260px"}
+        className: "width260"
       },
       {
         name: "购买单位",
         value: "sales",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"}
+        className: "width260"
       },
       {
         name: "生产或经营许可证号",
         value: "license",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260",
         style: {"borderLeft": "none"},
       },
       {
@@ -355,29 +355,29 @@ export default class TransportInfo extends Component {
         value: "transport",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "危险货物道路运输证件号",
         value: "tranLicense",
         type: "input",
         span: 12,
+        className: "width260",
         style: {"borderLeft": "none"},
-        spanStyle: {"width":"260px"},
       },
       {
         name: "驾驶员姓名",
         value: "driver",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "驾驶员身份证号码",
         value: "driverID",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260",
         style: {"borderLeft": "none"},
       },
       {
@@ -385,7 +385,7 @@ export default class TransportInfo extends Component {
         value: "dangerLicense",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "押运员危险货物道路运输从业资格证号",
@@ -393,14 +393,14 @@ export default class TransportInfo extends Component {
         type: "input",
         span: 12,
         style: {"borderLeft": "none"},
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "押运员姓名",
         value: "escortName",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "押运员身份证号码",
@@ -408,14 +408,14 @@ export default class TransportInfo extends Component {
         type: "input",
         span: 12,
         style: {"borderLeft": "none"},
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "运输起始时间",
         value: "startTime",
         type: "date",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "运输截止时间",
@@ -423,14 +423,14 @@ export default class TransportInfo extends Component {
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "起运地",
         value: "startAddress",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "途径地",
@@ -438,14 +438,14 @@ export default class TransportInfo extends Component {
         type: "input",
         span: 12,
         style: {"borderLeft": "none"},
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "到达地",
         value: "destination",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "经办人",
@@ -453,22 +453,22 @@ export default class TransportInfo extends Component {
         type: "input",
         span: 12,
         style: {"borderLeft": "none"},
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "负责人",
         value: "principal",
         type: "input",
         span: 12,
-        spanStyle: {"width":"260px"},
+        className: "width260"
       },
       {
         name: "开具日期",
         value: "startDate",
         type: "date",
         span: 12,
-        style: {"borderLeft": "none","bottomBottom":"none"},
-        spanStyle: {"width":"260px"},
+        style: {"borderLeft": "none","borderBottom":"none"},
+        className: "width260"
       },
       {
         name: "物品信息",
@@ -622,7 +622,7 @@ export default class TransportInfo extends Component {
             this.add()
           }}>新建</Button>
         </div>
-        <Table dataSource={dataSource} columns={this.columns} pagination={false}/>
+        <Table dataSource={dataSource} columns={this.columns} />
         <Modal
           title="仓储登记详情"
           visible={readVisible}

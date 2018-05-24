@@ -96,17 +96,27 @@ export default class StockInfo extends Component {
         type: "title"
       },
       {
+        name: "基本信息",
+        type: "title"
+      },
+      {
         name: "登记人",
         value: "name",
         type: "input",
         span: 12,
       },
       {
+        name: "登记日期",
+        value: "proDate",
+        type: "date",
+        span: 12,
+        style: {"borderLeft": "none"},
+      },
+      {
         name: "存储状态",
         value: "status",
         type: "select",
         span: 12,
-        style: {"borderLeft": "none"},
         option: [
           {
             value: "入仓"
@@ -118,14 +128,14 @@ export default class StockInfo extends Component {
       },
       {
         name: "入仓日期",
-        value: "proDate",
+        value: "inDate",
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
       },
       {
         name: "出仓日期",
-        value: "proDate1",
+        value: "outDate",
         type: "date",
         span: 12,
       },
@@ -133,6 +143,8 @@ export default class StockInfo extends Component {
         name: "存储地点",
         value: "location",
         type: "input",
+        span: 12,
+        style: {"borderLeft": "none","borderBottom":"none"},
       },
       {
         name: "物品信息",
@@ -198,7 +210,6 @@ export default class StockInfo extends Component {
         ]
       }
     ];
-
     this.readColumn = [
       {
         name: "基本信息",
@@ -211,11 +222,17 @@ export default class StockInfo extends Component {
         span: 12,
       },
       {
+        name: "登记日期",
+        value: "proDate",
+        type: "date",
+        span: 12,
+        style: {"borderLeft": "none"},
+      },
+      {
         name: "存储状态",
         value: "status",
         type: "select",
         span: 12,
-        style: {"borderLeft": "none"},
         option: [
           {
             value: "入仓"
@@ -227,14 +244,14 @@ export default class StockInfo extends Component {
       },
       {
         name: "入仓日期",
-        value: "proDate",
+        value: "inDate",
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
       },
       {
         name: "出仓日期",
-        value: "proDate1",
+        value: "outDate",
         type: "date",
         span: 12,
       },
@@ -242,6 +259,8 @@ export default class StockInfo extends Component {
         name: "存储地点",
         value: "location",
         type: "input",
+        span: 12,
+        style: {"borderLeft": "none","borderBottom":"none"},
       },
       {
         name: "物品信息",
@@ -391,7 +410,7 @@ export default class StockInfo extends Component {
             this.add()
           }}>新建</Button>
         </div>
-        <Table dataSource={dataSource} columns={this.columns} pagination={false}/>
+        <Table dataSource={dataSource} columns={this.columns} />
         <Modal
           title="仓储登记详情"
           visible={readVisible}

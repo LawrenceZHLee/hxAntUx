@@ -405,7 +405,7 @@ menuList.menuData3 = [
     name: '文档说明',
     icon: 'form',
     path: 'doc',
-    hideInMenu: false,
+    hideInMenu: true,
     children: [
       {
         name: '说明',

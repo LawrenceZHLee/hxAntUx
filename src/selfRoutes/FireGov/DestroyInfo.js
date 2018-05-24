@@ -3,37 +3,52 @@ import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
-const dataSource = [{
-  key: '1',
-  name: '喷花类',
-  status: 1,
-  packages: 10,
-  rounds: 32,
-  date: '2018-5-2',
-  doneDate: '2018-5-10',
-}, {
-  key: '2',
-  name: '旋转类',
-  status: 2,
-  packages: 4,
-  rounds: 22,
-  date: '2018-5-5',
-  doneDate: '2018-5-10',
-}, {
-  key: '3',
-  name: '升空类',
-  status: 1,
-  packages: 2,
-  rounds: 15,
-  date: '2018-5-7',
-  doneDate: '2018-5-10',
-}];
+const dataSource = [
+  {
+    key: '1',
+    name: '喷花类',
+    status: 1,
+    packages: 10,
+    rounds: 32,
+    date: '2018-5-2',
+    doneDate: '2018-5-10',
+    destroyName:'赵某某',
+    destroyDate:'2018-5-22',
+    deStatus:1
+  }, {
+    key: '2',
+    name: '旋转类',
+    status: 2,
+    packages: 4,
+    rounds: 22,
+    date: '2018-5-5',
+    doneDate: '2018-5-10',
+    destroyName:'钱某某',
+    destroyDate:'2018-5-23',
+    deStatus:2
+  }, {
+    key: '3',
+    name: '升空类',
+    status: 1,
+    packages: 2,
+    rounds: 15,
+    date: '2018-5-7',
+    doneDate: '2018-5-10',
+    destroyName:'孙某某',
+    destroyDate:'2018-5-26',
+    deStatus:1
+  }];
 
 const searchColumn = [
   {
-    name: "登记人",
-    value: "name",
+    name: "销毁人",
+    value: "destroyName",
     type: "input",
+  },
+  {
+    name: "销毁时间",
+    value: "destroyTime",
+    type: "date",
   },
   {
     name: "状态",
@@ -41,17 +56,12 @@ const searchColumn = [
     type: "select",
     option: [
       {
-        value: "合格"
+        value: "已销毁"
       },
       {
-        value: "不合格"
+        value: "未销毁"
       },
     ]
-  },
-  {
-    name: "登记时间",
-    value: "rangeTime",
-    type: "rangePicker",
   },
 ];
 
@@ -92,34 +102,26 @@ export default class DestroyInfo extends Component {
       },
       {
         name: "登记日期",
-        value: "proDate",
+        value: "deRegDate",
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
       },
       {
-        name: "生产日期",
-        value: "proDate1",
+        name: "销毁人",
+        value: "destroyName",
+        type: "input",
+        span: 12,
+      },
+      {
+        name: "销毁日期",
+        value: "destroyDate",
         type: "date",
         span: 12,
-      },
-      {
-        name: "存储状态",
-        value: "status",
-        type: "select",
-        span: 12,
         style: {"borderLeft": "none"},
-        option: [
-          {
-            value: "合格"
-          },
-          {
-            value: "不合格"
-          }
-        ]
       },
       {
-        name: "存储地点",
+        name: "销毁原因",
         value: "location",
         type: "input",
       },
@@ -187,7 +189,6 @@ export default class DestroyInfo extends Component {
         ]
       }
     ];
-
     this.readColumn = [
       {
         name: "基本信息",
@@ -201,34 +202,26 @@ export default class DestroyInfo extends Component {
       },
       {
         name: "登记日期",
-        value: "proDate",
+        value: "deRegDate",
         type: "date",
         span: 12,
         style: {"borderLeft": "none"},
       },
       {
-        name: "生产日期",
-        value: "proDate1",
+        name: "销毁人",
+        value: "destroyName",
+        type: "input",
+        span: 12,
+      },
+      {
+        name: "销毁日期",
+        value: "destroyDate",
         type: "date",
         span: 12,
-      },
-      {
-        name: "存储状态",
-        value: "status",
-        type: "select",
-        span: 12,
         style: {"borderLeft": "none"},
-        option: [
-          {
-            value: "合格"
-          },
-          {
-            value: "不合格"
-          }
-        ]
       },
       {
-        name: "存储地点",
+        name: "销毁原因",
         value: "location",
         type: "input",
       },
@@ -237,39 +230,36 @@ export default class DestroyInfo extends Component {
         type: "title"
       },
     ];
-    this.columns = [{
-      title: '生产日期',
-      dataIndex: 'date',
-      key: 'date',
-    }, {
-      title: '登记人',
-      dataIndex: 'name',
-      key: 'name',
-    }, {
-      title: '箱数量（箱/件）',
-      dataIndex: 'packages',
-      key: 'packages',
-    }, {
-      title: '箱数量（发/个）',
-      dataIndex: 'rounds',
-      key: 'rounds',
-    }, {
-      title: '登记日期',
-      dataIndex: 'doneDate',
-      key: 'doneDate',
-    }, {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
-      render: (level) => {
-        return {1: "合格", 2: "不合格"}[level]
-      }
-    }, {
-      title: '操作',
-      key: 'operation',
-      render: (record, index) => {
-        return (
-          <span>
+    this.columns = [
+      {
+        title: '销毁人',
+        dataIndex: 'destroyName',
+        key: 'destroyName',
+      }, {
+        title: '销毁日期',
+        dataIndex: 'destroyDate',
+        key: 'destroyDate',
+      }, {
+        title: '箱数量（箱/件）',
+        dataIndex: 'packages',
+        key: 'packages',
+      }, {
+        title: '箱数量（发/个）',
+        dataIndex: 'rounds',
+        key: 'rounds',
+      }, {
+        title: '状态',
+        dataIndex: 'deStatus',
+        key: 'deStatus',
+        render: (deStatus) => {
+          return {1: "已销毁", 2: "未销毁"}[deStatus]
+        }
+      }, {
+        title: '操作',
+        key: 'operation',
+        render: (record, index) => {
+          return (
+            <span>
           <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
             this.showReadModal(record)
           }}>查看详情</a>
@@ -277,9 +267,9 @@ export default class DestroyInfo extends Component {
             this.showModal(record)
           }}>修改</a>
           </span>
-        )
+          )
+        }
       }
-    }
     ];
     this.inColumn = [
       {
@@ -375,7 +365,7 @@ export default class DestroyInfo extends Component {
             this.add()
           }}>新建</Button>
         </div>
-        <Table dataSource={dataSource} columns={this.columns} pagination={false}/>
+        <Table dataSource={dataSource} columns={this.columns} rowKey={(record)=>record.key}/>
         <Modal
           title="生产登记详情"
           visible={readVisible}
@@ -386,7 +376,7 @@ export default class DestroyInfo extends Component {
         >
           <SelfForm ref="readForm" formColumn={this.readColumn} data={text} editable={false}/>
           <div style={{"border": "1px solid #aed0ea", "borderTop": "none"}}>
-            <Table dataSource={inSource} columns={this.inColumn} pagination={false}/>
+            <Table dataSource={inSource} columns={this.inColumn} pagination={false} rowKey={(record)=>`inner${record.key}`}/>
           </div>
         </Modal>
         <Modal

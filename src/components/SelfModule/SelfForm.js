@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Select, Form, Input, DatePicker, Row, Col, Button} from 'antd';
+import moment from 'moment';
 
 const Option = Select.Option;
 const FormItem = Form.Item;
@@ -160,7 +161,7 @@ class SelfForm extends Component {
               <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
                 {
                   getFieldDecorator(item.value, {
-                    initialValue: data[item.value]
+                    initialValue: data[item.value] ? moment(data[item.value],"YYYY-MM-DD"):data[item.value]
                   })(this.dateRender(item, data))
                 }
               </FormItem>
@@ -180,7 +181,7 @@ class SelfForm extends Component {
               <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
                 {
                   getFieldDecorator(item.value, {
-                    initialValue: data[item.value]
+                    initialValue: data[item.value] ? [moment(data[item.value][0],"YYYY-MM-DD"),moment(data[item.value][1],"YYYY-MM-DD")]:data[item.value]
                   })(this.rangePickerRender(item, data))
                 }
               </FormItem>
@@ -275,7 +276,7 @@ class SelfForm extends Component {
           this.originContent = content1;
           const nameContent = item.names.map((it,i)=>{
             return (
-              <span className="ant-form-item-label" style={it.spanStyle} key={`name${i}`}>
+              <span className="ant-form-item-label" key={`name${i}`}>
                 {it.name}
               </span>
             )
@@ -316,7 +317,7 @@ class SelfForm extends Component {
         } else {
           return (
             <Col span={item.span ? item.span : 24} style={item.style}>
-              <FormItem label={`${item.name}`} key={`form${index}`} colon={false}>
+              <FormItem label={`${item.name}`} key={`form${index}`} className={item.className} colon={false}>
                 {data[item.value]}
               </FormItem>
             </Col>

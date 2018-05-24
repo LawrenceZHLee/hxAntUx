@@ -4,33 +4,34 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
-* 烟花爆竹生产
-* */
-const dataSource = [{
-  key: '1',
-  name: '喷花类',
-  status: 1,
-  packages: 10,
-  rounds: 32,
-  date: '2018-5-2',
-  doneDate: '2018-5-10',
-}, {
-  key: '2',
-  name: '旋转类',
-  status: 2,
-  packages: 4,
-  rounds: 22,
-  date: '2018-5-5',
-  doneDate: '2018-5-10',
-}, {
-  key: '3',
-  name: '升空类',
-  status: 1,
-  packages: 2,
-  rounds: 15,
-  date: '2018-5-7',
-  doneDate: '2018-5-10',
-}];
+ * 烟花爆竹生产
+ * */
+const dataSource = [
+  {
+    key: '1',
+    name: '喷花类',
+    status: 1,
+    packages: 10,
+    rounds: 32,
+    date: '2018-5-2',
+    doneDate: '2018-5-10',
+  }, {
+    key: '2',
+    name: '旋转类',
+    status: 2,
+    packages: 4,
+    rounds: 22,
+    date: '2018-5-5',
+    doneDate: '2018-5-10',
+  }, {
+    key: '3',
+    name: '升空类',
+    status: 1,
+    packages: 2,
+    rounds: 15,
+    date: '2018-5-7',
+    doneDate: '2018-5-10',
+  }];
 
 const searchColumn = [
   {
@@ -111,7 +112,7 @@ export default class ProductInfo extends Component {
         value: "status",
         type: "select",
         span: 12,
-        style: {"borderLeft": "none","borderBottom":"none"},
+        style: {"borderLeft": "none", "borderBottom": "none"},
         option: [
           {
             value: "合格"
@@ -190,7 +191,6 @@ export default class ProductInfo extends Component {
         ]
       }
     ];
-
     this.readColumn = [
       {
         name: "基本信息",
@@ -220,7 +220,7 @@ export default class ProductInfo extends Component {
         value: "status",
         type: "select",
         span: 12,
-        style: {"borderLeft": "none","borderBottom":"none"},
+        style: {"borderLeft": "none", "borderBottom": "none"},
         option: [
           {
             value: "合格"
@@ -240,39 +240,40 @@ export default class ProductInfo extends Component {
         type: "title"
       },
     ];
-    this.columns = [{
-      title: '生产日期',
-      dataIndex: 'date',
-      key: 'date',
-    }, {
-      title: '登记人',
-      dataIndex: 'name',
-      key: 'name',
-    }, {
-      title: '箱数量（箱/件）',
-      dataIndex: 'packages',
-      key: 'packages',
-    }, {
-      title: '箱数量（发/个）',
-      dataIndex: 'rounds',
-      key: 'rounds',
-    }, {
-      title: '登记日期',
-      dataIndex: 'doneDate',
-      key: 'doneDate',
-    }, {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
-      render: (level) => {
-        return {1: "合格", 2: "不合格"}[level]
-      }
-    }, {
-      title: '操作',
-      key: 'operation',
-      render: (record, index) => {
-        return (
-          <span>
+    this.columns = [
+      {
+        title: '生产日期',
+        dataIndex: 'date',
+        key: 'date',
+      }, {
+        title: '登记人',
+        dataIndex: 'name',
+        key: 'name',
+      }, {
+        title: '箱数量（箱/件）',
+        dataIndex: 'packages',
+        key: 'packages',
+      }, {
+        title: '箱数量（发/个）',
+        dataIndex: 'rounds',
+        key: 'rounds',
+      }, {
+        title: '登记日期',
+        dataIndex: 'doneDate',
+        key: 'doneDate',
+      }, {
+        title: '状态',
+        dataIndex: 'status',
+        key: 'status',
+        render: (level) => {
+          return {1: "合格", 2: "不合格"}[level]
+        }
+      }, {
+        title: '操作',
+        key: 'operation',
+        render: (record, index) => {
+          return (
+            <span>
           <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
             this.showReadModal(record)
           }}>查看详情</a>
@@ -280,9 +281,9 @@ export default class ProductInfo extends Component {
             this.showModal(record)
           }}>修改</a>
           </span>
-        )
+          )
+        }
       }
-    }
     ];
     this.inColumn = [
       {
@@ -378,7 +379,7 @@ export default class ProductInfo extends Component {
             this.add()
           }}>新建</Button>
         </div>
-        <Table dataSource={dataSource} columns={this.columns} pagination={false}/>
+        <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
           title="生产登记详情"
           visible={readVisible}
