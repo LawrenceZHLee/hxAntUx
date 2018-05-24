@@ -84,9 +84,28 @@ export const getRouterData = app => {
     '/dashboard/industryDistribution':{
       component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/Enterprise/IndustryDistribution')),
     },
-    //企业-烟花爆竹统计
+    //企业-烟花爆竹生产统计
+    '/dashboard/proStatistics':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/ProStatistics')),
+    },
+    //企业-烟花爆竹仓储统计
     '/dashboard/stockStatistics':{
       component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/StockStatistics')),
+    },
+    '/dashboard/test':{
+      component:dynamicWrapper(app,['chart'],() => import('../selfRoutes/FireGov/Test'))
+    },
+    //企业-烟花爆竹运输统计
+    '/dashboard/traStatistics':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/TraStatistics')),
+    },
+    //企业-烟花爆竹销售统计
+    '/dashboard/saleStatistics':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/SaleStatistics')),
+    },
+    //企业-烟花爆竹销毁统计
+    '/dashboard/desStatistics':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/DesStatistics')),
     },
     //企业-烟花爆竹生产登记信息
     '/list/fireProduct': {
@@ -163,23 +182,23 @@ export const getRouterData = app => {
     '/list/search': {
       component: dynamicWrapper(app, ['list'], () => import('../routes/List/List')),
     },
-    '/list/search/projects': {
-      component: dynamicWrapper(app, ['list'], () => import('../routes/List/Projects')),
-    },
-    '/list/search/applications': {
-      component: dynamicWrapper(app, ['list'], () => import('../routes/List/Applications')),
-    },
-    '/list/search/articles': {
-      component: dynamicWrapper(app, ['list'], () => import('../routes/List/Articles')),
-    },
-    '/profile/basic': {
-      component: dynamicWrapper(app, ['profile'], () => import('../routes/Profile/BasicProfile')),
-    },
-    '/profile/advanced': {
-      component: dynamicWrapper(app, ['profile'], () =>
-        import('../routes/Profile/AdvancedProfile')
-      ),
-    },
+    // '/list/search/projects': {
+    //   component: dynamicWrapper(app, ['list'], () => import('../routes/List/Projects')),
+    // },
+    // '/list/search/applications': {
+    //   component: dynamicWrapper(app, ['list'], () => import('../routes/List/Applications')),
+    // },
+    // '/list/search/articles': {
+    //   component: dynamicWrapper(app, ['list'], () => import('../routes/List/Articles')),
+    // },
+    // '/profile/basic': {
+    //   component: dynamicWrapper(app, ['profile'], () => import('../routes/Profile/BasicProfile')),
+    // },
+    // '/profile/advanced': {
+    //   component: dynamicWrapper(app, ['profile'], () =>
+    //     import('../routes/Profile/AdvancedProfile')
+    //   ),
+    // },
     '/result/success': {
       component: dynamicWrapper(app, [], () => import('../routes/Result/Success')),
     },

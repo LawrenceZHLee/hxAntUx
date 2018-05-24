@@ -1,5 +1,140 @@
 const menuList = {};
 
+//烟花爆竹-企业
+menuList.menuData3 = [
+  {
+    name: '烟花爆竹统计',
+    icon: 'dashboard',
+    path: 'dashboard',
+    children: [
+      // {
+      //   name: '烟花爆竹生产统计',
+      //   path: 'proStatistics',
+      // },
+      {
+        name: '烟花爆竹仓储统计',
+        path: 'stockStatistics',
+      },
+      {
+        name:'test',
+        path:'test'
+      }
+      // {
+      //   name: '烟花爆竹运输统计',
+      //   path: 'traStatistics',
+      // },
+      // {
+      //   name: '烟花爆竹销售统计',
+      //   path: 'saleStatistics',
+      // },
+      // {
+      //   name: '烟花爆竹销毁统计',
+      //   path: 'desStatistics',
+      // }
+    ],
+  },
+  {
+    name: '烟花爆竹管理',
+    icon: 'table',
+    path: 'list',
+    children: [
+      {
+        name: '烟花爆竹生产登记信息',
+        path: 'fireProduct',
+      },
+      {
+        name: '烟花爆竹仓储登记信息',
+        path: 'fireStock',
+      },
+      {
+        name: '烟花爆竹运输登记信息',
+        path: 'fireTransport',
+      },
+      {
+        name: '烟花爆竹销售登记',
+        path: 'fireSales',
+      },
+      {
+        name: '烟花爆竹销毁登记',
+        path: 'fireDestroy',
+      },
+    ],
+  },
+  {
+    name: '文档说明',
+    icon: 'form',
+    path: 'doc',
+    hideInMenu: true,
+    children: [
+      {
+        name: '说明',
+        path: 'document',
+      },
+    ],
+  },
+  {
+    name: '结果页',
+    icon: 'check-circle-o',
+    path: 'result',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '成功',
+        path: 'success',
+      },
+      {
+        name: '失败',
+        path: 'fail',
+      },
+    ],
+  },
+  {
+    name: '异常页',
+    icon: 'warning',
+    path: 'exception',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '403',
+        path: '403',
+      },
+      {
+        name: '404',
+        path: '404',
+      },
+      {
+        name: '500',
+        path: '500',
+      },
+      {
+        name: '触发异常',
+        path: 'trigger',
+        hideInMenu: true,
+      },
+    ],
+  },
+  {
+    name: '账户',
+    icon: 'user',
+    path: 'user',
+    authority: 'guest',
+    children: [
+      {
+        name: '登录',
+        path: 'login',
+      },
+      {
+        name: '注册',
+        path: 'register',
+      },
+      {
+        name: '注册结果',
+        path: 'register-result',
+      },
+    ],
+  },
+];
+
 //一企一档
 menuList.menuData1 = [
   {
@@ -361,120 +496,6 @@ menuList.menuData2 = [
   },
 ];
 
-//烟花爆竹-企业
-menuList.menuData3 = [
-  {
-    name: '烟花爆竹统计',
-    icon: 'dashboard',
-    path: 'dashboard',
-    children: [
-      {
-        name: '库存统计',
-        path: 'stockStatistics',
-      }
-    ],
-  },
-  {
-    name: '烟花爆竹管理',
-    icon: 'table',
-    path: 'list',
-    children: [
-      {
-        name: '烟花爆竹生产登记信息',
-        path: 'fireProduct',
-      },
-      {
-        name: '烟花爆竹仓储登记信息',
-        path: 'fireStock',
-      },
-      {
-        name: '烟花爆竹运输登记信息',
-        path: 'fireTransport',
-      },
-      {
-        name: '烟花爆竹销售登记',
-        path: 'fireSales',
-      },
-      {
-        name: '烟花爆竹销毁登记',
-        path: 'fireDestroy',
-      },
-    ],
-  },
-  {
-    name: '文档说明',
-    icon: 'form',
-    path: 'doc',
-    hideInMenu: true,
-    children: [
-      {
-        name: '说明',
-        path: 'document',
-      },
-    ],
-  },
-  {
-    name: '结果页',
-    icon: 'check-circle-o',
-    path: 'result',
-    hideInMenu: true,  // 隐藏该条
-    children: [
-      {
-        name: '成功',
-        path: 'success',
-      },
-      {
-        name: '失败',
-        path: 'fail',
-      },
-    ],
-  },
-  {
-    name: '异常页',
-    icon: 'warning',
-    path: 'exception',
-    hideInMenu: true,  // 隐藏该条
-    children: [
-      {
-        name: '403',
-        path: '403',
-      },
-      {
-        name: '404',
-        path: '404',
-      },
-      {
-        name: '500',
-        path: '500',
-      },
-      {
-        name: '触发异常',
-        path: 'trigger',
-        hideInMenu: true,
-      },
-    ],
-  },
-  {
-    name: '账户',
-    icon: 'user',
-    path: 'user',
-    authority: 'guest',
-    children: [
-      {
-        name: '登录',
-        path: 'login',
-      },
-      {
-        name: '注册',
-        path: 'register',
-      },
-      {
-        name: '注册结果',
-        path: 'register-result',
-      },
-    ],
-  },
-];
 
 //模块类目
 menuList.moduleColumn = [
