@@ -16,7 +16,7 @@ menuList.menuData1 = [
       //   path: 'industryDistribution',
       // },
       {
-        name: '库存统计',
+        name: '烟花',
         path: 'stockStatistics',
       }
       // {
@@ -369,7 +369,7 @@ menuList.menuData3 = [
     path: 'dashboard',
     children: [
       {
-        name: '库存统计',
+        name: '烟花爆竹仓储统计',
         path: 'stockStatistics',
       }
     ],
