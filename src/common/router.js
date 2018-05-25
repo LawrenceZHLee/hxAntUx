@@ -86,47 +86,88 @@ export const getRouterData = app => {
     },
     //企业-烟花爆竹生产统计
     '/dashboard/proStatistics':{
-      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/ProStatistics')),
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireCom/ProStatistics')),
     },
     //企业-烟花爆竹仓储统计
     '/dashboard/stockStatistics':{
-      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/StockStatistics')),
-    },
-    '/dashboard/test':{
-      component:dynamicWrapper(app,['chart'],() => import('../selfRoutes/FireGov/Test'))
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireCom/StockStatistics')),
     },
     //企业-烟花爆竹运输统计
     '/dashboard/traStatistics':{
-      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/TraStatistics')),
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireCom/TraStatistics')),
     },
     //企业-烟花爆竹销售统计
     '/dashboard/saleStatistics':{
-      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/SaleStatistics')),
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireCom/SaleStatistics')),
     },
     //企业-烟花爆竹销毁统计
     '/dashboard/desStatistics':{
-      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/DesStatistics')),
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireCom/DesStatistics')),
     },
     //企业-烟花爆竹生产登记信息
     '/list/fireProduct': {
-      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/ProductInfo')),
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireCom/ProductInfo')),
     },
     //企业-烟花爆竹仓储登记信息
     '/list/fireStock': {
-      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/StockInfo')),
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireCom/StockInfo')),
     },
     //企业-烟花爆竹运输登记信息
     '/list/fireTransport': {
-      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/TransportInfo')),
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireCom/TransportInfo')),
     },
     //企业-烟花爆竹销售登记
     '/list/fireSales': {
-      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/SaleInfo')),
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireCom/SaleInfo')),
     },
     //企业-烟花爆竹销毁登记
     '/list/fireDestroy': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireCom/DestroyInfo')),
+    },
+
+
+    //政府-烟花爆竹生产统计
+    '/dashboard/proStatisticsGov':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/ProStatistics')),
+    },
+    //政府-烟花爆竹仓储统计
+    '/dashboard/stockStatisticsGov':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/StockStatistics')),
+    },
+    //政府-烟花爆竹运输统计
+    '/dashboard/traStatisticsGov':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/TraStatistics')),
+    },
+    //政府-烟花爆竹销售统计
+    '/dashboard/saleStatisticsGov':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/SaleStatistics')),
+    },
+    //政府-烟花爆竹销毁统计
+    '/dashboard/desStatisticsGov':{
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/FireGov/DesStatistics')),
+    },
+    //政府-烟花爆竹生产登记信息
+    '/list/fireProductGov': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/ProductInfo')),
+    },
+    //政府-烟花爆竹仓储登记信息
+    '/list/fireStockGov': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/StockInfo')),
+    },
+    //政府-烟花爆竹运输登记信息
+    '/list/fireTransportGov': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/TransportInfo')),
+    },
+    //政府-烟花爆竹销售登记
+    '/list/fireSalesGov': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/SaleInfo')),
+    },
+    //政府-烟花爆竹销毁登记
+    '/list/fireDestroyGov': {
       component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/FireGov/DestroyInfo')),
     },
+
+
     //信息初审
     '/list/initial-registration': {
       component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/TablePages/RegistrationInitial')),

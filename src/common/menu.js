@@ -1,7 +1,7 @@
 import { isUrl } from '../utils/utils';
 import menuList from './../common/menuList';
 
-function formatter(data = menuList.menuData1, parentPath = '/', parentAuthority) {
+function formatter(data = menuList.menuData, parentPath = '/', parentAuthority) {
   return data.map(item => {
     let { path } = item;
     if (!isUrl(path)) {

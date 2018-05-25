@@ -7,30 +7,26 @@ menuList.menuData3 = [
     icon: 'dashboard',
     path: 'dashboard',
     children: [
-      // {
-      //   name: '烟花爆竹生产统计',
-      //   path: 'proStatistics',
-      // },
+      {
+        name: '烟花爆竹生产统计',
+        path: 'proStatistics',
+      },
       {
         name: '烟花爆竹仓储统计',
         path: 'stockStatistics',
       },
       {
-        name:'test',
-        path:'test'
+        name: '烟花爆竹运输统计',
+        path: 'traStatistics',
+      },
+      {
+        name: '烟花爆竹销售统计',
+        path: 'saleStatistics',
+      },
+      {
+        name: '烟花爆竹销毁统计',
+        path: 'desStatistics',
       }
-      // {
-      //   name: '烟花爆竹运输统计',
-      //   path: 'traStatistics',
-      // },
-      // {
-      //   name: '烟花爆竹销售统计',
-      //   path: 'saleStatistics',
-      // },
-      // {
-      //   name: '烟花爆竹销毁统计',
-      //   path: 'desStatistics',
-      // }
     ],
   },
   {
@@ -69,6 +65,125 @@ menuList.menuData3 = [
       {
         name: '说明',
         path: 'document',
+      },
+    ],
+  },
+  {
+    name: '结果页',
+    icon: 'check-circle-o',
+    path: 'result',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '成功',
+        path: 'success',
+      },
+      {
+        name: '失败',
+        path: 'fail',
+      },
+    ],
+  },
+  {
+    name: '异常页',
+    icon: 'warning',
+    path: 'exception',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '403',
+        path: '403',
+      },
+      {
+        name: '404',
+        path: '404',
+      },
+      {
+        name: '500',
+        path: '500',
+      },
+      {
+        name: '触发异常',
+        path: 'trigger',
+        hideInMenu: true,
+      },
+    ],
+  },
+  {
+    name: '账户',
+    icon: 'user',
+    path: 'user',
+    authority: 'guest',
+    children: [
+      {
+        name: '登录',
+        path: 'login',
+      },
+      {
+        name: '注册',
+        path: 'register',
+      },
+      {
+        name: '注册结果',
+        path: 'register-result',
+      },
+    ],
+  },
+];
+
+//烟花爆竹-政府
+menuList.menuData4 = [
+  {
+    name: '烟花爆竹流向比对',
+    icon: 'dashboard',
+    path: 'dashboard',
+    children: [
+      {
+        name: '烟花爆竹流向比对',
+        path: 'proStatisticsGov',
+      },
+      {
+        name: '信息提醒管理',
+        path: 'stockStatisticsGov',
+      },
+      // {
+      //   name: '烟花爆竹运输统计',
+      //   path: 'traStatisticsGov',
+      // },
+      // {
+      //   name: '烟花爆竹销售统计',
+      //   path: 'saleStatisticsGov',
+      // },
+      // {
+      //   name: '烟花爆竹销毁统计',
+      //   path: 'desStatisticsGov',
+      // }
+    ],
+  },
+  {
+    name: '烟花爆竹管理',
+    icon: 'table',
+    path: 'list',
+    children: [
+      {
+        name: '烟花爆竹生产信息',
+        path: 'fireProductGov',
+      },
+      {
+        name: '烟花爆竹仓储信息',
+        path: 'fireStockGov',
+      },
+      {
+        name: '烟花爆竹运输信息',
+        path: 'fireTransportGov',
+      },
+      {
+        name: '烟花爆竹销售信息',
+        path: 'fireSalesGov',
+      },
+      {
+        name: '烟花爆竹销毁信息',
+        path: 'fireDestroyGov',
       },
     ],
   },
@@ -507,7 +622,7 @@ menuList.moduleColumn = [
   },
   {
     name: '烟花爆竹（政府端）',
-    menu: menuList.menuData2,
+    menu: menuList.menuData4,
     icon: 'icon-two',
   },
   // {
@@ -758,6 +873,192 @@ menuList.menuData = [
       },
     ],
   },
+
+  //烟花爆竹
+  {
+    name: '烟花爆竹流向比对',
+    icon: 'dashboard',
+    path: 'dashboard',
+    hideInMenu: true,
+    children: [
+      {
+        name: '烟花爆竹流向比对',
+        path: 'proStatisticsGov',
+      },
+      {
+        name: '信息提醒管理',
+        path: 'stockStatisticsGov',
+      },
+      // {
+      //   name: '烟花爆竹运输统计',
+      //   path: 'traStatisticsGov',
+      // },
+      // {
+      //   name: '烟花爆竹销售统计',
+      //   path: 'saleStatisticsGov',
+      // },
+      // {
+      //   name: '烟花爆竹销毁统计',
+      //   path: 'desStatisticsGov',
+      // }
+    ],
+  },
+  {
+    name: '烟花爆竹管理',
+    icon: 'table',
+    path: 'list',
+    hideInMenu: true,
+    children: [
+      {
+        name: '烟花爆竹生产信息',
+        path: 'fireProductGov',
+      },
+      {
+        name: '烟花爆竹仓储信息',
+        path: 'fireStockGov',
+      },
+      {
+        name: '烟花爆竹运输信息',
+        path: 'fireTransportGov',
+      },
+      {
+        name: '烟花爆竹销售信息',
+        path: 'fireSalesGov',
+      },
+      {
+        name: '烟花爆竹销毁信息',
+        path: 'fireDestroyGov',
+      },
+    ],
+  },
+  {
+    name: '烟花爆竹统计',
+    icon: 'dashboard',
+    path: 'dashboard',
+    children: [
+      {
+        name: '烟花爆竹生产统计',
+        path: 'proStatistics',
+      },
+      {
+        name: '烟花爆竹仓储统计',
+        path: 'stockStatistics',
+      },
+      {
+        name: '烟花爆竹运输统计',
+        path: 'traStatistics',
+      },
+      {
+        name: '烟花爆竹销售统计',
+        path: 'saleStatistics',
+      },
+      {
+        name: '烟花爆竹销毁统计',
+        path: 'desStatistics',
+      }
+    ],
+  },
+  {
+    name: '烟花爆竹管理',
+    icon: 'table',
+    path: 'list',
+    children: [
+      {
+        name: '烟花爆竹生产登记信息',
+        path: 'fireProduct',
+      },
+      {
+        name: '烟花爆竹仓储登记信息',
+        path: 'fireStock',
+      },
+      {
+        name: '烟花爆竹运输登记信息',
+        path: 'fireTransport',
+      },
+      {
+        name: '烟花爆竹销售登记',
+        path: 'fireSales',
+      },
+      {
+        name: '烟花爆竹销毁登记',
+        path: 'fireDestroy',
+      },
+    ],
+  },
+  {
+    name: '文档说明',
+    icon: 'form',
+    path: 'doc',
+    hideInMenu: true,
+    children: [
+      {
+        name: '说明',
+        path: 'document',
+      },
+    ],
+  },
+  {
+    name: '结果页',
+    icon: 'check-circle-o',
+    path: 'result',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '成功',
+        path: 'success',
+      },
+      {
+        name: '失败',
+        path: 'fail',
+      },
+    ],
+  },
+  {
+    name: '异常页',
+    icon: 'warning',
+    path: 'exception',
+    hideInMenu: true,  // 隐藏该条
+    children: [
+      {
+        name: '403',
+        path: '403',
+      },
+      {
+        name: '404',
+        path: '404',
+      },
+      {
+        name: '500',
+        path: '500',
+      },
+      {
+        name: '触发异常',
+        path: 'trigger',
+        hideInMenu: true,
+      },
+    ],
+  },
+  {
+    name: '账户',
+    icon: 'user',
+    path: 'user',
+    authority: 'guest',
+    children: [
+      {
+        name: '登录',
+        path: 'login',
+      },
+      {
+        name: '注册',
+        path: 'register',
+      },
+      {
+        name: '注册结果',
+        path: 'register-result',
+      },
+    ],
+  },
+
 ];
 
 

@@ -258,6 +258,7 @@ class BasicLayout extends React.PureComponent {
             <Redirect key={item.from} exact from={item.from} to={item.to}/>
           ))}
           {getRoutes(match.path, routerData).map(item => {
+            console.log('$PARANSitem',item)
             if(location.hash.substring(1) === item.key){
               title = item.name;
               for (const it of panes){
@@ -315,7 +316,6 @@ class BasicLayout extends React.PureComponent {
       activeKey,
       panes
     } = this.state;
-
     const layout = (
       <Layout>
         <Header style={{padding: 0}}>
