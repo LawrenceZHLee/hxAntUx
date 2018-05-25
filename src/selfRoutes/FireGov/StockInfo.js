@@ -9,36 +9,45 @@ import SelfForm from '../../components/SelfModule/SelfForm';
 
 const dataSource = [
   {
-  key: '1',
-  name: '喷花类',
-  status: 1,
-  packages: 10,
-  rounds: 32,
-  date: '2018-5-2',
-  doneDate: '2018-5-10',
-  inDate:'2018-5-10',
-  outDate:'2018-5-11',
-}, {
-  key: '2',
-  name: '旋转类',
-  status: 2,
-  packages: 4,
-  rounds: 22,
-  date: '2018-5-5',
-  doneDate: '2018-5-10',
-  inDate:'2018-5-10',
-  outDate:'2018-5-13',
-}, {
-  key: '3',
-  name: '升空类',
-  status: 1,
-  packages: 2,
-  rounds: 15,
-  date: '2018-5-7',
-  doneDate: '2018-5-10',
-  inDate:'2018-5-10',
-  outDate:'2018-5-12',
-}];
+    key: '1',
+    name: '喷花类',
+    status: '入仓',
+    packages: 10,
+    rounds: 32,
+    date: '2018-5-2',
+    doneDate: '2018-5-10',
+    inDate: '2018-5-10',
+    outDate: '2018-5-11',
+    division:'西藏自治区',
+    company:'西藏XXX',
+    companyType:'生产'
+  }, {
+    key: '2',
+    name: '旋转类',
+    status: '出仓',
+    packages: 4,
+    rounds: 22,
+    date: '2018-5-5',
+    doneDate: '2018-5-10',
+    inDate: '2018-5-10',
+    outDate: '2018-5-13',
+    division:'宁夏自治区',
+    company:'宁夏XXX',
+    companyType:'存储'
+  }, {
+    key: '3',
+    name: '升空类',
+    status: '入仓',
+    packages: 2,
+    rounds: 15,
+    date: '2018-5-7',
+    doneDate: '2018-5-10',
+    inDate: '2018-5-10',
+    outDate: '2018-5-12',
+    division:'内蒙自治区',
+    company:'内蒙XXX',
+    companyType:'燃放'
+  }];
 
 const searchColumn = [
   {
@@ -144,7 +153,7 @@ export default class StockInfo extends Component {
         value: "location",
         type: "input",
         span: 12,
-        style: {"borderLeft": "none","borderBottom":"none"},
+        style: {"borderLeft": "none", "borderBottom": "none"},
       },
       {
         name: "物品信息",
@@ -260,7 +269,7 @@ export default class StockInfo extends Component {
         value: "location",
         type: "input",
         span: 12,
-        style: {"borderLeft": "none","borderBottom":"none"},
+        style: {"borderLeft": "none", "borderBottom": "none"},
       },
       {
         name: "物品信息",
@@ -269,52 +278,48 @@ export default class StockInfo extends Component {
     ];
     this.columns = [
       {
-      title: '生产日期',
-      dataIndex: 'date',
-      key: 'date',
-    }, {
-      title: '登记人',
-      dataIndex: 'name',
-      key: 'name',
-    }, {
-      title: '箱数量（箱/件）',
-      dataIndex: 'packages',
-      key: 'packages',
-    }, {
-      title: '箱数量（发/个）',
-      dataIndex: 'rounds',
-      key: 'rounds',
-    }, {
-      title: '入仓日期',
-      dataIndex: 'inDate',
-      key: 'inDate',
-    }, {
-      title: '出仓日期',
-      dataIndex: 'outDate',
-      key: 'outDate',
-    }, {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
-      render: (status) => {
-        return {1: "入仓", 2: "出仓"}[status]
+        title: '行政区划',
+        dataIndex: 'division',
+        key: 'division',
+      }, {
+        title: '单位名称',
+        dataIndex: 'company',
+        key: 'company',
+      }, {
+        title: '单位类型',
+        dataIndex: 'companyType',
+        key: 'companyType',
+      }, {
+        title: '箱数量（箱/件）',
+        dataIndex: 'packages',
+        key: 'packages',
+      }, {
+        title: '箱数量（发/个）',
+        dataIndex: 'rounds',
+        key: 'rounds',
+      }, {
+        title: '入仓日期',
+        dataIndex: 'inDate',
+        key: 'inDate',
+      }, {
+        title: '出仓日期',
+        dataIndex: 'outDate',
+        key: 'outDate',
+      }, {
+        title: '状态',
+        dataIndex: 'status',
+        key: 'status',//入仓，出仓
+      }, {
+        title: '操作',
+        key: 'operation',
+        render: (record, index) => {
+          return (
+            <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
+              this.showReadModal(record)
+            }}>查看详情</a>
+          )
+        }
       }
-    }, {
-      title: '操作',
-      key: 'operation',
-      render: (record, index) => {
-        return (
-          <span>
-          <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
-            this.showReadModal(record)
-          }}>查看详情</a>
-          <a href="javascript:void(0)" onClick={() => {
-            this.showModal(record)
-          }}>修改</a>
-          </span>
-        )
-      }
-    }
     ];
     this.inColumn = [
       {
@@ -405,12 +410,7 @@ export default class StockInfo extends Component {
     return (
       <Fragment>
         <SearchContent searchColumn={searchColumn}/>
-        <div style={{"marginBottom": "20px"}}>
-          <Button type="primary" onClick={() => {
-            this.add()
-          }}>新建</Button>
-        </div>
-        <Table dataSource={dataSource} columns={this.columns} />
+        <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
           title="仓储登记详情"
           visible={readVisible}

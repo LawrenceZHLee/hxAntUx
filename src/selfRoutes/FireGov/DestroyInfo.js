@@ -12,9 +12,11 @@ const dataSource = [
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
-    destroyName:'赵某某',
-    destroyDate:'2018-5-22',
-    deStatus:1
+    destroyName: '赵某某',
+    destroyDate: '2018-5-22',
+    deStatus: '已销毁',
+    division:'广西壮族自治区',
+    destroyCom:'广西XXX',
   }, {
     key: '2',
     name: '旋转类',
@@ -23,9 +25,11 @@ const dataSource = [
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
-    destroyName:'钱某某',
-    destroyDate:'2018-5-23',
-    deStatus:2
+    destroyName: '钱某某',
+    destroyDate: '2018-5-23',
+    deStatus: '未销毁',
+    division:'广西壮族自治区',
+    destroyCom:'广西XXX',
   }, {
     key: '3',
     name: '升空类',
@@ -34,15 +38,22 @@ const dataSource = [
     rounds: 15,
     date: '2018-5-7',
     doneDate: '2018-5-10',
-    destroyName:'孙某某',
-    destroyDate:'2018-5-26',
-    deStatus:1
+    destroyName: '孙某某',
+    destroyDate: '2018-5-26',
+    deStatus: '已销毁',
+    division:'广西壮族自治区',
+    destroyCom:'广西XXX',
   }];
 
 const searchColumn = [
   {
-    name: "销毁人",
-    value: "destroyName",
+    name: "行政区划",
+    value: "division",
+    type: "input",
+  },
+  {
+    name: "销毁单位",
+    value: "division",
     type: "input",
   },
   {
@@ -232,10 +243,15 @@ export default class DestroyInfo extends Component {
     ];
     this.columns = [
       {
-        title: '销毁人',
-        dataIndex: 'destroyName',
-        key: 'destroyName',
+        title: '行政区划',
+        dataIndex: 'division',
+        key: 'division',
       }, {
+        title: '销毁单位',
+        dataIndex: 'destroyCom',
+        key: 'destroyCom',
+      },
+      {
         title: '销毁日期',
         dataIndex: 'destroyDate',
         key: 'destroyDate',
@@ -250,23 +266,15 @@ export default class DestroyInfo extends Component {
       }, {
         title: '状态',
         dataIndex: 'deStatus',
-        key: 'deStatus',
-        render: (deStatus) => {
-          return {1: "已销毁", 2: "未销毁"}[deStatus]
-        }
+        key: 'deStatus',//已销毁，未销毁
       }, {
         title: '操作',
         key: 'operation',
         render: (record, index) => {
           return (
-            <span>
-          <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
-            this.showReadModal(record)
-          }}>查看详情</a>
-          <a href="javascript:void(0)" onClick={() => {
-            this.showModal(record)
-          }}>修改</a>
-          </span>
+            <a href="javascript:void(0)" onClick={() => {
+              this.showReadModal(record)
+            }}>查看详情</a>
           )
         }
       }
@@ -360,12 +368,7 @@ export default class DestroyInfo extends Component {
     return (
       <Fragment>
         <SearchContent searchColumn={searchColumn}/>
-        <div style={{"marginBottom": "20px"}}>
-          <Button type="primary" onClick={() => {
-            this.add()
-          }}>新建</Button>
-        </div>
-        <Table dataSource={dataSource} columns={this.columns} rowKey={(record)=>record.key}/>
+        <Table dataSource={dataSource} columns={this.columns} rowKey={(record) => record.key}/>
         <Modal
           title="生产登记详情"
           visible={readVisible}
@@ -376,7 +379,8 @@ export default class DestroyInfo extends Component {
         >
           <SelfForm ref="readForm" formColumn={this.readColumn} data={text} editable={false}/>
           <div style={{"border": "1px solid #aed0ea", "borderTop": "none"}}>
-            <Table dataSource={inSource} columns={this.inColumn} pagination={false} rowKey={(record)=>`inner${record.key}`}/>
+            <Table dataSource={inSource} columns={this.inColumn} pagination={false}
+                   rowKey={(record) => `inner${record.key}`}/>
           </div>
         </Modal>
         <Modal

@@ -15,6 +15,8 @@ const dataSource = [
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
+    division:'广西壮族自治区',
+    company:'广西XXX'
   }, {
     key: '2',
     name: '旋转类',
@@ -23,6 +25,8 @@ const dataSource = [
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
+    division:'新疆维吾尔族自治区',
+    company:'新疆XXX'
   }, {
     key: '3',
     name: '升空类',
@@ -31,31 +35,20 @@ const dataSource = [
     rounds: 15,
     date: '2018-5-7',
     doneDate: '2018-5-10',
+    division:'西藏自治区',
+    company:'西藏XXX'
   }];
 
 const searchColumn = [
   {
-    name: "登记人",
-    value: "name",
+    name: "行政区划",
+    value: "division",
     type: "input",
   },
   {
-    name: "状态",
-    value: "status",
-    type: "select",
-    option: [
-      {
-        value: "合格"
-      },
-      {
-        value: "不合格"
-      },
-    ]
-  },
-  {
-    name: "登记时间",
-    value: "rangeTime",
-    type: "rangePicker",
+    name: "单位名称",
+    value: "company",
+    type: "input",
   },
 ];
 
@@ -242,45 +235,33 @@ export default class ProductInfo extends Component {
     ];
     this.columns = [
       {
-        title: '生产日期',
-        dataIndex: 'date',
-        key: 'date',
+        title: '行政区划',
+        dataIndex: 'division',
+        key: 'division',
       }, {
-        title: '登记人',
-        dataIndex: 'name',
-        key: 'name',
+        title: '单位名称',
+        dataIndex: 'company',
+        key: 'company',
       }, {
-        title: '箱数量（箱/件）',
+        title: '生产箱数量（箱/件）',
         dataIndex: 'packages',
         key: 'packages',
       }, {
-        title: '箱数量（发/个）',
+        title: '生产箱数量（发/个）',
         dataIndex: 'rounds',
         key: 'rounds',
       }, {
         title: '登记日期',
         dataIndex: 'doneDate',
         key: 'doneDate',
-      }, {
-        title: '状态',
-        dataIndex: 'status',
-        key: 'status',
-        render: (level) => {
-          return {1: "合格", 2: "不合格"}[level]
-        }
-      }, {
+      },  {
         title: '操作',
         key: 'operation',
         render: (record, index) => {
           return (
-            <span>
-          <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
+          <a href="javascript:void(0)" onClick={() => {
             this.showReadModal(record)
           }}>查看详情</a>
-          <a href="javascript:void(0)" onClick={() => {
-            this.showModal(record)
-          }}>修改</a>
-          </span>
           )
         }
       }
@@ -374,11 +355,6 @@ export default class ProductInfo extends Component {
     return (
       <Fragment>
         <SearchContent searchColumn={searchColumn}/>
-        <div style={{"marginBottom": "20px"}}>
-          <Button type="primary" onClick={() => {
-            this.add()
-          }}>新建</Button>
-        </div>
         <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
           title="生产登记详情"

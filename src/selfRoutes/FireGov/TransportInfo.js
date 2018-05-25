@@ -516,14 +516,9 @@ export default class TransportInfo extends Component {
         key: 'operation',
         render: (record, index) => {
           return (
-            <span>
           <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
             this.showReadModal(record)
           }}>查看详情</a>
-          <a href="javascript:void(0)" onClick={() => {
-            this.showModal(record)
-          }}>修改</a>
-          </span>
           )
         }
       }
@@ -617,11 +612,6 @@ export default class TransportInfo extends Component {
     return (
       <Fragment>
         <SearchContent searchColumn={searchColumn}/>
-        <div style={{"marginBottom": "20px"}}>
-          <Button type="primary" onClick={() => {
-            this.add()
-          }}>新建</Button>
-        </div>
         <Table dataSource={dataSource} columns={this.columns} />
         <Modal
           title="仓储登记详情"

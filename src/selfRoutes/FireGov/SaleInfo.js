@@ -17,6 +17,7 @@ const dataSource = [
     doneDate: '2018-5-10',
     sales:'xx1店',
     purchase:'xx1公司',
+    division:'广西壮族自治区',
   }, {
     key: '2',
     name: '旋转类',
@@ -27,6 +28,7 @@ const dataSource = [
     doneDate: '2018-5-10',
     sales:'xx2店',
     purchase:'xx2公司',
+    division:'内蒙古自治区',
   }, {
     key: '3',
     name: '升空类',
@@ -37,9 +39,15 @@ const dataSource = [
     doneDate: '2018-5-10',
     sales:'xx3店',
     purchase:'xx3公司',
+    division:'宁夏回族自治区',
   }];
 
 const searchColumn = [
+  {
+    name: "行政区划",
+    value: "division",
+    type: "input",
+  },
   {
     name: "销售单位",
     value: "sales",
@@ -406,6 +414,10 @@ export default class SaleInfo extends Component {
     ];
     this.columns = [
       {
+        title: '行政区划',
+        dataIndex: 'division',
+        key: 'division',
+      },{
         title: '销售单位',
         dataIndex: 'sales',
         key: 'sales',
@@ -422,10 +434,6 @@ export default class SaleInfo extends Component {
         dataIndex: 'rounds',
         key: 'rounds',
       }, {
-        title: '登记日期',
-        dataIndex: 'doneDate',
-        key: 'doneDate',
-      }, {
         title: '销售状态',
         dataIndex: 'status',
         key: 'status',
@@ -437,14 +445,9 @@ export default class SaleInfo extends Component {
         key: 'operation',
         render: (record, index) => {
           return (
-            <span>
           <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
             this.showReadModal(record)
           }}>查看详情</a>
-          <a href="javascript:void(0)" onClick={() => {
-            this.showModal(record)
-          }}>修改</a>
-          </span>
           )
         }
       }
@@ -538,11 +541,6 @@ export default class SaleInfo extends Component {
     return (
       <Fragment>
         <SearchContent searchColumn={searchColumn}/>
-        <div style={{"marginBottom": "20px"}}>
-          <Button type="primary" onClick={() => {
-            this.add()
-          }}>新建</Button>
-        </div>
         <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
           title="生产登记详情"
