@@ -57,13 +57,6 @@ const data = [
   }
 ];
 
-//柱状图
-// const chartData = [
-//   { name:'London', 'Jan.': 18.9, 'Feb.': 28.8, 'Mar.' :39.3, 'Apr.': 81.4, 'May': 47, 'Jun.': 20.3, 'Jul.': 24, 'Aug.': 35.6 },
-//   { name:'Berlin', 'Jan.': 12.4, 'Feb.': 23.2, 'Mar.' :34.5, 'Apr.': 99.7, 'May': 52.6, 'Jun.': 35.5, 'Jul.': 37.4, 'Aug.': 42.4},
-//   { name:'test', 'Jan.': 12.4, 'Feb.': 23.2, 'Mar.' :34.5, 'Apr.': 99.7, 'May': 52.6, 'Jun.': 35.5, 'Jul.': 37.4, 'Aug.': 42.4}
-// ];
-
 //饼图数据
 const chartCol = [
   {
@@ -85,7 +78,7 @@ dv.transform({
   type: 'fold',
   fields: result, // 展开字段集
   key: '月份', // key字段
-  value: '月均降雨量', // value字段
+  value: '总量', // value字段
 });
 
 
@@ -100,9 +93,9 @@ export default class ProStatistics extends Component {
         <Chart height={400} data={dv} forceFit>
           <Legend />
           <Axis name="月份" />
-          <Axis name="月均降雨量" />
+          <Axis name="总量" />
           <Tooltip />
-          <Geom type='intervalStack' position="月份*月均降雨量" color={'name'} style={{stroke: '#fff',lineWidth: 1}} />
+          <Geom type='intervalStack' position="月份*总量" color={'name'} style={{stroke: '#fff',lineWidth: 1}} />
         </Chart>
       </div>
     );

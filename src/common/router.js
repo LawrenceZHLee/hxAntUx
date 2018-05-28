@@ -168,6 +168,82 @@ export const getRouterData = app => {
     },
 
 
+    //政府-风险管控
+    //分区域显示一张图
+    '/dashboard/mapArea': {
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/RiskGov/MapArea')),
+    },
+    //分类显示一张图
+    '/dashboard/mapSort': {
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/RiskGov/MapSort')),
+    },
+    //分级显示一张图
+    '/dashboard/mapLevel': {
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/RiskGov/MapLevel')),
+    },
+    //风险上报监管
+    '/search/report': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskGov/Report')),
+    },
+    //风险分类监管
+    '/judgment/judgmentSort': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskGov/JudgmentSort')),
+    },
+    //风险分级监管
+    '/judgment/judgmentLevel': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskGov/JudgmentLevel')),
+    },
+    //高风险点监管
+    '/judgment/judgmentHigh': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskGov/JudgmentHigh')),
+    },
+    //风险防范监管
+    '/prevent/preventRule': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskGov/PreventRule')),
+    },
+
+    //企业-风险管控
+    //风险按部门统计
+    '/dashboard/statisticsDistrict': {
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/RiskCom/StatisticsDistrict')),
+    },
+    //风险按类别统计
+    '/dashboard/statisticsClass': {
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/RiskCom/StatisticsClass')),
+    },
+    //风险按级别统计
+    '/dashboard/statisticsLevel': {
+      component: dynamicWrapper(app, ['chart'], () => import('../selfRoutes/RiskCom/StatisticsLevel')),
+    },
+    //风险点查找
+    '/assess/assessSearch': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/AssessSearch')),
+    },
+    //风险点辨识
+    '/assess/assessRec': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/AssessRec')),
+    },
+    //风险点分类管理
+    '/sort/sortMan': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/SortMan')),
+    },
+    //风险点分级管理
+    '/sort/sortLevel': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/SortLevel')),
+    },
+    //风险点清单管理
+    '/sort/sortList': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/SortList')),
+    },
+    //高风险点监管
+    '/sort/sortHigh': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/SortHigh')),
+    },
+    //风险防范管理
+    '/prevent/preventRule': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/PreventRule')),
+    },
+
     //信息初审
     '/list/initial-registration': {
       component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/TablePages/RegistrationInitial')),

@@ -1,14 +1,18 @@
 import React, {Component, Fragment} from 'react';
-import {Chart, Geom, Axis, Tooltip, Label} from 'bizcharts';
+import {Chart, Geom, Axis, Tooltip, Legend} from 'bizcharts';
 import CompositeTable from './../../components/SelfTable/CompositeTable';
 import {reValue} from './../../utils/randomNum';
+import {generateMonth} from './../../utils/generateMonth';
+import {generateChartData} from './../../utils/generateChartData';
+import {View, DataSet} from '@antv/data-set';
 
 /*
  * 企业烟花爆竹销毁统计
  * */
 
 const values = reValue(6,10000);
-console.log('$PARANSvalues', values);
+const result = generateMonth(6);
+
 const columns = [
   {
     title: '烟花爆竹类别',
@@ -53,21 +57,26 @@ const data = [
   }
 ];
 
-//柱状图
-const chartData = [
-  {genre: '危险化学品企业', sold: values[0]},
-  {genre: '烟花爆竹企业', sold: values[1],},
-  {genre: '非煤矿山企业', sold: values[2],},
-  {genre: '工商贸企业', sold: values[3],},
-  {genre: '易制毒企业', sold: values[4],},
-  {genre: '其他企业', sold: values[5],},
+//饼图数据
+const chartCol = [
+  {
+    name: '待销毁',
+  },
+  {
+    name: '已销毁',
+  },
 ];
 
-// 定义度量
-const cols = {
-  genre: {alias: '监管行业'},
-  sold: {alias: '企业数量'},
-};
+const chartData = generateChartData(chartCol, result, 10000);
+
+const ds = new DataSet();
+const dv = ds.createView().source(chartData);
+dv.transform({
+  type: 'fold',
+  fields: result, // 展开字段集
+  key: '月份', // key字段
+  value: '总量', // value字段
+});
 
 
 export default class ProStatistics extends Component {
@@ -78,13 +87,12 @@ export default class ProStatistics extends Component {
   render() {
     const chartContent = (
       <div style={{"margin": "0 auto", "width": "800px"}}>
-        <Chart height={450} data={chartData} scale={cols} forceFit>
-          <Axis name="genre"/>
-          <Axis name="sold"/>
+        <Chart height={400} data={dv} forceFit>
+          <Legend />
+          <Axis name="月份" />
+          <Axis name="总量" />
           <Tooltip />
-          <Geom type="interval" position="genre*sold" color="genre">
-            <Label content={["genre*sold", (genre, sold) => sold]}/>
-          </Geom>
+          <Geom type='intervalStack' position="月份*总量" color={'name'} style={{stroke: '#fff',lineWidth: 1}} />
         </Chart>
       </div>
     );

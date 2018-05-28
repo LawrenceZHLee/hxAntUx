@@ -56,79 +56,6 @@ menuList.menuData3 = [
       },
     ],
   },
-  {
-    name: '文档说明',
-    icon: 'form',
-    path: 'doc',
-    hideInMenu: true,
-    children: [
-      {
-        name: '说明',
-        path: 'document',
-      },
-    ],
-  },
-  {
-    name: '结果页',
-    icon: 'check-circle-o',
-    path: 'result',
-    hideInMenu: true,  // 隐藏该条
-    children: [
-      {
-        name: '成功',
-        path: 'success',
-      },
-      {
-        name: '失败',
-        path: 'fail',
-      },
-    ],
-  },
-  {
-    name: '异常页',
-    icon: 'warning',
-    path: 'exception',
-    hideInMenu: true,  // 隐藏该条
-    children: [
-      {
-        name: '403',
-        path: '403',
-      },
-      {
-        name: '404',
-        path: '404',
-      },
-      {
-        name: '500',
-        path: '500',
-      },
-      {
-        name: '触发异常',
-        path: 'trigger',
-        hideInMenu: true,
-      },
-    ],
-  },
-  {
-    name: '账户',
-    icon: 'user',
-    path: 'user',
-    authority: 'guest',
-    children: [
-      {
-        name: '登录',
-        path: 'login',
-      },
-      {
-        name: '注册',
-        path: 'register',
-      },
-      {
-        name: '注册结果',
-        path: 'register-result',
-      },
-    ],
-  },
 ];
 
 //烟花爆竹-政府
@@ -187,67 +114,143 @@ menuList.menuData4 = [
       },
     ],
   },
+];
+
+//风险管控-政府
+menuList.menuData5 = [
   {
-    name: '结果页',
-    icon: 'check-circle-o',
-    path: 'result',
-    hideInMenu: true,  // 隐藏该条
+    name: '风险管控一张图',
+    icon: 'dashboard',
+    path: 'dashboard',
     children: [
       {
-        name: '成功',
-        path: 'success',
+        name: '分区域显示一张图',
+        path: 'mapArea',
       },
       {
-        name: '失败',
-        path: 'fail',
+        name: '分类显示一张图',
+        path: 'mapSort',
+      },
+      {
+        name: '分级显示一张图',
+        path: 'mapLevel',
+      }
+    ],
+  },
+  {
+    name: '风险查找',
+    icon: 'table',
+    path: 'search',
+    children: [
+      {
+        name: '风险上报监管',
+        path: 'report',
       },
     ],
   },
   {
-    name: '异常页',
-    icon: 'warning',
-    path: 'exception',
-    hideInMenu: true,  // 隐藏该条
+    name: '风险研判',
+    icon: 'table',
+    path: 'judgment',
     children: [
       {
-        name: '403',
-        path: '403',
+        name: '风险分类监管',
+        path: 'judgmentSort',
       },
       {
-        name: '404',
-        path: '404',
+        name: '风险分级监管',
+        path: 'judgmentLevel',
       },
       {
-        name: '500',
-        path: '500',
-      },
-      {
-        name: '触发异常',
-        path: 'trigger',
-        hideInMenu: true,
+        name: '高风险点监管',
+        path: 'judgmentHigh',
       },
     ],
   },
   {
-    name: '账户',
-    icon: 'user',
-    path: 'user',
-    authority: 'guest',
+    name: '风险防范',
+    icon: 'table',
+    path: 'prevent',
     children: [
       {
-        name: '登录',
-        path: 'login',
-      },
-      {
-        name: '注册',
-        path: 'register',
-      },
-      {
-        name: '注册结果',
-        path: 'register-result',
+        name: '风险防范监管',
+        path: 'preventRule',
       },
     ],
   },
+];
+
+//风险管理-企业
+menuList.menuData6 = [
+  {
+    name: '风险统计分析',
+    icon: 'dashboard',
+    path: 'dashboard',
+    children: [
+      {
+        name: '风险按部门统计',
+        path: 'statisticsDistrict',
+      },
+      {
+        name: '风险按类别统计',
+        path: 'statisticsClass',
+      },
+      {
+        name: '风险按级别统计',
+        path: 'statisticsLevel',
+      }
+    ],
+  },
+  {
+    name: '风险评估',
+    icon: 'table',
+    path: 'assess',
+    children: [
+      {
+        name: '风险点查找',
+        path: 'assessSearch',
+      },
+      {
+        name: '风险点辨识',
+        path: 'assessRec',
+      },
+    ],
+  },
+  {
+    name: '风险分类分级',
+    icon: 'table',
+    path: 'sort',
+    children: [
+      {
+        name: '风险点分类管理',
+        path: 'sortMan',
+      },
+      {
+        name: '风险点分级管理',
+        path: 'sortLevel',
+      },
+      {
+        name: '风险点清单管理',
+        path: 'sortList',
+      },
+      {
+        name: '高风险点监管',
+        path: 'sortHigh',
+      },
+    ],
+  },
+  {
+    name: '风险防范',
+    icon: 'table',
+    path: 'prevent',
+    children: [
+      {
+        name: '风险防范管理',
+        path: 'preventRule',
+      },
+    ],
+  },
+
 ];
 
 //一企一档
@@ -315,129 +318,6 @@ menuList.menuData1 = [
       {
         name: '注册信息复核',
         path: 'review-registration',
-      },
-    ],
-  },
-  {
-    name: '文档说明',
-    icon: 'form',
-    path: 'doc',
-    hideInMenu: true,
-    children: [
-      {
-        name: '说明',
-        path: 'document',
-      },
-    ],
-  },
-  // {
-  //   name: '表单页',
-  //   icon: 'form',
-  //   path: 'form',
-  //   children: [
-  //     {
-  //       name: '基础表单',
-  //       path: 'basic-form',
-  //     },
-  //     {
-  //       name: '分步表单',
-  //       path: 'step-form',
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: '列表页',
-  //   icon: 'table',
-  //   path: 'list',
-  //   children: [
-  //     {
-  //       name: '查询表格',
-  //       path: 'table-list',
-  //     },
-  //     {
-  //       name: '标准列表',
-  //       path: 'basic-list',
-  //     },
-  //     {
-  //       name: '卡片列表',
-  //       path: 'card-list',
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: '详情页',
-  //   icon: 'profile',
-  //   path: 'profile',
-  //   children: [
-  //     {
-  //       name: '基础详情页',
-  //       path: 'basic',
-  //     },
-  //     {
-  //       name: '高级详情页',
-  //       path: 'advanced',
-  //       authority: 'admin',
-  //     },
-  //   ],
-  // },
-  {
-    name: '结果页',
-    icon: 'check-circle-o',
-    path: 'result',
-    hideInMenu: true,  // 隐藏该条
-    children: [
-      {
-        name: '成功',
-        path: 'success',
-      },
-      {
-        name: '失败',
-        path: 'fail',
-      },
-    ],
-  },
-  {
-    name: '异常页',
-    icon: 'warning',
-    path: 'exception',
-    hideInMenu: true,  // 隐藏该条
-    children: [
-      {
-        name: '403',
-        path: '403',
-      },
-      {
-        name: '404',
-        path: '404',
-      },
-      {
-        name: '500',
-        path: '500',
-      },
-      {
-        name: '触发异常',
-        path: 'trigger',
-        hideInMenu: true,
-      },
-    ],
-  },
-  {
-    name: '账户',
-    icon: 'user',
-    path: 'user',
-    authority: 'guest',
-    children: [
-      {
-        name: '登录',
-        path: 'login',
-      },
-      {
-        name: '注册',
-        path: 'register',
-      },
-      {
-        name: '注册结果',
-        path: 'register-result',
       },
     ],
   },
@@ -623,6 +503,16 @@ menuList.moduleColumn = [
   {
     name: '烟花爆竹（政府端）',
     menu: menuList.menuData4,
+    icon: 'icon-two',
+  },
+  {
+    name: '风险管理（企业端）',
+    menu: menuList.menuData6,
+    icon: 'icon-one',
+  },
+  {
+    name: '风险监管（政府端）',
+    menu: menuList.menuData5,
     icon: 'icon-two',
   },
   // {
@@ -1059,6 +949,138 @@ menuList.menuData = [
     ],
   },
 
+
+  //风险管控-政府
+  {
+    name: '风险管控一张图',
+    icon: 'dashboard',
+    path: 'dashboard',
+    children: [
+      {
+        name: '分区域显示一张图',
+        path: 'mapArea',
+      },
+      {
+        name: '分类显示一张图',
+        path: 'MapSort',
+      },
+      {
+        name: '分级显示一张图',
+        path: 'MapLevel',
+      }
+    ],
+  },
+  {
+    name: '风险查找',
+    icon: 'table',
+    path: 'search',
+    children: [
+      {
+        name: '风险上报监管',
+        path: 'report',
+      },
+    ],
+  },
+  {
+    name: '风险研判',
+    icon: 'table',
+    path: 'judgment',
+    children: [
+      {
+        name: '风险分类监管',
+        path: 'judgmentSort',
+      },
+      {
+        name: '风险分级监管',
+        path: 'judgmentLevel',
+      },
+      {
+        name: '高风险点监管',
+        path: 'judgmentHigh',
+      },
+    ],
+  },
+  {
+    name: '风险防范',
+    icon: 'table',
+    path: 'prevent',
+    children: [
+      {
+        name: '风险防范监管',
+        path: 'preventRule',
+      },
+    ],
+  },
+
+  //风险管控-企业
+  {
+    name: '风险统计分析',
+    icon: 'dashboard',
+    path: 'dashboard',
+    children: [
+      {
+        name: '风险按部门统计',
+        path: 'statisticsDistrict',
+      },
+      {
+        name: '风险按类别统计',
+        path: 'statisticsClass',
+      },
+      {
+        name: '风险按级别统计',
+        path: 'statisticsLevel',
+      }
+    ],
+  },
+  {
+    name: '风险评估',
+    icon: 'table',
+    path: 'assess',
+    children: [
+      {
+        name: '风险点查找',
+        path: 'assessSearch',
+      },
+      {
+        name: '风险点辨识',
+        path: 'assessRec',
+      },
+    ],
+  },
+  {
+    name: '风险分类分级',
+    icon: 'table',
+    path: 'sort',
+    children: [
+      {
+        name: '风险点分类管理',
+        path: 'sortMan',
+      },
+      {
+        name: '风险点分级管理',
+        path: 'sortLevel',
+      },
+      {
+        name: '风险点清单管理',
+        path: 'sortList',
+      },
+      {
+        name: '高风险点监管',
+        path: 'sortHigh',
+      },
+    ],
+  },
+  {
+    name: '风险防范',
+    icon: 'table',
+    path: 'prevent',
+    children: [
+      {
+        name: '风险防范管理',
+        path: 'preventRule',
+      },
+    ],
+  },
 ];
 
 

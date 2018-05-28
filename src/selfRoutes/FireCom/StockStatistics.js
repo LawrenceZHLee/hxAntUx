@@ -61,14 +61,6 @@ const data = [
   }
 ];
 
-//柱状图
-// const chartData = [
-//   { item: '事例一', count: 40 },
-//   { item: '事例二', count: 21 },
-//   { item: '事例三', count: 17 },
-//   { item: '事例四', count: 13 },
-//   { item: '事例五', count: 9 }
-// ];
 
 //图类名
 const chartCol = [
@@ -79,9 +71,6 @@ const chartCol = [
     name: '入仓',
   },
 ];
-
-//饼图数据
-//const chartData = generatePieData(chartCol, 10000);
 
 // 定义度量
 const cols = {
