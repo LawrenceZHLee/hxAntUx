@@ -3,6 +3,9 @@ import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
+/*
+*政府烟花爆竹销毁统计
+* */
 const dataSource = [
   {
     key: '1',

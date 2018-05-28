@@ -4,14 +4,14 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
- * 烟花爆竹运输
+ * 企业烟花爆竹运输
  * */
 
 const dataSource = [
   {
     key: '1',
     name: '喷花类',
-    status: 1,
+    status: '待运输',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
@@ -23,7 +23,7 @@ const dataSource = [
   }, {
     key: '2',
     name: '旋转类',
-    status: 2,
+    status: '运输中',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
@@ -35,7 +35,7 @@ const dataSource = [
   }, {
     key: '3',
     name: '升空类',
-    status: 1,
+    status: '已到达',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
@@ -62,6 +62,9 @@ const searchColumn = [
     value: "status",
     type: "select",
     option: [
+      {
+        value: '待运输'
+      },
       {
         value: '运输中'
       },
@@ -467,7 +470,7 @@ export default class TransportInfo extends Component {
         value: "startDate",
         type: "date",
         span: 12,
-        style: {"borderLeft": "none","borderBottom":"none"},
+        style: {"borderLeft": "none", "borderBottom": "none"},
         className: "width260"
       },
       {
@@ -497,6 +500,10 @@ export default class TransportInfo extends Component {
         dataIndex: 'inDate',
         key: 'inDate',
       }, {
+        title: '运输状态',
+        dataIndex: 'status',
+        key: 'status',
+      }, {
         title: '登记人',
         dataIndex: 'name',
         key: 'name',
@@ -504,13 +511,6 @@ export default class TransportInfo extends Component {
         title: '登记日期',
         dataIndex: 'doneDate',
         key: 'doneDate',
-      }, {
-        title: '运输状态',
-        dataIndex: 'status',
-        key: 'status',
-        render: (status) => {
-          return {1: "运输中", 2: "已到达"}[status]
-        }
       }, {
         title: '操作',
         key: 'operation',
@@ -622,7 +622,7 @@ export default class TransportInfo extends Component {
             this.add()
           }}>新建</Button>
         </div>
-        <Table dataSource={dataSource} columns={this.columns} />
+        <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
           title="仓储登记详情"
           visible={readVisible}

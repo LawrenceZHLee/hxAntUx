@@ -4,7 +4,7 @@ import CompositeTable from './../../components/SelfTable/CompositeTable';
 import {reValue} from './../../utils/randomNum';
 
 /*
- * 烟花爆竹生产统计
+ * 企业烟花爆竹销毁统计
  * */
 
 const values = reValue(6,10000);
@@ -90,7 +90,7 @@ export default class ProStatistics extends Component {
     );
     return (
       <CompositeTable
-        title="烟花爆竹生产统计"
+        title="烟花爆竹销毁统计"
         chartContent={chartContent}
         columns={columns}
         data={data}

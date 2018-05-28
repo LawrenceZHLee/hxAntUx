@@ -4,14 +4,14 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
- * 烟花爆竹运输
+ * 政府烟花爆竹运输
  * */
 
 const dataSource = [
   {
     key: '1',
     name: '喷花类',
-    status: 1,
+    status: '待运输',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
@@ -19,11 +19,13 @@ const dataSource = [
     inDate: '2018/5/10-2018/5/13',
     outDate: '2018-5-11',
     purchase: '江苏xxx',
-    sales: '河南xxx'
+    sales: '河南xxx',
+    division:'安徽省滁州市',
+    transportCom:'滁州市烟花公司'
   }, {
     key: '2',
     name: '旋转类',
-    status: 2,
+    status: '运输中',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
@@ -31,11 +33,13 @@ const dataSource = [
     inDate: '2018/5/10-2018/5/15',
     outDate: '2018-5-13',
     purchase: '重庆xxx',
-    sales: '四川xxx'
+    sales: '四川xxx',
+    division:'安徽省马鞍山市',
+    transportCom:'滁州市烟花公司'
   }, {
     key: '3',
     name: '升空类',
-    status: 1,
+    status: '已到达',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
@@ -43,18 +47,20 @@ const dataSource = [
     inDate: '2018/5/11-2018/5/16',
     outDate: '2018-5-12',
     purchase: '上海xxx',
-    sales: '西藏xxx'
+    sales: '西藏xxx',
+    division:'安徽省安庆市',
+    transportCom:'滁州市烟花公司'
   }];
 
 const searchColumn = [
   {
-    name: "购买单位",
-    value: "purchase",
+    name: "行政区划",
+    value: "division",
     type: "input",
   },
   {
-    name: "销售单位",
-    value: "sales",
+    name: "运输单位",
+    value: "transportCom",
     type: "input",
   },
   {
@@ -62,6 +68,9 @@ const searchColumn = [
     value: "status",
     type: "select",
     option: [
+      {
+        value: '待运输'
+      },
       {
         value: '运输中'
       },
@@ -477,6 +486,16 @@ export default class TransportInfo extends Component {
     ];
     this.columns = [
       {
+        title: '行政区划',
+        dataIndex: 'division',
+        key: 'division',
+      },
+      {
+        title: '运输单位',
+        dataIndex: 'transportCom',
+        key: 'transportCom',
+      },
+      {
         title: '购买单位',
         dataIndex: 'purchase',
         key: 'purchase',
@@ -496,21 +515,10 @@ export default class TransportInfo extends Component {
         title: '运输时间段',
         dataIndex: 'inDate',
         key: 'inDate',
-      }, {
-        title: '登记人',
-        dataIndex: 'name',
-        key: 'name',
-      }, {
-        title: '登记日期',
-        dataIndex: 'doneDate',
-        key: 'doneDate',
-      }, {
+      },{
         title: '运输状态',
         dataIndex: 'status',
         key: 'status',
-        render: (status) => {
-          return {1: "运输中", 2: "已到达"}[status]
-        }
       }, {
         title: '操作',
         key: 'operation',

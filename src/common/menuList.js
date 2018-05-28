@@ -35,15 +35,15 @@ menuList.menuData3 = [
     path: 'list',
     children: [
       {
-        name: '烟花爆竹生产登记信息',
+        name: '烟花爆竹生产登记',
         path: 'fireProduct',
       },
       {
-        name: '烟花爆竹仓储登记信息',
+        name: '烟花爆竹仓储登记',
         path: 'fireStock',
       },
       {
-        name: '烟花爆竹运输登记信息',
+        name: '烟花爆竹运输登记',
         path: 'fireTransport',
       },
       {
@@ -161,7 +161,7 @@ menuList.menuData4 = [
     ],
   },
   {
-    name: '烟花爆竹管理',
+    name: '烟花爆竹监管',
     icon: 'table',
     path: 'list',
     children: [

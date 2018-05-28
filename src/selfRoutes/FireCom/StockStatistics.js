@@ -1,14 +1,22 @@
 import React, {Component, Fragment} from 'react';
-import {Chart, Geom, Axis, Tooltip, Label} from 'bizcharts';
+import {Button, Radio} from 'antd';
+import {Chart, Axis, Geom, Tooltip, Coord, Legend, Label} from 'bizcharts';
 import CompositeTable from './../../components/SelfTable/CompositeTable';
 import {reValue} from './../../utils/randomNum';
+import {generateMonth} from './../../utils/generateMonth';
+import {generatePieData} from './../../utils/generatePieData';
+import {View, DataSet} from '@antv/data-set';
+const {DataView} = DataSet;
 
 /*
- * 烟花爆竹生产统计
+ * 企业烟花爆竹仓库统计
  * */
 
-const values = reValue(6,10000);
-console.log('$PARANSvalues', values);
+const values = reValue(6, 10000);
+
+//生成月份
+const result = generateMonth(6);
+
 const columns = [
   {
     title: '烟花爆竹类别',
@@ -54,43 +62,104 @@ const data = [
 ];
 
 //柱状图
-const chartData = [
-  {genre: '危险化学品企业', sold: values[0]},
-  {genre: '烟花爆竹企业', sold: values[1],},
-  {genre: '非煤矿山企业', sold: values[2],},
-  {genre: '工商贸企业', sold: values[3],},
-  {genre: '易制毒企业', sold: values[4],},
-  {genre: '其他企业', sold: values[5],},
+// const chartData = [
+//   { item: '事例一', count: 40 },
+//   { item: '事例二', count: 21 },
+//   { item: '事例三', count: 17 },
+//   { item: '事例四', count: 13 },
+//   { item: '事例五', count: 9 }
+// ];
+
+//图类名
+const chartCol = [
+  {
+    name: '出仓',
+  },
+  {
+    name: '入仓',
+  },
 ];
+
+//饼图数据
+//const chartData = generatePieData(chartCol, 10000);
 
 // 定义度量
 const cols = {
-  genre: {alias: '监管行业'},
-  sold: {alias: '企业数量'},
+  percent: {
+    formatter: val => {
+      val = (val.toFixed(2) * 100) + '%';
+      return val;
+    }
+  }
 };
+
+const dv = new DataView();
 
 
 export default class ProStatistics extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      nowMonth:result[0],
+      chartData:generatePieData(chartCol, 1000)
+    }
   }
 
+  handleChartData = (e) => {
+    this.setState({
+      nowMonth: e.target.value,
+      chartData:generatePieData(chartCol, 1000)
+    })
+  };
+
   render() {
+    const {nowMonth,chartData} = this.state;
+    dv.source(chartData).transform({
+      type: 'percent',
+      field: 'count',
+      dimension: 'name',
+      as: 'percent'
+    });
+    const monthContent = result.map((item, index) => (
+      <Radio.Button key={`button${index}`} value={item}>{item}</Radio.Button>
+    ));
     const chartContent = (
       <div style={{"margin": "0 auto", "width": "800px"}}>
-        <Chart height={450} data={chartData} scale={cols} forceFit>
-          <Axis name="genre"/>
-          <Axis name="sold"/>
-          <Tooltip />
-          <Geom type="interval" position="genre*sold" color="genre">
-            <Label content={["genre*sold", (genre, sold) => sold]}/>
+        月份选择：
+        <Radio.Group value={nowMonth} onChange={this.handleChartData}>
+          {monthContent}
+        </Radio.Group>
+        <Chart height={window.innerHeight} data={dv} scale={cols} padding={[80, 100, 80, 80]} forceFit>
+          <Coord type='theta' radius={0.75}/>
+          <Axis name="percent"/>
+          <Legend position='right' offsetY={-window.innerHeight / 2 + 120} offsetX={-100}/>
+          <Tooltip
+            showTitle={false}
+            itemTpl='<li><span style="background-color:{color};" class="g2-tooltip-marker"></span>{name}: {value}</li>'
+          />
+          <Geom
+            type="intervalStack"
+            position="percent"
+            color='name'
+            tooltip={['name*percent', (item, percent) => {
+              percent = percent.toFixed(2) * 100 + '%';
+              return {
+                name: name,
+                value: percent
+              };
+            }]}
+            style={{lineWidth: 1, stroke: '#fff'}}
+          >
+            <Label content='percent' formatter={(val, item) => {
+              return item.point.name + ': ' + val;
+            }}/>
           </Geom>
         </Chart>
       </div>
     );
     return (
       <CompositeTable
-        title="烟花爆竹生产统计"
+        title="烟花爆竹仓储统计"
         chartContent={chartContent}
         columns={columns}
         data={data}

@@ -4,39 +4,39 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
- * 烟花爆竹销售
+ * 企业烟花爆竹销售信息
  * */
 const dataSource = [
   {
     key: '1',
-    name: '喷花类',
+    name: '找某某',
     status: 1,
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
-    sales:'xx1店',
-    purchase:'xx1公司',
+    sales: 'xx1店',
+    purchase: 'xx1公司',
   }, {
     key: '2',
-    name: '旋转类',
+    name: '王某某',
     status: 2,
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
-    sales:'xx2店',
-    purchase:'xx2公司',
+    sales: 'xx2店',
+    purchase: 'xx2公司',
   }, {
     key: '3',
-    name: '升空类',
+    name: '孙某某',
     status: 1,
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
     doneDate: '2018-5-10',
-    sales:'xx3店',
-    purchase:'xx3公司',
+    sales: 'xx3店',
+    purchase: 'xx3公司',
   }];
 
 const searchColumn = [
@@ -135,15 +135,15 @@ export default class SaleInfo extends Component {
         name: "经办人证件类型",
         value: "managerType",
         type: "select",
-        option:[
+        option: [
           {
-            value:'xx1类'
+            value: 'xx1类'
           },
           {
-            value:'xx2类'
+            value: 'xx2类'
           },
           {
-            value:'xx3类'
+            value: 'xx3类'
           },
         ],
         span: 12,
@@ -169,15 +169,15 @@ export default class SaleInfo extends Component {
         name: "销售经办人证件类型",
         value: "saleType",
         type: "select",
-        option:[
+        option: [
           {
-            value:'xx1类'
+            value: 'xx1类'
           },
           {
-            value:'xx2类'
+            value: 'xx2类'
           },
           {
-            value:'xx3类'
+            value: 'xx3类'
           },
         ],
         span: 12,
@@ -322,15 +322,15 @@ export default class SaleInfo extends Component {
         name: "经办人证件类型",
         value: "managerType",
         type: "select",
-        option:[
+        option: [
           {
-            value:'xx1类'
+            value: 'xx1类'
           },
           {
-            value:'xx2类'
+            value: 'xx2类'
           },
           {
-            value:'xx3类'
+            value: 'xx3类'
           },
         ],
         span: 12,
@@ -356,15 +356,15 @@ export default class SaleInfo extends Component {
         name: "销售经办人证件类型",
         value: "saleType",
         type: "select",
-        option:[
+        option: [
           {
-            value:'xx1类'
+            value: 'xx1类'
           },
           {
-            value:'xx2类'
+            value: 'xx2类'
           },
           {
-            value:'xx3类'
+            value: 'xx3类'
           },
         ],
         span: 12,
@@ -422,16 +422,20 @@ export default class SaleInfo extends Component {
         dataIndex: 'rounds',
         key: 'rounds',
       }, {
-        title: '登记日期',
-        dataIndex: 'doneDate',
-        key: 'doneDate',
-      }, {
         title: '销售状态',
         dataIndex: 'status',
         key: 'status',
         render: (level) => {
           return {1: "已售", 2: "未售"}[level]
         }
+      }, {
+        title: '登记人',
+        dataIndex: 'name',
+        key: 'name',
+      }, {
+        title: '登记日期',
+        dataIndex: 'doneDate',
+        key: 'doneDate',
       }, {
         title: '操作',
         key: 'operation',

@@ -4,29 +4,29 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
- * 烟花爆竹生产
+ * 企业烟花爆竹生产信息
  * */
 const dataSource = [
   {
     key: '1',
-    name: '喷花类',
-    status: 1,
+    name: '找某某',
+    status: '合格',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
   }, {
     key: '2',
-    name: '旋转类',
-    status: 2,
+    name: '钱某某',
+    status: '不合格',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
   }, {
     key: '3',
-    name: '升空类',
-    status: 1,
+    name: '孙某某',
+    status: '合格',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
@@ -40,7 +40,7 @@ const searchColumn = [
     type: "input",
   },
   {
-    name: "状态",
+    name: "生产检验",
     value: "status",
     type: "select",
     option: [
@@ -108,7 +108,7 @@ export default class ProductInfo extends Component {
         span: 12,
       },
       {
-        name: "物品等级",
+        name: "生产检验",
         value: "status",
         type: "select",
         span: 12,
@@ -216,7 +216,7 @@ export default class ProductInfo extends Component {
         span: 12,
       },
       {
-        name: "物品等级",
+        name: "生产检验",
         value: "status",
         type: "select",
         span: 12,
@@ -246,10 +246,6 @@ export default class ProductInfo extends Component {
         dataIndex: 'date',
         key: 'date',
       }, {
-        title: '登记人',
-        dataIndex: 'name',
-        key: 'name',
-      }, {
         title: '箱数量（箱/件）',
         dataIndex: 'packages',
         key: 'packages',
@@ -258,16 +254,17 @@ export default class ProductInfo extends Component {
         dataIndex: 'rounds',
         key: 'rounds',
       }, {
+        title: '生产检验',
+        dataIndex: 'status',
+        key: 'status',
+      }, {
+        title: '登记人',
+        dataIndex: 'name',
+        key: 'name',
+      }, {
         title: '登记日期',
         dataIndex: 'doneDate',
         key: 'doneDate',
-      }, {
-        title: '状态',
-        dataIndex: 'status',
-        key: 'status',
-        render: (level) => {
-          return {1: "合格", 2: "不合格"}[level]
-        }
       }, {
         title: '操作',
         key: 'operation',

@@ -6,7 +6,7 @@ import { View,DataSet } from '@antv/data-set';
 const ds = new DataSet();
 
 /*
- * 烟花爆竹生产统计
+ * 政府烟花爆竹生产统计
  * */
 
 const values = reValue(6,10000);

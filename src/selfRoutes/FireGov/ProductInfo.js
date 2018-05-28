@@ -4,7 +4,7 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
- * 烟花爆竹生产
+ * 政府烟花爆竹生产
  * */
 const dataSource = [
   {
@@ -251,9 +251,9 @@ export default class ProductInfo extends Component {
         dataIndex: 'rounds',
         key: 'rounds',
       }, {
-        title: '登记日期',
-        dataIndex: 'doneDate',
-        key: 'doneDate',
+        title: '生产日期',
+        dataIndex: 'date',
+        key: 'date',
       },  {
         title: '操作',
         key: 'operation',

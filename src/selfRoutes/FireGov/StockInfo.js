@@ -4,7 +4,7 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
- * 烟花爆竹仓库
+ * 政府烟花爆竹仓库
  * */
 
 const dataSource = [
@@ -51,27 +51,14 @@ const dataSource = [
 
 const searchColumn = [
   {
-    name: "登记人",
-    value: "name",
+    name: "行政区划",
+    value: "division",
     type: "input",
   },
   {
-    name: "状态",
-    value: "status",
-    type: "select",
-    option: [
-      {
-        value: "合格"
-      },
-      {
-        value: "不合格"
-      },
-    ]
-  },
-  {
-    name: "登记时间",
-    value: "rangeTime",
-    type: "rangePicker",
+    name: "单位名称",
+    value: "company",
+    type: "input",
   },
 ];
 

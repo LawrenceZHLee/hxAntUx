@@ -3,40 +3,43 @@ import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
+/*
+* 企业烟花爆竹销毁信息
+* */
 const dataSource = [
   {
     key: '1',
-    name: '喷花类',
-    status: 1,
+    name: '李某某',
+    status: '待销毁',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
-    destroyName:'赵某某',
-    destroyDate:'2018-5-22',
-    deStatus:1
+    destroyName: '赵某某',
+    destroyDate: '2018-5-22',
+    deStatus: '待销毁'
   }, {
     key: '2',
-    name: '旋转类',
-    status: 2,
+    name: '王某某',
+    status: '已销毁',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
-    destroyName:'钱某某',
-    destroyDate:'2018-5-23',
-    deStatus:2
+    destroyName: '钱某某',
+    destroyDate: '2018-5-23',
+    deStatus: '已销毁'
   }, {
     key: '3',
-    name: '升空类',
-    status: 1,
+    name: '赵某某',
+    status: '待销毁',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
     doneDate: '2018-5-10',
-    destroyName:'孙某某',
-    destroyDate:'2018-5-26',
-    deStatus:1
+    destroyName: '孙某某',
+    destroyDate: '2018-5-26',
+    deStatus: '待销毁'
   }];
 
 const searchColumn = [
@@ -56,10 +59,10 @@ const searchColumn = [
     type: "select",
     option: [
       {
-        value: "已销毁"
+        value: "待销毁"
       },
       {
-        value: "未销毁"
+        value: "已销毁"
       },
     ]
   },
@@ -251,9 +254,14 @@ export default class DestroyInfo extends Component {
         title: '状态',
         dataIndex: 'deStatus',
         key: 'deStatus',
-        render: (deStatus) => {
-          return {1: "已销毁", 2: "未销毁"}[deStatus]
-        }
+      }, {
+        title: '登记人',
+        dataIndex: 'name',
+        key: 'name',
+      }, {
+        title: '登记日期',
+        dataIndex: 'doneDate',
+        key: 'doneDate',
       }, {
         title: '操作',
         key: 'operation',
@@ -365,7 +373,7 @@ export default class DestroyInfo extends Component {
             this.add()
           }}>新建</Button>
         </div>
-        <Table dataSource={dataSource} columns={this.columns} rowKey={(record)=>record.key}/>
+        <Table dataSource={dataSource} columns={this.columns} rowKey={(record) => record.key}/>
         <Modal
           title="生产登记详情"
           visible={readVisible}
@@ -376,7 +384,8 @@ export default class DestroyInfo extends Component {
         >
           <SelfForm ref="readForm" formColumn={this.readColumn} data={text} editable={false}/>
           <div style={{"border": "1px solid #aed0ea", "borderTop": "none"}}>
-            <Table dataSource={inSource} columns={this.inColumn} pagination={false} rowKey={(record)=>`inner${record.key}`}/>
+            <Table dataSource={inSource} columns={this.inColumn} pagination={false}
+                   rowKey={(record) => `inner${record.key}`}/>
           </div>
         </Modal>
         <Modal

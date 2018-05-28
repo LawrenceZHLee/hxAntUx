@@ -4,7 +4,7 @@ import CompositeTable from './../../components/SelfTable/CompositeTable';
 import {reValue} from './../../utils/randomNum';
 
 /*
- * 烟花爆竹生产统计
+ * 政府烟花爆竹销售统计
  * */
 
 const values = reValue(6,10000);

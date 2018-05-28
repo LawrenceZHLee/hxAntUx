@@ -4,13 +4,13 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 
 /*
- * 烟花爆竹销售
+ * 政府烟花爆竹销售
  * */
 const dataSource = [
   {
     key: '1',
     name: '喷花类',
-    status: 1,
+    status: '待售',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
@@ -21,7 +21,7 @@ const dataSource = [
   }, {
     key: '2',
     name: '旋转类',
-    status: 2,
+    status: '已售',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
@@ -32,7 +32,7 @@ const dataSource = [
   }, {
     key: '3',
     name: '升空类',
-    status: 1,
+    status: '待售',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
@@ -437,9 +437,6 @@ export default class SaleInfo extends Component {
         title: '销售状态',
         dataIndex: 'status',
         key: 'status',
-        render: (level) => {
-          return {1: "已售", 2: "未售"}[level]
-        }
       }, {
         title: '操作',
         key: 'operation',
