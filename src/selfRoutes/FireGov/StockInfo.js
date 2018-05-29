@@ -17,9 +17,9 @@ const dataSource = [
     date: '2018-5-2',
     doneDate: '2018-5-10',
     inDate: '2018-5-10',
-    outDate: '2018-5-11',
-    division:'西藏自治区',
-    company:'西藏XXX',
+    outDate: '',
+    division:'合肥市 - 巢湖市 - 烔炀镇',
+    company:'巢湖市红盛烟花爆竹有限责任公司',
     companyType:'生产'
   }, {
     key: '2',
@@ -31,8 +31,8 @@ const dataSource = [
     doneDate: '2018-5-10',
     inDate: '2018-5-10',
     outDate: '2018-5-13',
-    division:'宁夏自治区',
-    company:'宁夏XXX',
+    division:'淮北市 - 烈山区',
+    company:'淮北市市瑞祥烟花爆竹公司仓库',
     companyType:'存储'
   }, {
     key: '3',
@@ -43,9 +43,35 @@ const dataSource = [
     date: '2018-5-7',
     doneDate: '2018-5-10',
     inDate: '2018-5-10',
+    outDate: '',
+    division:'合肥市 - 肥东县 - 马湖乡',
+    company:'马湖饭店',
+    companyType:'燃放'
+  }, {
+    key: '4',
+    name: '升空类',
+    status: '出仓',
+    packages: 22,
+    rounds: 16,
+    date: '2018-5-11',
+    doneDate: '2018-5-11',
+    inDate: '2018-5-11',
     outDate: '2018-5-12',
-    division:'内蒙自治区',
-    company:'内蒙XXX',
+    division:'亳州市 - 利辛县 - 中疃镇',
+    company:'利辛县中疃镇喜庆烟花店',
+    companyType:'燃放'
+  }, {
+    key: '5',
+    name: '升空类',
+    status: '出仓',
+    packages: 12,
+    rounds: 5,
+    date: '2018-5-7',
+    doneDate: '2018-5-12',
+    inDate: '2018-5-7',
+    outDate: '2018-5-13',
+    division:'亳州市 - 利辛县 - 胡集镇',
+    company:'胡集镇飞飞浏阳烟花爆竹专卖店',
     companyType:'燃放'
   }];
 

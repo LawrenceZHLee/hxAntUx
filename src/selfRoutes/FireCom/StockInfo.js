@@ -10,8 +10,8 @@ import SelfForm from '../../components/SelfModule/SelfForm';
 const dataSource = [
   {
     key: '1',
-    name: '找某某',
-    status: 1,
+    name: '何学勇',
+    status: '出仓',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
@@ -20,24 +20,44 @@ const dataSource = [
     outDate: '2018-5-11',
   }, {
     key: '2',
-    name: '钱某某',
-    status: 2,
+    name: '葛传芬',
+    status: '入仓',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
     inDate: '2018-5-10',
-    outDate: '2018-5-13',
+    outDate: '',
   }, {
     key: '3',
-    name: '孙某某',
-    status: 1,
+    name: '许昌建',
+    status: '入仓',
+    packages: 2,
+    rounds: 15,
+    date: '2018-5-7',
+    doneDate: '2018-5-10',
+    inDate: '2018-5-10',
+    outDate: '',
+  }, {
+    key: '4',
+    name: '樊昌财',
+    status: '出仓',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
     doneDate: '2018-5-10',
     inDate: '2018-5-10',
     outDate: '2018-5-12',
+  }, {
+    key: '5',
+    name: '王国芬',
+    status: '出仓',
+    packages: 2,
+    rounds: 15,
+    date: '2018-5-7',
+    doneDate: '2018-5-10',
+    inDate: '2018-5-14',
+    outDate: '2018-5-18',
   }];
 
 const searchColumn = [
@@ -52,10 +72,10 @@ const searchColumn = [
     type: "select",
     option: [
       {
-        value: "合格"
+        value: "出仓"
       },
       {
-        value: "不合格"
+        value: "入仓"
       },
     ]
   },
@@ -284,9 +304,6 @@ export default class StockInfo extends Component {
         title: '状态',
         dataIndex: 'status',
         key: 'status',
-        render: (status) => {
-          return {1: "入仓", 2: "出仓"}[status]
-        }
       }, {
         title: '入仓日期',
         dataIndex: 'inDate',

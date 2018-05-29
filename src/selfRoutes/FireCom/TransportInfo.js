@@ -10,40 +10,88 @@ import SelfForm from '../../components/SelfModule/SelfForm';
 const dataSource = [
   {
     key: '1',
-    name: '喷花类',
-    status: '待运输',
+    name: '吴远飞',
+    status: '已到达',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
-    doneDate: '2018-5-10',
+    doneDate: '2018-5-11',
     inDate: '2018/5/10-2018/5/13',
     outDate: '2018-5-11',
-    purchase: '江苏xxx',
-    sales: '河南xxx'
+    purchase: '茂祥商店',
+    sales: '安徽省庐江县鑫隆花炮有限公司'
   }, {
     key: '2',
-    name: '旋转类',
+    name: '许浩军',
     status: '运输中',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
-    doneDate: '2018-5-10',
+    doneDate: '2018-5-5',
     inDate: '2018/5/10-2018/5/15',
     outDate: '2018-5-13',
-    purchase: '重庆xxx',
-    sales: '四川xxx'
+    purchase: '庐江县天宫便利店',
+    sales: '安徽省庐江县鑫隆花炮有限公司'
   }, {
     key: '3',
-    name: '升空类',
+    name: '黄平',
     status: '已到达',
-    packages: 2,
-    rounds: 15,
+    packages: 10,
+    rounds: 33,
     date: '2018-5-7',
-    doneDate: '2018-5-10',
-    inDate: '2018/5/11-2018/5/16',
+    doneDate: '2018-5-12',
+    inDate: '2018/5/11-2018/5/12',
     outDate: '2018-5-12',
-    purchase: '上海xxx',
-    sales: '西藏xxx'
+    purchase: '浩军超市',
+    sales: '安徽省庐江县鑫隆花炮有限公司'
+  }, {
+    key: '4',
+    name: '袁继信',
+    status: '已到达',
+    packages: 20,
+    rounds: 15,
+    date: '2018-5-9',
+    doneDate: '2018-5-12',
+    inDate: '2018/5/10-2018/5/12',
+    outDate: '2018-5-12',
+    purchase: '黄平商店',
+    sales: '庐江县天鸣花炮有限公司'
+  }, {
+    key: '5',
+    name: '鲍建和',
+    status: '已到达',
+    packages: 12,
+    rounds: 35,
+    date: '2018-5-10',
+    doneDate: '2018-5-12',
+    inDate: '2018/5/12-2018/5/12',
+    outDate: '2018-5-12',
+    purchase: '黄平商店',
+    sales: '庐江县天鸣花炮有限公司'
+  }, {
+    key: '6',
+    name: '刘龙胜',
+    status: '运输中',
+    packages: 26,
+    rounds: 25,
+    date: '2018-5-11',
+    doneDate: '2018-5-11',
+    inDate: '2018/5/13-2018/5/19',
+    outDate: '2018-5-13',
+    purchase: '二里商店',
+    sales: '庐江县天鸣花炮有限公司'
+  }, {
+    key: '7',
+    name: '蔡道阳',
+    status: '待运输',
+    packages: 22,
+    rounds: 14,
+    date: '2018-5-11',
+    doneDate: '2018-5-11',
+    inDate: '2018/5/15-2018/5/19',
+    outDate: '2018-5-11',
+    purchase: '庐江县鲍建和商店',
+    sales: '庐江县天鸣花炮有限公司'
   }];
 
 const searchColumn = [

@@ -69,10 +69,10 @@ menuList.menuData4 = [
         name: '烟花爆竹流向比对',
         path: 'proStatisticsGov',
       },
-      {
-        name: '信息提醒管理',
-        path: 'stockStatisticsGov',
-      },
+      // {
+      //   name: '信息提醒管理',
+      //   path: 'stockStatisticsGov',
+      // },
       // {
       //   name: '烟花爆竹运输统计',
       //   path: 'traStatisticsGov',

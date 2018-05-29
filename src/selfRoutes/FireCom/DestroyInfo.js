@@ -9,36 +9,36 @@ import SelfForm from '../../components/SelfModule/SelfForm';
 const dataSource = [
   {
     key: '1',
-    name: '李某某',
-    status: '待销毁',
+    name: '朱少青',
+    status: '已销毁',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
-    doneDate: '2018-5-10',
-    destroyName: '赵某某',
-    destroyDate: '2018-5-22',
+    doneDate: '2018-5-4',
+    destroyName: '杨选玉',
+    destroyDate: '2018-5-4',
     deStatus: '待销毁'
   }, {
     key: '2',
-    name: '王某某',
+    name: '徐汉兵',
     status: '已销毁',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
-    destroyName: '钱某某',
-    destroyDate: '2018-5-23',
+    destroyName: '杨选玉',
+    destroyDate: '2018-5-10',
     deStatus: '已销毁'
   }, {
     key: '3',
-    name: '赵某某',
+    name: '鲁少领',
     status: '待销毁',
     packages: 2,
     rounds: 15,
-    date: '2018-5-7',
-    doneDate: '2018-5-10',
-    destroyName: '孙某某',
-    destroyDate: '2018-5-26',
+    date: '2018-5-15',
+    doneDate: '2018-5-13',
+    destroyName: '杨选玉',
+    destroyDate: '2018-5-17',
     deStatus: '待销毁'
   }];
 

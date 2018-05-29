@@ -9,34 +9,34 @@ import SelfForm from '../../components/SelfModule/SelfForm';
 const dataSource = [
   {
     key: '1',
-    name: '喷花类',
+    name: '张奎',
     status: 1,
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
-    division:'广西壮族自治区',
-    company:'广西XXX'
+    division:'淮北市 - 相山区 - 相山西街道',
+    company:'淮北市瑞祥烟花爆竹有限公司'
   }, {
     key: '2',
-    name: '旋转类',
+    name: '徐庆平',
     status: 2,
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
     doneDate: '2018-5-10',
-    division:'新疆维吾尔族自治区',
-    company:'新疆XXX'
+    division:'合肥市 - 长丰县 - 水湖镇',
+    company:'长丰县丰特供销有限责任公司'
   }, {
     key: '3',
-    name: '升空类',
+    name: '朱术付',
     status: 1,
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
     doneDate: '2018-5-10',
-    division:'西藏自治区',
-    company:'西藏XXX'
+    division:'合肥市 - 肥西县 - 山南镇',
+    company:'肥西县盛安烟花炮竹销售有限责任公司'
   }];
 
 const searchColumn = [

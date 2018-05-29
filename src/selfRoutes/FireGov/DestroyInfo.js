@@ -16,10 +16,10 @@ const dataSource = [
     date: '2018-5-2',
     doneDate: '2018-5-10',
     destroyName: '赵某某',
-    destroyDate: '2018-5-22',
-    deStatus: '已销毁',
-    division:'广西壮族自治区',
-    destroyCom:'广西XXX',
+    destroyDate: '2018-5-23',
+    deStatus: '未销毁',
+    division:'淮北市 - 濉溪县 - 濉溪镇',
+    destroyCom:'濉溪县瑞虹烟花爆竹有限责任公司',
   }, {
     key: '2',
     name: '旋转类',
@@ -29,10 +29,10 @@ const dataSource = [
     date: '2018-5-5',
     doneDate: '2018-5-10',
     destroyName: '钱某某',
-    destroyDate: '2018-5-23',
-    deStatus: '未销毁',
-    division:'广西壮族自治区',
-    destroyCom:'广西XXX',
+    destroyDate: '2018-5-12',
+    deStatus: '已销毁',
+    division:'亳州市 - 蒙城县 - 三义镇',
+    destroyCom:'蒙城县飞英家电销售有限公司',
   }, {
     key: '3',
     name: '升空类',
@@ -42,10 +42,10 @@ const dataSource = [
     date: '2018-5-7',
     doneDate: '2018-5-10',
     destroyName: '孙某某',
-    destroyDate: '2018-5-26',
+    destroyDate: '2018-5-5',
     deStatus: '已销毁',
-    division:'广西壮族自治区',
-    destroyCom:'广西XXX',
+    division:'淮北市 - 濉溪县 - 濉溪镇',
+    destroyCom:'濉溪县瑞虹烟花爆竹有限责任公司',
   }];
 
 const searchColumn = [

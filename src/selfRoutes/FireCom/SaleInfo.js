@@ -9,35 +9,46 @@ import SelfForm from '../../components/SelfModule/SelfForm';
 const dataSource = [
   {
     key: '1',
-    name: '找某某',
-    status: 1,
+    name: '马学成',
+    status: '已售',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
-    sales: 'xx1店',
-    purchase: 'xx1公司',
+    sales: '巢湖市红盛烟花爆竹有限责任公司',
+    purchase: '马湖家祥商店',
   }, {
     key: '2',
-    name: '王某某',
-    status: 2,
+    name: '张友金',
+    status: '未售',
     packages: 4,
     rounds: 22,
     date: '2018-5-5',
-    doneDate: '2018-5-10',
-    sales: 'xx2店',
-    purchase: 'xx2公司',
+    doneDate: '2018-5-11',
+    sales: '巢湖市红盛烟花爆竹有限责任公司',
+    purchase: '吴治锦商店',
   }, {
     key: '3',
-    name: '孙某某',
-    status: 1,
+    name: '柳英翠',
+    status: '已售',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
-    doneDate: '2018-5-10',
-    sales: 'xx3店',
-    purchase: 'xx3公司',
-  }];
+    doneDate: '2018-5-14',
+    sales: '巢湖市红盛烟花爆竹有限责任公司',
+    purchase: '学成商店',
+  },{
+    key: '4',
+    name: '马玉书',
+    status: '已售',
+    packages: 8,
+    rounds: 19,
+    date: '2018-5-8',
+    doneDate: '2018-5-16',
+    sales: '合肥市博发土产日杂有限公司',
+    purchase: '马湖花炮专卖店',
+  },
+];
 
 const searchColumn = [
   {
@@ -425,9 +436,6 @@ export default class SaleInfo extends Component {
         title: '销售状态',
         dataIndex: 'status',
         key: 'status',
-        render: (level) => {
-          return {1: "已售", 2: "未售"}[level]
-        }
       }, {
         title: '登记人',
         dataIndex: 'name',

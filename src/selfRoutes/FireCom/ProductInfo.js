@@ -9,7 +9,7 @@ import SelfForm from '../../components/SelfModule/SelfForm';
 const dataSource = [
   {
     key: '1',
-    name: '找某某',
+    name: '陶胜锋',
     status: '合格',
     packages: 10,
     rounds: 32,
@@ -17,7 +17,7 @@ const dataSource = [
     doneDate: '2018-5-10',
   }, {
     key: '2',
-    name: '钱某某',
+    name: '王家祥',
     status: '不合格',
     packages: 4,
     rounds: 22,
@@ -25,7 +25,7 @@ const dataSource = [
     doneDate: '2018-5-10',
   }, {
     key: '3',
-    name: '孙某某',
+    name: '吴治锦',
     status: '合格',
     packages: 2,
     rounds: 15,

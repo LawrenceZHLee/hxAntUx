@@ -11,17 +11,17 @@ const dataSource = [
   {
     key: '1',
     name: '喷花类',
-    status: '待运输',
+    status: '已到达',
     packages: 10,
     rounds: 32,
     date: '2018-5-2',
     doneDate: '2018-5-10',
     inDate: '2018/5/10-2018/5/13',
     outDate: '2018-5-11',
-    purchase: '江苏xxx',
-    sales: '河南xxx',
-    division:'安徽省滁州市',
-    transportCom:'滁州市烟花公司'
+    purchase: '肥东县众兴乡国泰百货商店',
+    sales: '合肥市红火日杂有限公司',
+    division:'合肥市 - 肥东县 - 马湖乡',
+    transportCom:'合肥市好静运输公司'
   }, {
     key: '2',
     name: '旋转类',
@@ -32,24 +32,24 @@ const dataSource = [
     doneDate: '2018-5-10',
     inDate: '2018/5/10-2018/5/15',
     outDate: '2018-5-13',
-    purchase: '重庆xxx',
-    sales: '四川xxx',
-    division:'安徽省马鞍山市',
-    transportCom:'滁州市烟花公司'
+    purchase: '五星烟酒商店',
+    sales: '合肥市博发土产日杂有限公司',
+    division:'合肥市 - 庐阳区 - 林店街道',
+    transportCom:'合肥市德军运输公司'
   }, {
     key: '3',
     name: '升空类',
-    status: '已到达',
+    status: '待运输',
     packages: 2,
     rounds: 15,
     date: '2018-5-7',
     doneDate: '2018-5-10',
-    inDate: '2018/5/11-2018/5/16',
+    inDate: '2018/5/15-2018/5/20',
     outDate: '2018-5-12',
-    purchase: '上海xxx',
-    sales: '西藏xxx',
-    division:'安徽省安庆市',
-    transportCom:'滁州市烟花公司'
+    purchase: '神鹿百货商店',
+    sales: '安徽省庐江县鑫隆花炮有限公司',
+    division:'合肥市 - 庐江县 - 庐城镇',
+    transportCom:'合肥市莱德运输公司'
   }];
 
 const searchColumn = [
