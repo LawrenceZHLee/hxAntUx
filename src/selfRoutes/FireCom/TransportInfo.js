@@ -672,7 +672,7 @@ export default class TransportInfo extends Component {
         </div>
         <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
-          title="仓储登记详情"
+          title="运输登记详情"
           visible={readVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -685,7 +685,7 @@ export default class TransportInfo extends Component {
           </div>
         </Modal>
         <Modal
-          title="新建仓储登记"
+          title="新建运输登记"
           visible={visible}
           onOk={this.handleOk}
           onCancel={() => this.handleCancel("a")}

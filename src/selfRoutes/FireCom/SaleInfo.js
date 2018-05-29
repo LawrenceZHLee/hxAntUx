@@ -557,7 +557,7 @@ export default class SaleInfo extends Component {
         </div>
         <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
-          title="生产登记详情"
+          title="销售登记详情"
           visible={readVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -570,7 +570,7 @@ export default class SaleInfo extends Component {
           </div>
         </Modal>
         <Modal
-          title="新建生产登记"
+          title="新建销售登记"
           visible={visible}
           onOk={this.handleOk}
           onCancel={() => this.handleCancel("a")}

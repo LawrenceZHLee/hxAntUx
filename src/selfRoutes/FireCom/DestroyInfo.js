@@ -375,7 +375,7 @@ export default class DestroyInfo extends Component {
         </div>
         <Table dataSource={dataSource} columns={this.columns} rowKey={(record) => record.key}/>
         <Modal
-          title="生产登记详情"
+          title="销毁登记详情"
           visible={readVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -389,7 +389,7 @@ export default class DestroyInfo extends Component {
           </div>
         </Modal>
         <Modal
-          title="新建生产登记"
+          title="新建销毁登记"
           visible={visible}
           onOk={this.handleOk}
           onCancel={() => this.handleCancel("a")}
