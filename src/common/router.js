@@ -223,6 +223,10 @@ export const getRouterData = app => {
     '/assess/assessRec': {
       component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/AssessRec')),
     },
+    //风险点上报
+    '/report/report': {
+      component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/Report')),
+    },
     //风险点分类管理
     '/sort/sortMan': {
       component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskCom/SortMan')),

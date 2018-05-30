@@ -449,7 +449,7 @@ export default class StockInfo extends Component {
           title="新建仓储登记"
           visible={visible}
           onOk={this.handleOk}
-          onCancel={() => this.handleCancel("a")}
+          onCancel={(e) => this.handleCancel(e,"a")}
           width={1200}
         >
           <SelfForm ref="infoForm" formColumn={this.formColumn} data={text} editable={true}/>

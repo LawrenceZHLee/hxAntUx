@@ -314,14 +314,14 @@ export default class RegistrationInitial extends Component {
           title="待处理任务"
           visible={visible}
           onOk={this.handleOk}
-          onCancel={() => this.handleCancel("a")}
+          onCancel={(e) => this.handleCancel(e,"a")}
           width={1000}
           footer={(
             <div style={{"textAlign": "center"}}>
               <Button type="primary">查看</Button>
               <Button type="primary">查看</Button>
               <Button type="primary">查看</Button>
-              <Button type="primary" onClick={() => this.handleCancel("a")}>关闭</Button>
+              <Button type="primary" onClick={(e) => this.handleCancel(e,"a")}>关闭</Button>
             </div>)}
         >
           <SelfForm ref="infoForm" formColumn={this.formColumn} data={text} editable={true}/>

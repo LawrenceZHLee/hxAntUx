@@ -183,26 +183,26 @@ menuList.menuData5 = [
 //风险管理-企业
 menuList.menuData6 = [
   {
-    name: '风险统计分析',
+    name: '风险点统计分析',
     icon: 'dashboard',
     path: 'dashboard',
     children: [
       {
-        name: '风险按部门统计',
+        name: '风险点按部门统计',
         path: 'statisticsDistrict',
       },
       {
-        name: '风险按类别统计',
+        name: '风险点按类别统计',
         path: 'statisticsClass',
       },
       {
-        name: '风险按级别统计',
+        name: '风险点按级别统计',
         path: 'statisticsLevel',
       }
     ],
   },
   {
-    name: '风险评估',
+    name: '风险点评估',
     icon: 'table',
     path: 'assess',
     children: [
@@ -211,13 +211,23 @@ menuList.menuData6 = [
         path: 'assessSearch',
       },
       {
-        name: '风险点辨识',
+        name: '风险点评估',
         path: 'assessRec',
+      },
+    ],
+  },{
+    name: '风险点上报',
+    icon: 'table',
+    path: 'report',
+    children: [
+      {
+        name: '风险点上报',
+        path: 'report',
       },
     ],
   },
   {
-    name: '风险分类分级',
+    name: '风险点分类分级',
     icon: 'table',
     path: 'sort',
     children: [
@@ -240,12 +250,12 @@ menuList.menuData6 = [
     ],
   },
   {
-    name: '风险防范',
+    name: '风险点防范',
     icon: 'table',
     path: 'prevent',
     children: [
       {
-        name: '风险防范管理',
+        name: '风险点防范管理',
         path: 'preventRule',
       },
     ],
@@ -1014,26 +1024,26 @@ menuList.menuData = [
 
   //风险管控-企业
   {
-    name: '风险统计分析',
+    name: '风险点统计分析',
     icon: 'dashboard',
     path: 'dashboard',
     children: [
       {
-        name: '风险按部门统计',
+        name: '风险点按部门统计',
         path: 'statisticsDistrict',
       },
       {
-        name: '风险按类别统计',
+        name: '风险点按类别统计',
         path: 'statisticsClass',
       },
       {
-        name: '风险按级别统计',
+        name: '风险点按级别统计',
         path: 'statisticsLevel',
       }
     ],
   },
   {
-    name: '风险评估',
+    name: '风险点评估',
     icon: 'table',
     path: 'assess',
     children: [
@@ -1042,13 +1052,23 @@ menuList.menuData = [
         path: 'assessSearch',
       },
       {
-        name: '风险点辨识',
+        name: '风险点评估',
         path: 'assessRec',
+      },
+    ],
+  },{
+    name: '风险点上报',
+    icon: 'table',
+    path: 'report',
+    children: [
+      {
+        name: '风险点上报',
+        path: 'report',
       },
     ],
   },
   {
-    name: '风险分类分级',
+    name: '风险点分类分级',
     icon: 'table',
     path: 'sort',
     children: [
@@ -1071,12 +1091,12 @@ menuList.menuData = [
     ],
   },
   {
-    name: '风险防范',
+    name: '风险点防范',
     icon: 'table',
     path: 'prevent',
     children: [
       {
-        name: '风险防范管理',
+        name: '风险点防范管理',
         path: 'preventRule',
       },
     ],

@@ -37,13 +37,17 @@ export default class StepTable extends Component {
           }
           {
             item.rowSelection ?
-              (<div style={{"marginBottom": "20px"}}>
-                <Button type="primary" disabled={!hasSelected}>操作</Button>
-              </div>)
+              item.rowSelection.map((it, ind) => {
+                return (
+                  <Button style={{"marginBottom": "20px"}} key={`button${ind}`} type="primary" disabled={!hasSelected}
+                          onClick={() => it.fun()}>{it.name}</Button>
+                )
+              })
               :
               []
           }
-          <Table columns={item.columns} dataSource={item.dataSource} rowSelection={item.rowSelection ? rowSelection : false}/>
+          <Table scroll={{x: 1300}} columns={item.columns} dataSource={item.dataSource}
+                 rowSelection={item.rowSelection ? rowSelection : false}/>
         </TabPane>
       )
     });
