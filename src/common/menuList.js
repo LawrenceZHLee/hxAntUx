@@ -170,7 +170,7 @@ menuList.menuData5 = [
   {
     name: '风险防范',
     icon: 'table',
-    path: 'prevent',
+    path: 'preventGov',
     children: [
       {
         name: '风险防范监管',
@@ -1013,7 +1013,7 @@ menuList.menuData = [
   {
     name: '风险防范',
     icon: 'table',
-    path: 'prevent',
+    path: 'preventGov',
     children: [
       {
         name: '风险防范监管',

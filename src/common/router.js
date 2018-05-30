@@ -198,7 +198,7 @@ export const getRouterData = app => {
       component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskGov/JudgmentHigh')),
     },
     //风险防范监管
-    '/prevent/preventRule': {
+    '/preventGov/preventRule': {
       component: dynamicWrapper(app, ['list'], () => import('../selfRoutes/RiskGov/PreventRule')),
     },
 

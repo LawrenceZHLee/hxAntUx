@@ -188,10 +188,6 @@ export default class SortList extends Component {
         dataIndex: 'riskMeasure',
         key: 'riskMeasure',
       }, {
-        title: '所在部门',
-        dataIndex: 'riskDepart',
-        key: 'riskDepart',
-      }, {
         title: '是否重大危险源',
         dataIndex: 'dangerSource',
         key: 'dangerSource',
