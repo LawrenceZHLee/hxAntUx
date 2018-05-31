@@ -243,7 +243,7 @@ const riskCom = [
 ];
 
 //表格字段
-export const formCloumn = [
+const formCloumn = [
   {
     name: "基本信息",
     type: "title"
@@ -550,3 +550,5 @@ export const formCloumn = [
     style: {"borderLeft": "none"},
   },
 ];
+
+export {formCloumn};
