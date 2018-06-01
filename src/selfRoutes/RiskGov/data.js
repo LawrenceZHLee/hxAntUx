@@ -11,12 +11,12 @@ const riskCom = [
   {
     title: "风险类别",
     dataIndex: "riskCategory",
-    option:[
-      {value:'危险化学品'},
-      {value:'烟花爆竹'},
-      {value:'非煤矿山'},
-      {value:'工商贸'},
-      {value:'其他'},
+    option: [
+      {value: '危险化学品'},
+      {value: '烟花爆竹'},
+      {value: '非煤矿山'},
+      {value: '工商贸'},
+      {value: '其他'},
     ]
   },
   {
@@ -87,6 +87,10 @@ const riskCom = [
   {
     title: "风险评估",
     type: "title"
+  },
+  {
+    title: "风险特征产生条件",
+    dataIndex: "riskCondition",
   },
   {
     title: "事故发生的可能性",
@@ -251,13 +255,24 @@ const riskCom = [
     dataIndex: "riskMeasure",
   },
   {
-    title: "负责人",
-    dataIndex: "riskManger",
+    name: "负责部门",
+    value: "riskManDepart",
+    type: "input",
   },
   {
-    title: "负责部门",
-    dataIndex: "riskManDepart",
-  }, {
+    name: "负责人",
+    value: "riskManger",
+    type: "input",
+    span: 12,
+  },
+  {
+    name: "负责人联系电话",
+    value: "riskManTel",
+    span: 12,
+    style: {"borderLeft": "none", "borderBottom": "none"},
+    type: "input",
+  },
+  {
     title: "制定人",
     dataIndex: "riskDeveloper",
   },
@@ -274,6 +289,10 @@ const riskCom = [
     dataIndex: "riskReportUnit",
   },
   {
+    name: "主管（监管）单位、街道",
+    value: "riskStreet",
+  },
+  {
     title: "上报人",
     dataIndex: "riskReporter",
   },
@@ -283,80 +302,86 @@ const riskCom = [
   },
 ];
 
-import {divisionData,nameData} from './../../common/divisionData';
+import {divisionData, nameData} from './../../common/divisionData';
 
 //数据源
-const dataSource=[
+const dataSource = [
   {
     key: '1',
     //风险点所在行政区划
-    riskDivision:divisionData('安徽省')[0],
+    riskDivision: divisionData('安徽省')[0],
     //风险类别
-    riskCategory:divisionData('安徽省')[1],
+    riskCategory: divisionData('安徽省')[1],
     //风险点所在单位
-    riskCompany:divisionData('安徽省')[2],
+    riskCompany: divisionData('安徽省')[2],
     //风险点所在详细位置
-    riskAddress:divisionData('安徽省')[0],
+    riskAddress: divisionData('安徽省')[0],
     //风险点所在经纬度
-    riskLI:divisionData('安徽省')[3],
+    riskLI: divisionData('安徽省')[3],
     //风险名称
-    riskName:'存在危险',
+    riskName: '存在危险',
     //登记人
-    riskRegName:nameData(),
+    riskRegName: nameData(),
     //登记日期
-    riskRegTime:'2018-1-2',
+    riskRegTime: '2018-1-2',
     //风险点序号
-    riskID:'1',
+    riskID: '1',
     //风险点所在部门
-    riskDepart:'',
+    riskDepart: '',
     //是否重大危险源
-    dangerSource:'',
+    dangerSource: '',
     //重大危险源级别
-    dangerLevel:'',
+    dangerLevel: '',
     //风险描述
-    riskDesc:'',
+    riskDesc: '',
+    //风险特征产生条件
+    riskCondition: '',
     //事故发生的可能性
-    riskPossible:'',
+    riskPossible: '',
     //级别
-    riskPossibleLevel:'',
+    riskPossibleLevel: '',
     //事故发生的可致后果
-    riskResult:'',
+    riskResult: '',
     //级别
-    riskResultLevel:'',
+    riskResultLevel: '',
     //评估人
-    riskAssessName:nameData(),
+    riskAssessName: nameData(),
     //评估时间
-    riskAssessTime:'',
+    riskAssessTime: '',
     //风险分类
-    riskGround:'',
+    riskGround: '',
     //划分依据
-    riskCateBasis:'',
+    riskCateBasis: '',
     //划分人
-    riskCateName:nameData(),
+    riskCateName: nameData(),
     //划分时间
-    riskCateTime:'',
+    riskCateTime: '',
     //风险级别
-    riskLevel:'',
+    riskLevel: '',
     //评估人
-    riskLevelName:nameData(),
+    riskLevelName: nameData(),
     //评估时间
-    riskLevelTime:'',
+    riskLevelTime: '',
     //管控措施
-    riskMeasure:'',
+    riskMeasure: '',
     //负责人
-    riskManger:nameData(),
+    riskManger: nameData(),
+    //负责人联系电话
+    riskManTel:'',
     //负责部门
-    riskManDepart:'',
+    riskManDepart: '',
     //制定人
-    riskDeveloper:nameData(),
+    riskDeveloper: nameData(),
     //制定时间
-    riskDevTime:'',
+    riskDevTime: '',
     //上报单元
-    riskReportUnit:'',
+    riskReportUnit: '',
+    //主管（监管）单位、街道
+    riskStreet:'',
     //上报人
-    riskReporter:nameData(),
+    riskReporter: nameData(),
     //上报时间
-    riskReportTime:'',
+    riskReportTime: '',
   }
 ];
 
@@ -393,7 +418,7 @@ const formColumn = [
     name: "风险类别",
     value: "riskCategory",
     type: "select",
-    option:[],
+    option: [],
     span: 12,
     style: {"borderLeft": "none", "borderBottom": "none"},
   },
@@ -470,6 +495,11 @@ const formColumn = [
   {
     name: "风险评估",
     type: "title"
+  },
+  {
+    name: "风险特征产生条件",
+    value: "riskCondition",
+    type: "input",
   },
   {
     name: "事故发生的可能性",
@@ -635,14 +665,19 @@ const formColumn = [
     type: "input",
   },
   {
+    name: "负责部门",
+    value: "riskManDepart",
+    type: "input",
+  },
+  {
     name: "负责人",
     value: "riskManger",
     type: "input",
     span: 12,
   },
   {
-    name: "负责部门",
-    value: "riskManDepart",
+    name: "负责人联系电话",
+    value: "riskManTel",
     span: 12,
     style: {"borderLeft": "none", "borderBottom": "none"},
     type: "input",
@@ -667,6 +702,14 @@ const formColumn = [
     name: "上报单元",
     value: "riskReportUnit",
     type: "input",
+    span: 12,
+  },
+  {
+    name: "主管（监管）单位、街道",
+    value: "riskStreet",
+    type: "input",
+    span: 12,
+    style: {"borderLeft": "none", "borderBottom": "none"},
   },
   {
     name: "上报人",
@@ -683,4 +726,4 @@ const formColumn = [
   },
 ];
 
-export {formColumn,dataSource};
+export {formColumn, dataSource};
