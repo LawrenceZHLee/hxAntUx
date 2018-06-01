@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
-import {formCloumn} from './data';
+import {formColumn} from './data';
 
 /*
  * 高风险监管
@@ -28,8 +28,8 @@ const searchColumn = [
     type: "input",
   },
   {
-    name: "风险点类别",
-    value: "riskCategory",
+    name: "风险点分类",
+    value: "riskGround",
     type: "select",
     option:[
       {
@@ -67,99 +67,6 @@ const searchColumn = [
 export default class JudgmentHigh extends Component {
   constructor(props) {
     super(props);
-    this.formColumn = [
-      {
-        name: "基本信息",
-        type: "title"
-      },
-      {
-        name: "登记人",
-        value: "riskRegName",
-        type: "input",
-        span: 12,
-      },
-      {
-        name: "登记日期",
-        value: "riskRegTime",
-        type: "date",
-        span: 12,
-        style: {"borderLeft": "none"},
-      },
-      {
-        name: "风险点序号",
-        value: "riskID",
-        type: "input",
-        span: 12,
-      },
-      {
-        name: "风险点所在部门",
-        value: "riskDepart",
-        type: "input",
-        span: 12,
-        style: {"borderLeft": "none", "borderBottom": "none"},
-      },
-      {
-        name: "风险点所在行政区划",
-        value: "riskDivision",
-        span: 12,
-      },
-      {
-        name: "风险点所在单位",
-        value: "riskCompany",
-        span: 12,
-        style: {"borderLeft": "none", "borderBottom": "none"},
-      },
-      {
-        name: "风险点所在详细位置",
-        value: "riskAddress",
-        span: 12,
-      },
-      {
-        name: "风险点所在经纬度",
-        value: "riskLI",
-        span: 12,
-        style: {"borderLeft": "none", "borderBottom": "none"},
-      },
-      {
-        name: '是否重大危险源',
-        value: 'dangerSource',
-        span: 12,
-        type: "select",
-        option: [
-          {
-            value: "是"
-          },
-          {
-            value: "否"
-          }
-        ]
-      }, {
-        name: '重大危险源级别',
-        value: 'dangerLevel',
-        span: 12,
-        style: {"borderLeft": "none", "borderBottom": "none"},
-        type: "select",
-        option: [
-          {
-            value: "一级"
-          },
-          {
-            value: "二级"
-          },
-          {
-            value: "三级"
-          },
-          {
-            value: "四级"
-          }
-        ]
-      },
-      {
-        name: "风险描述",
-        value: "riskDesc",
-        type: "input",
-      },
-    ];
 
     this.columns = [
       {
@@ -196,7 +103,7 @@ export default class JudgmentHigh extends Component {
         dataIndex: 'riskGround',
         key: 'riskGround',
       },{
-        title: '具体名称',
+        title: '风险名称',
         dataIndex: 'riskName',
         key: 'riskName',
       },  {
@@ -280,14 +187,14 @@ export default class JudgmentHigh extends Component {
         <SearchContent searchColumn={searchColumn}/>
         <Table scroll={{x:1300}} dataSource={dataSource} columns={this.columns}/>
         <Modal
-          title="风险上报详情"
+          title="风险详情"
           visible={readVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           width={1200}
           footer={[]}
         >
-          <SelfForm ref="readForm" formColumn={formCloumn} data={text} editable={false}/>
+          <SelfForm ref="readForm" formColumn={formColumn} data={text} editable={false}/>
         </Modal>
       </Fragment>
     );

@@ -38,17 +38,9 @@ export default class AssessSearch extends Component {
         type: "title"
       },
       {
-        name: "登记人",
-        value: "riskRegName",
+        name: "风险名称",
+        value: "riskName",
         type: "input",
-        span: 12,
-      },
-      {
-        name: "登记日期",
-        value: "riskRegTime",
-        type: "date",
-        span: 12,
-        style: {"borderLeft": "none"},
       },
       {
         name: "风险点序号",
@@ -102,6 +94,19 @@ export default class AssessSearch extends Component {
         value: "riskDesc",
         type: "input",
       },
+      {
+        name: "登记人",
+        value: "riskRegName",
+        type: "input",
+        span: 12,
+      },
+      {
+        name: "登记日期",
+        value: "riskRegTime",
+        type: "date",
+        span: 12,
+        style: {"borderLeft": "none"},
+      },
     ];
 
     this.columns = [
@@ -109,6 +114,10 @@ export default class AssessSearch extends Component {
         title: '序号',
         dataIndex: 'riskID',
         key: 'riskID',
+      },{
+        title: "风险名称",
+        dataIndex: "riskName",
+        key: "riskName",
       }, {
         title: '描述',
         dataIndex: 'riskDesc',
@@ -142,6 +151,9 @@ export default class AssessSearch extends Component {
           <a style={{"marginRight": "10px"}} href="javascript:void(0)" onClick={() => {
             this.showReadModal(record)
           }}>查看详情</a>
+          <a href="javascript:void(0)" onClick={() => {
+            this.showModal(record)
+          }}>修改</a>
           </span>
           )
         }
@@ -185,6 +197,9 @@ export default class AssessSearch extends Component {
   };
 
   handleCancel = (e, type) => {
+    if (type === "a") {
+      this.refs.infoForm.getForm().resetFields();
+    }
     this.setState({
       visible: false,
       readVisible: false,
@@ -197,10 +212,14 @@ export default class AssessSearch extends Component {
     return (
       <Fragment>
         <SearchContent searchColumn={searchColumn}/>
-
+        <div style={{"marginBottom": "20px"}}>
+          <Button type="primary" onClick={() => {
+            this.add()
+          }}>新建</Button>
+        </div>
         <Table dataSource={dataSource} columns={this.columns}/>
         <Modal
-          title="风险清单详情"
+          title="风险点查找信息"
           visible={readVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -208,6 +227,15 @@ export default class AssessSearch extends Component {
           footer={[]}
         >
           <SelfForm ref="readForm" formColumn={this.formColumn} data={text} editable={false}/>
+        </Modal>
+        <Modal
+          title="新建风险点信息"
+          visible={visible}
+          onOk={this.handleOk}
+          onCancel={(e) => this.handleCancel(e,"a")}
+          width={1200}
+        >
+          <SelfForm ref="infoForm" formColumn={this.formColumn} data={text} editable={true}/>
         </Modal>
       </Fragment>
     );

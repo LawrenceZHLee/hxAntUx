@@ -9,6 +9,17 @@ const riskCom = [
     dataIndex: "riskDivision",
   },
   {
+    title: "风险类别",
+    dataIndex: "riskCategory",
+    option:[
+      {value:'危险化学品'},
+      {value:'烟花爆竹'},
+      {value:'非煤矿山'},
+      {value:'工商贸'},
+      {value:'其他'},
+    ]
+  },
+  {
     title: "风险点所在单位",
     dataIndex: "riskCompany",
   },
@@ -19,6 +30,10 @@ const riskCom = [
   {
     title: "风险点所在经纬度",
     dataIndex: "riskLI",
+  },
+  {
+    title: "风险名称",
+    dataIndex: "riskName",
   },
   {
     title: "登记人",
@@ -41,10 +56,10 @@ const riskCom = [
     dataIndex: 'dangerSource',
     option: [
       {
-        dataIndex: "是"
+        value: "是"
       },
       {
-        dataIndex: "否"
+        value: "否"
       }
     ]
   }, {
@@ -52,16 +67,16 @@ const riskCom = [
     dataIndex: 'dangerLevel',
     option: [
       {
-        dataIndex: "一级"
+        value: "一级"
       },
       {
-        dataIndex: "二级"
+        value: "二级"
       },
       {
-        dataIndex: "三级"
+        value: "三级"
       },
       {
-        dataIndex: "四级"
+        value: "四级"
       }
     ]
   },
@@ -82,15 +97,15 @@ const riskCom = [
     dataIndex: "riskPossibleLevel",
     option: [
       {
-        dataIndex: '极有可能发生'
+        value: '极有可能发生'
       }, {
-        dataIndex: '很可能发生'
+        value: '很可能发生'
       }, {
-        dataIndex: '可能发生'
+        value: '可能发生'
       }, {
-        dataIndex: '较不可能发生'
+        value: '较不可能发生'
       }, {
-        dataIndex: '基本不可能发生'
+        value: '基本不可能发生'
       },
     ]
   }, {
@@ -102,15 +117,15 @@ const riskCom = [
     dataIndex: "riskResultLevel",
     option: [
       {
-        dataIndex: '影响特别重大'
+        value: '影响特别重大'
       }, {
-        dataIndex: '影响重大'
+        value: '影响重大'
       }, {
-        dataIndex: '影响较大'
+        value: '影响较大'
       }, {
-        dataIndex: '影响一般'
+        value: '影响一般'
       }, {
-        dataIndex: '影响很小'
+        value: '影响很小'
       },
     ]
   },
@@ -127,8 +142,8 @@ const riskCom = [
     type: "title"
   },
   {
-    title: "风险类别",
-    dataIndex: "riskCategory",
+    title: "风险分类",
+    dataIndex: "riskGround",
     type: "select",
     option: [
       {
@@ -242,24 +257,90 @@ const riskCom = [
   },
 ];
 
+//数据源
+const dataSource=[
+  {
+    //风险点所在行政区划
+    riskDivision:'',
+    //风险类别
+    riskCategory:'',
+    //风险点所在单位
+    riskCompany:'',
+    //风险点所在详细位置
+    riskAddress:'',
+    //风险点所在经纬度
+    riskLI:'',
+    //风险名称
+    riskName:'',
+    //登记人
+    riskRegName:'',
+    //登记日期
+    riskRegTime:'',
+    //风险点序号
+    riskID:'',
+    //风险点所在部门
+    riskDepart:'',
+    //是否重大危险源
+    dangerSource:'',
+    //重大危险源级别
+    dangerLevel:'',
+    //风险描述
+    riskDesc:'',
+    //风险发生的可能性
+    riskPossible:'',
+    //级别
+    riskPossibleLevel:'',
+    //风险发生的可致后果
+    riskResult:'',
+    //级别
+    riskResultLevel:'',
+    //评估人
+    riskAssessName:'',
+    //评估时间
+    riskAssessTime:'',
+    //风险分类
+    riskGround:'',
+    //划分依据
+    riskCateBasis:'',
+    //划分人
+    riskCateName:'',
+    //划分时间
+    riskCateTime:'',
+    //风险级别
+    riskLevel:'',
+    //评估人
+    riskLevelName:'',
+    //评估时间
+    riskLevelTime:'',
+    //管控措施
+    riskMeasure:'',
+    //负责人
+    riskManger:'',
+    //负责部门
+    riskManDepart:'',
+    //制定人
+    riskDeveloper:'',
+    //制定时间
+    riskDevTime:'',
+    //上报单元
+    riskReportUnit:'',
+    //上报人
+    riskReporter:'',
+    //上报时间
+    riskReportTime:'',
+  }
+];
+
 //表格字段
-const formCloumn = [
+const formColumn = [
   {
     name: "基本信息",
     type: "title"
   },
   {
-    name: "登记人",
-    value: "riskRegName",
+    name: "风险名称",
+    value: "riskName",
     type: "input",
-    span: 12,
-  },
-  {
-    name: "登记日期",
-    value: "riskRegTime",
-    type: "date",
-    span: 12,
-    style: {"borderLeft": "none"},
   },
   {
     name: "风险点序号",
@@ -268,8 +349,8 @@ const formCloumn = [
     span: 12,
   },
   {
-    name: "风险点所在部门",
-    value: "riskDepart",
+    name: "风险描述",
+    value: "riskDesc",
     type: "input",
     span: 12,
     style: {"borderLeft": "none", "borderBottom": "none"},
@@ -277,6 +358,20 @@ const formCloumn = [
   {
     name: "风险点所在行政区划",
     value: "riskDivision",
+    span: 12,
+  },
+  {
+    name: "风险类别",
+    value: "riskCategory",
+    type: "select",
+    option:[],
+    span: 12,
+    style: {"borderLeft": "none", "borderBottom": "none"},
+  },
+  {
+    name: "风险点所在部门",
+    value: "riskDepart",
+    type: "input",
     span: 12,
   },
   {
@@ -331,9 +426,17 @@ const formCloumn = [
     ]
   },
   {
-    name: "风险描述",
-    value: "riskDesc",
+    name: "登记人",
+    value: "riskRegName",
     type: "input",
+    span: 12,
+  },
+  {
+    name: "登记日期",
+    value: "riskRegTime",
+    type: "date",
+    span: 12,
+    style: {"borderLeft": "none"},
   },
   {
     name: "风险评估",
@@ -408,8 +511,8 @@ const formCloumn = [
     type: "title"
   },
   {
-    name: "风险类别",
-    value: "riskCategory",
+    name: "风险分类",
+    value: "riskGround",
     type: "select",
     option: [
       {
@@ -551,4 +654,4 @@ const formCloumn = [
   },
 ];
 
-export {formCloumn};
+export {formColumn};

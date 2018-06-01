@@ -32,17 +32,9 @@ export default class SortHigh extends Component {
         type: "title"
       },
       {
-        name: "登记人",
-        value: "riskRegName",
+        name: "风险名称",
+        value: "riskName",
         type: "input",
-        span: 12,
-      },
-      {
-        name: "登记日期",
-        value: "riskRegTime",
-        type: "date",
-        span: 12,
-        style: {"borderLeft": "none"},
       },
       {
         name: "风险点序号",
@@ -96,6 +88,19 @@ export default class SortHigh extends Component {
         value: "riskDesc",
         type: "input",
       },
+      {
+        name: "登记人",
+        value: "riskRegName",
+        type: "input",
+        span: 12,
+      },
+      {
+        name: "登记日期",
+        value: "riskRegTime",
+        type: "date",
+        span: 12,
+        style: {"borderLeft": "none"},
+      },
     ];
 
     this.columns = [
@@ -103,6 +108,10 @@ export default class SortHigh extends Component {
         title: '序号',
         dataIndex: 'riskID',
         key: 'riskID',
+      }, {
+        title: '风险名称',
+        dataIndex: 'riskName',
+        key: 'riskName',
       }, {
         title: '描述',
         dataIndex: 'riskDesc',

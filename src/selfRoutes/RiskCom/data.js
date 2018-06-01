@@ -1,7 +1,12 @@
+//所有字段
 const riskCom = [
   {
     title: "基本信息",
     type: "title"
+  },
+  {
+    title: "风险名称",
+    dataIndex: "riskName",
   },
   {
     title: "登记人",
@@ -110,8 +115,8 @@ const riskCom = [
     type: "title"
   },
   {
-    title: "风险类别",
-    dataIndex: "riskCategory",
+    title: "风险分类",
+    dataIndex: "riskGround",
     type: "select",
     option: [
       {

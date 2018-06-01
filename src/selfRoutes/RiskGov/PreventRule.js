@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
-import {formCloumn} from './data';
+import {formColumn} from './data';
 
 /*
  * 风险防范监管
@@ -28,8 +28,8 @@ const searchColumn = [
     type: "input",
   },
   {
-    name: "风险点类别",
-    value: "riskCategory",
+    name: "风险点分类",
+    value: "riskGround",
     type: "select",
     option:[
       {
@@ -129,7 +129,7 @@ export default class JudgmentSort extends Component {
         dataIndex: "riskMeasure",
         key: "riskMeasure",
       },{
-        title: '具体名称',
+        title: '风险名称',
         dataIndex: 'riskName',
         key: 'riskName',
       },  {
@@ -213,14 +213,14 @@ export default class JudgmentSort extends Component {
         <SearchContent searchColumn={searchColumn}/>
         <Table scroll={{x:1300}} dataSource={dataSource} columns={this.columns}/>
         <Modal
-          title="风险上报详情"
+          title="风险详情"
           visible={readVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           width={1200}
           footer={[]}
         >
-          <SelfForm ref="readForm" formColumn={formCloumn} data={text} editable={false}/>
+          <SelfForm ref="readForm" formColumn={formColumn} data={text} editable={false}/>
         </Modal>
       </Fragment>
     );

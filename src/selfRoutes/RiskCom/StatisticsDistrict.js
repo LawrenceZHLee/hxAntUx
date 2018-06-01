@@ -15,7 +15,7 @@ const values = reValue(45,1000);
 
 const columns = [
   {
-    title: '风险类别',
+    title: '风险分类',
     dataIndex: 'type',
     key: 'type',
   }, {

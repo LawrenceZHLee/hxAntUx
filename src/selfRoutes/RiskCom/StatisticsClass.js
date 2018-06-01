@@ -154,7 +154,7 @@ const dv = ds.createView().source(chartData);
 dv.transform({
   type: 'fold',
   fields: result, // 展开字段集
-  key: '类别', // key字段
+  key: '分类', // key字段
   value: '总量', // value字段
 });
 
@@ -168,16 +168,16 @@ export default class ProStatistics extends Component {
       <div style={{"margin": "0 auto", "width": "800px"}}>
         <Chart height={400} data={dv} forceFit>
           <Legend />
-          <Axis name="类别"/>
+          <Axis name="分类"/>
           <Axis name="总量"/>
           <Tooltip />
-          <Geom type='intervalStack' position="类别*总量" color={'name'} style={{stroke: '#fff', lineWidth: 1}}/>
+          <Geom type='intervalStack' position="分类*总量" color={'name'} style={{stroke: '#fff', lineWidth: 1}}/>
         </Chart>
       </div>
     );
     return (
       <CompositeTable
-        title="风险点按类别统计"
+        title="风险点按分类统计"
         chartContent={chartContent}
         columns={columns}
         data={data}

@@ -17,8 +17,8 @@ const searchColumn = [
     type: "input",
   },
   {
-    name: "风险点类别",
-    value: "riskCategory",
+    name: "风险点分类",
+    value: "riskGround",
     type: "select",
     option:[
       {
@@ -80,17 +80,9 @@ export default class SortList extends Component {
         type: "title"
       },
       {
-        name: "登记人",
-        value: "riskRegName",
+        name: "风险名称",
+        value: "riskName",
         type: "input",
-        span: 12,
-      },
-      {
-        name: "登记日期",
-        value: "riskRegTime",
-        type: "date",
-        span: 12,
-        style: {"borderLeft": "none"},
       },
       {
         name: "风险点序号",
@@ -144,6 +136,19 @@ export default class SortList extends Component {
         value: "riskDesc",
         type: "input",
       },
+      {
+        name: "登记人",
+        value: "riskRegName",
+        type: "input",
+        span: 12,
+      },
+      {
+        name: "登记日期",
+        value: "riskRegTime",
+        type: "date",
+        span: 12,
+        style: {"borderLeft": "none"},
+      },
     ];
 
     this.columns = [
@@ -168,7 +173,7 @@ export default class SortList extends Component {
         dataIndex: "riskCateBasis",
         key: "riskCateBasis",
       },{
-        title: '具体名称',
+        title: '风险名称',
         dataIndex: 'riskName',
         key: 'riskName',
       },  {

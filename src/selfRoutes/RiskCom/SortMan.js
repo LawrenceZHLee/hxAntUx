@@ -17,17 +17,9 @@ export default class SortMan extends Component {
         type: "title"
       },
       {
-        name: "登记人",
-        value: "riskRegName",
+        name: "风险名称",
+        value: "riskName",
         type: "input",
-        span: 12,
-      },
-      {
-        name: "登记日期",
-        value: "riskRegTime",
-        type: "date",
-        span: 12,
-        style: {"borderLeft": "none"},
       },
       {
         name: "风险点序号",
@@ -80,6 +72,19 @@ export default class SortMan extends Component {
         name: "风险描述",
         value: "riskDesc",
         type: "input",
+      },
+      {
+        name: "登记人",
+        value: "riskRegName",
+        type: "input",
+        span: 12,
+      },
+      {
+        name: "登记日期",
+        value: "riskRegTime",
+        type: "date",
+        span: 12,
+        style: {"borderLeft": "none"},
       },
       {
         name: "风险评估",
@@ -154,8 +159,8 @@ export default class SortMan extends Component {
         type: "title"
       },
       {
-        name: "风险类别",
-        value: "riskCategory",
+        name: "风险分类",
+        value: "riskGround",
         type: "select",
         option: [
           {
@@ -327,7 +332,7 @@ export default class SortMan extends Component {
             dataIndex: 'riskGround',
             key: 'riskGround',
           }, {
-            title: '具体名称',
+            title: '风险名称',
             dataIndex: 'riskName',
             key: 'riskName',
           }, {
@@ -371,8 +376,8 @@ export default class SortMan extends Component {
             value: "riskDepart",
             type: "input",
           }, {
-            name: "危险类别",
-            value: "riskCategory",
+            name: "危险分类",
+            value: "riskGround",
             type: "select",
             option:[
               {
@@ -410,11 +415,7 @@ export default class SortMan extends Component {
             title: '序号',
             dataIndex: 'riskID',
             key: 'riskID',
-          }, {
-            title: '类别',
-            dataIndex: 'riskCategory',
-            key: 'riskCategory',
-          }, {
+          },{
             title: '级别',
             dataIndex: 'riskLevel',
             key: 'riskLevel',
@@ -423,7 +424,7 @@ export default class SortMan extends Component {
             dataIndex: 'riskGround',
             key: 'riskGround',
           }, {
-            title: '具体名称',
+            title: '风险名称',
             dataIndex: 'riskName',
             key: 'riskName',
           },  {
