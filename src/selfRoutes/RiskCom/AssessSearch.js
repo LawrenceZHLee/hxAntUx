@@ -2,13 +2,13 @@ import React, {Component, Fragment} from 'react';
 import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
-
+import {dataSource} from './../RiskGov/data';
 /*
  * 风险点查找
  * */
-const dataSource = [
-  {data: ''}
-];
+// const dataSource = [
+//   {data: ''}
+// ];
 
 const searchColumn = [
   {

@@ -4,6 +4,7 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 import StepTable from '../../components/SelfTable/StepTable';
 import Omit from '../../components/SelfModule/Omit';
+import {dataSource} from './../RiskGov/data';
 
 /*
  * 风险点评估
@@ -321,7 +322,7 @@ export default class AssessRec extends Component {
             ]
           },
         ],
-        dataSource: [{data: ''}],
+        dataSource: dataSource,
         columns: [
           {
             title: '序号',
@@ -385,7 +386,7 @@ export default class AssessRec extends Component {
       {
         tabTitle: "已评估",
         tabIcon: "one",
-        dataSource: [{data: ''}],
+        dataSource: dataSource,
         searchColumn: [
           {
             name: "危险序号",

@@ -4,6 +4,7 @@ import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
 import StepTable from '../../components/SelfTable/StepTable';
 import Omit from '../../components/SelfModule/Omit';
+import {dataSource} from './../RiskGov/data';
 
 /*
  * 风险点上报
@@ -341,7 +342,7 @@ export default class Report extends Component {
             type: "input",
           },
         ],
-        dataSource: [{data: ''}],
+        dataSource: dataSource,
         rowSelection: [
           {
             name: "批量上报",
@@ -395,7 +396,7 @@ export default class Report extends Component {
       {
         tabTitle: "已上报",
         tabIcon: "one",
-        dataSource: [{data: ''}],
+        dataSource: dataSource,
         searchColumn: [
           {
             name: "危险序号",
