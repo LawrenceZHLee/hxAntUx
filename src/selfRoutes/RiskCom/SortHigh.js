@@ -14,14 +14,21 @@ import {formColumn} from './data';
 
 const searchColumn = [
   {
-    name: "风险点序号",
+    name: "风险点名称",
     value: "riskID",
     type: "input",
-  }, {
-    name: "风险所在部门",
+  },
+  {
+    name: "风险点类别",
+    value: "riskGround",
+    type: "select",
+    option:[]
+  },
+  {
+    name: "风险点所在部门",
     value: "riskDepart",
     type: "input",
-  },
+  }
 ];
 
 

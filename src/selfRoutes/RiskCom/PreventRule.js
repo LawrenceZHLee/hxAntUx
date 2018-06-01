@@ -16,18 +16,53 @@ export default class PreventRule extends Component {
 
     this.columns = [
       {
-        tabTitle: "待定制",
+        tabTitle: "待制定",
         tabIcon: "one",
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险点名称",
             value: "riskID",
             type: "input",
-          }, {
-            name: "危险所在部门",
+          },
+          {
+            name: "风险点分类",
+            value: "riskGround",
+            type: "select",
+            option:[
+              {
+                value: "安全生产相关证照"
+              },
+              {
+                value: "安全生产管理机构设置情况"
+              },
+              {
+                value: "“三同时”管理"
+              },
+              {
+                value: "安全生产责任制"
+              },
+              {
+                value: "安全培训"
+              },
+              {
+                value: "事故隐患排查"
+              },
+              {
+                value: "应急救援及演练"
+              },
+              {
+                value: "外包单位及管理"
+              },
+              {
+                value: "职业健康防护"
+              }
+            ]
+          },
+          {
+            name: "风险点所在部门",
             value: "riskDepart",
             type: "input",
-          },
+          }
         ],
         dataSource: dataSource,
         columns: [
@@ -75,23 +110,54 @@ export default class PreventRule extends Component {
         ]
       },
       {
-        tabTitle: "已定制",
+        tabTitle: "已制定",
         tabIcon: "one",
         dataSource: dataSource,
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险点名称",
             value: "riskID",
             type: "input",
-          }, {
-            name: "危险所在部门",
+          },
+          {
+            name: "风险点分类",
+            value: "riskGround",
+            type: "select",
+            option:[
+              {
+                value: "安全生产相关证照"
+              },
+              {
+                value: "安全生产管理机构设置情况"
+              },
+              {
+                value: "“三同时”管理"
+              },
+              {
+                value: "安全生产责任制"
+              },
+              {
+                value: "安全培训"
+              },
+              {
+                value: "事故隐患排查"
+              },
+              {
+                value: "应急救援及演练"
+              },
+              {
+                value: "外包单位及管理"
+              },
+              {
+                value: "职业健康防护"
+              }
+            ]
+          },
+          {
+            name: "风险点所在部门",
             value: "riskDepart",
             type: "input",
-          }, {
-            name: "危险级别",
-            value: "riskLevel",
-            type: "input",
-          },
+          }
         ],
         columns: [
           {
@@ -119,11 +185,11 @@ export default class PreventRule extends Component {
             dataIndex: 'riskDepart',
             key: 'riskDepart',
           }, {
-            title: '定制人',
+            title: '制定人',
             dataIndex: 'riskDeveloper',
             key: 'riskDeveloper',
           }, {
-            title: '定制时间',
+            title: '制定时间',
             dataIndex: 'riskDevTime',
             key: 'riskDevTime',
           },

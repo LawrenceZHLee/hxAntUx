@@ -23,11 +23,6 @@ const searchColumn = [
     type: "input",
   },
   {
-    name: "风险点序号",
-    value: "riskID",
-    type: "input",
-  },
-  {
     name: "风险点分类",
     value: "riskGround",
     type: "select",

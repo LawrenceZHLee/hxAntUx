@@ -44,13 +44,19 @@ export default class Report extends Component {
         tabIcon: "one",
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险点名称",
             value: "riskID",
             type: "input",
-          }, {
-            name: "危险所在部门",
-            value: "riskDepart",
+          },
+          {
+            name: "风险点所在部门",
+            value: "riskRegName",
             type: "input",
+          },
+          {
+            name: "评估时间",
+            value: "riskRegTime",
+            type: "rangePicker",
           },
         ],
         dataSource: dataSource,
@@ -110,17 +116,19 @@ export default class Report extends Component {
         dataSource: dataSource,
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险点名称",
             value: "riskID",
             type: "input",
-          }, {
-            name: "危险所在部门",
-            value: "riskDepart",
+          },
+          {
+            name: "风险点所在部门",
+            value: "riskRegName",
             type: "input",
-          }, {
-            name: "危险级别",
-            value: "riskLevel",
-            type: "input",
+          },
+          {
+            name: "上报时间",
+            value: "riskRegTime",
+            type: "rangePicker",
           },
         ],
         columns: [

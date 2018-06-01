@@ -12,12 +12,12 @@ import {dataSource} from './../RiskGov/data';
 
 const searchColumn = [
   {
-    name: "风险点序号",
+    name: "风险点名称",
     value: "riskID",
     type: "input",
   },
   {
-    name: "登记人",
+    name: "危险点所在部门",
     value: "riskRegName",
     type: "input",
   },

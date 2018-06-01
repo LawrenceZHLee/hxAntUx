@@ -20,11 +20,15 @@ export default class SortMan extends Component {
         tabIcon: "one",
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险类别",
             value: "riskID",
             type: "input",
           }, {
-            name: "危险所在部门",
+            name: "风险点所在部门",
+            value: "riskDepart",
+            type: "input",
+          },{
+            name: "登记时间",
             value: "riskDepart",
             type: "input",
           },
@@ -80,46 +84,17 @@ export default class SortMan extends Component {
         dataSource: dataSource,
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险类别",
             value: "riskID",
             type: "input",
           }, {
-            name: "危险所在部门",
+            name: "风险点所在部门",
             value: "riskDepart",
             type: "input",
-          }, {
-            name: "危险分类",
-            value: "riskGround",
-            type: "select",
-            option:[
-              {
-                value: "安全生产相关证照"
-              },
-              {
-                value: "安全生产管理机构设置情况"
-              },
-              {
-                value: "“三同时”管理"
-              },
-              {
-                value: "安全生产责任制"
-              },
-              {
-                value: "安全培训"
-              },
-              {
-                value: "事故隐患排查"
-              },
-              {
-                value: "应急救援及演练"
-              },
-              {
-                value: "外包单位及管理"
-              },
-              {
-                value: "职业健康防护"
-              }
-            ]
+          },{
+            name: "评估时间",
+            value: "riskDepart",
+            type: "input",
           },
         ],
         columns: [

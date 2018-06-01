@@ -20,11 +20,15 @@ export default class SortLevel extends Component {
         tabIcon: "one",
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险级别",
             value: "riskID",
             type: "input",
           }, {
-            name: "危险所在部门",
+            name: "风险点所在部门",
+            value: "riskDepart",
+            type: "input",
+          },{
+            name: "登记时间",
             value: "riskDepart",
             type: "input",
           },
@@ -76,16 +80,16 @@ export default class SortLevel extends Component {
         dataSource: dataSource,
         searchColumn: [
           {
-            name: "危险序号",
+            name: "风险级别",
             value: "riskID",
             type: "input",
           }, {
-            name: "危险所在部门",
+            name: "风险点所在部门",
             value: "riskDepart",
             type: "input",
-          }, {
-            name: "危险级别",
-            value: "riskLevel",
+          },{
+            name: "评估时间",
+            value: "riskDepart",
             type: "input",
           },
         ],

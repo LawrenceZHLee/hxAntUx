@@ -244,7 +244,7 @@ menuList.menuData6 = [
         path: 'sortList',
       },
       {
-        name: '高风险点监管',
+        name: '高风险点管理',
         path: 'sortHigh',
       },
     ],
@@ -1085,7 +1085,7 @@ menuList.menuData = [
         path: 'sortList',
       },
       {
-        name: '高风险点监管',
+        name: '高风险点管理',
         path: 'sortHigh',
       },
     ],

@@ -14,7 +14,7 @@ import {formColumn} from './data';
 
 const searchColumn = [
   {
-    name: "风险点序号",
+    name: "风险点名称",
     value: "riskID",
     type: "input",
   },
@@ -53,23 +53,10 @@ const searchColumn = [
     ]
   },
   {
-    name: "风险点级别",
-    value: "riskLevel",
-    type: "select",
-    option: [
-      {
-        dataIndex: '极有可能发生'
-      }, {
-        dataIndex: '很可能发生'
-      }, {
-        dataIndex: '可能发生'
-      }, {
-        dataIndex: '较不可能发生'
-      }, {
-        dataIndex: '基本不可能发生'
-      },
-    ]
-  },
+    name: "风险点所在部门",
+    value: "riskDepart",
+    type: "input",
+  }
 ];
 
 
