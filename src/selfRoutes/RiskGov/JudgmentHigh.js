@@ -2,14 +2,14 @@ import React, {Component, Fragment} from 'react';
 import {Table, Modal, Button} from 'antd';
 import SearchContent from '../../components/SelfTable/SearchContent';
 import SelfForm from '../../components/SelfModule/SelfForm';
-import {formColumn} from './data';
+import {formColumn,dataSource} from './data';
 
 /*
  * 高风险监管
  * */
-const dataSource = [
-  {data: ''}
-];
+// const dataSource = [
+//   {data: ''}
+// ];
 
 const searchColumn = [
   {

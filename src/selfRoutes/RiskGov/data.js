@@ -89,12 +89,8 @@ const riskCom = [
     type: "title"
   },
   {
-    title: "风险发生的可能性",
+    title: "事故发生的可能性",
     dataIndex: "riskPossible",
-  },
-  {
-    title: "级别",
-    dataIndex: "riskPossibleLevel",
     option: [
       {
         value: '极有可能发生'
@@ -108,13 +104,26 @@ const riskCom = [
         value: '基本不可能发生'
       },
     ]
-  }, {
-    title: "风险发生的可致后果",
-    dataIndex: "riskResult",
   },
   {
     title: "级别",
-    dataIndex: "riskResultLevel",
+    dataIndex: "riskPossibleLevel",
+    option: [
+      {
+        value: '一级'
+      }, {
+        value: '二级'
+      }, {
+        value: '三级'
+      }, {
+        value: '四级'
+      }, {
+        value: '五级'
+      },
+    ]
+  }, {
+    title: "事故发生的可致后果",
+    dataIndex: "riskResult",
     option: [
       {
         value: '影响特别重大'
@@ -126,6 +135,23 @@ const riskCom = [
         value: '影响一般'
       }, {
         value: '影响很小'
+      },
+    ]
+  },
+  {
+    title: "级别",
+    dataIndex: "riskResultLevel",
+    option: [
+      {
+        value: '一级'
+      }, {
+        value: '二级'
+      }, {
+        value: '三级'
+      }, {
+        value: '四级'
+      }, {
+        value: '五级'
       },
     ]
   },
@@ -196,15 +222,15 @@ const riskCom = [
     dataIndex: "riskLevel",
     option: [
       {
-        dataIndex: '极有可能发生'
+        dataIndex: '一级'
       }, {
-        dataIndex: '很可能发生'
+        dataIndex: '二级'
       }, {
-        dataIndex: '可能发生'
+        dataIndex: '三级'
       }, {
-        dataIndex: '较不可能发生'
+        dataIndex: '四级'
       }, {
-        dataIndex: '基本不可能发生'
+        dataIndex: '五级'
       },
     ]
   },
@@ -257,27 +283,30 @@ const riskCom = [
   },
 ];
 
+import {divisionData,nameData} from './../../common/divisionData';
+
 //数据源
 const dataSource=[
   {
+    key: '1',
     //风险点所在行政区划
-    riskDivision:'',
+    riskDivision:divisionData('安徽省')[0],
     //风险类别
-    riskCategory:'',
+    riskCategory:divisionData('安徽省')[1],
     //风险点所在单位
-    riskCompany:'',
+    riskCompany:divisionData('安徽省')[2],
     //风险点所在详细位置
-    riskAddress:'',
+    riskAddress:divisionData('安徽省')[0],
     //风险点所在经纬度
-    riskLI:'',
+    riskLI:divisionData('安徽省')[3],
     //风险名称
-    riskName:'',
+    riskName:'存在危险',
     //登记人
-    riskRegName:'',
+    riskRegName:nameData(),
     //登记日期
-    riskRegTime:'',
+    riskRegTime:'2018-1-2',
     //风险点序号
-    riskID:'',
+    riskID:'1',
     //风险点所在部门
     riskDepart:'',
     //是否重大危险源
@@ -286,16 +315,16 @@ const dataSource=[
     dangerLevel:'',
     //风险描述
     riskDesc:'',
-    //风险发生的可能性
+    //事故发生的可能性
     riskPossible:'',
     //级别
     riskPossibleLevel:'',
-    //风险发生的可致后果
+    //事故发生的可致后果
     riskResult:'',
     //级别
     riskResultLevel:'',
     //评估人
-    riskAssessName:'',
+    riskAssessName:nameData(),
     //评估时间
     riskAssessTime:'',
     //风险分类
@@ -303,29 +332,29 @@ const dataSource=[
     //划分依据
     riskCateBasis:'',
     //划分人
-    riskCateName:'',
+    riskCateName:nameData(),
     //划分时间
     riskCateTime:'',
     //风险级别
     riskLevel:'',
     //评估人
-    riskLevelName:'',
+    riskLevelName:nameData(),
     //评估时间
     riskLevelTime:'',
     //管控措施
     riskMeasure:'',
     //负责人
-    riskManger:'',
+    riskManger:nameData(),
     //负责部门
     riskManDepart:'',
     //制定人
-    riskDeveloper:'',
+    riskDeveloper:nameData(),
     //制定时间
     riskDevTime:'',
     //上报单元
     riskReportUnit:'',
     //上报人
-    riskReporter:'',
+    riskReporter:nameData(),
     //上报时间
     riskReportTime:'',
   }
@@ -443,7 +472,7 @@ const formColumn = [
     type: "title"
   },
   {
-    name: "风险发生的可能性",
+    name: "事故发生的可能性",
     value: "riskPossible",
     type: "input",
     span: 12,
@@ -468,7 +497,7 @@ const formColumn = [
       },
     ]
   }, {
-    name: "风险发生的可致后果",
+    name: "事故发生的可致后果",
     value: "riskResult",
     type: "input",
     span: 12,
@@ -654,4 +683,4 @@ const formColumn = [
   },
 ];
 
-export {formColumn};
+export {formColumn,dataSource};

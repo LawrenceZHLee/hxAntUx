@@ -182,7 +182,7 @@ export default class Report extends Component {
         type: "title"
       },
       {
-        name: "风险发生的可能性",
+        name: "事故发生的可能性",
         value: "riskPossible",
         type: "input",
         span: 12,
@@ -207,7 +207,7 @@ export default class Report extends Component {
           },
         ]
       }, {
-        name: "风险发生的可致后果",
+        name: "事故发生的可致后果",
         value: "riskResult",
         type: "input",
         span: 12,

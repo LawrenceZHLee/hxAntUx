@@ -20,6 +20,5 @@ export function generatePieData(column, limit, timeData = []) {
       return itCol;
     });
   }
-  console.log('$PARANS!!!!data',data)
   return data;
 }

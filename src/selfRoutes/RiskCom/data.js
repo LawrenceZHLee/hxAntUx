@@ -62,7 +62,7 @@ const riskCom = [
     type: "title"
   },
   {
-    title: "风险发生的可能性",
+    title: "事故发生的可能性",
     dataIndex: "riskPossible",
   },
   {
@@ -82,7 +82,7 @@ const riskCom = [
       },
     ]
   }, {
-    title: "风险发生的可致后果",
+    title: "事故发生的可致后果",
     dataIndex: "riskResult",
   },
   {
