@@ -540,7 +540,7 @@ const formColumn = [
     span: 12,
   },
   {
-    name: "主管（监管）单位、街道",
+    name: "主管(监管)单位、街道",
     value: "riskStreet",
     type: "input",
     span: 12,

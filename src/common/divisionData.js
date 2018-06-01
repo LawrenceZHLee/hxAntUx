@@ -1737,9 +1737,9 @@ const divisionData = (province = '安徽省') => {
   //经纬度
   const LI2 = randomFixed2(5.2);
 
-  const LI = `东经${114.9+LI1},北纬${29.4+LI2}`
+  const LI = `(${114.9+LI1},${29.4+LI2})`
 
-  return [division,cate,company,LI];
+  return [division,cate,company,LI,city[index1],county[index1].children[index2]];
 };
 
 const nameData = () => {
