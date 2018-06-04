@@ -239,7 +239,7 @@ export default class AssessRec extends Component {
       <Fragment>
         <StepTable columns={this.columns}/>
         <Modal
-          title="生产登记详情"
+          title="风险评估详情"
           visible={readVisible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -249,7 +249,7 @@ export default class AssessRec extends Component {
           <SelfForm ref="readForm" formColumn={formColumn} data={text} editable={false}/>
         </Modal>
         <Modal
-          title="新建生产登记"
+          title="评估修改"
           visible={visible}
           onOk={this.handleOk}
           onCancel={(e) => this.handleCancel(e,"a")}
