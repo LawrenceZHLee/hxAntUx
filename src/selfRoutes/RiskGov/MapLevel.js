@@ -88,10 +88,9 @@ export default class MapLevel extends Component {
   setDatas = (color) => {
     const values = sortValue(18, 100);
     const data = setData(values, areas);
-    console.log('$PARANScolor',color)
     const column = [
       {
-        title: '排名',
+        title: '排序',
         dataIndex: 'rank',
         key: 'rank'
       },
