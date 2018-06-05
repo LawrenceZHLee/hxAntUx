@@ -31,6 +31,8 @@
     "classnames": "^2.2.5",
     "dva": "^2.2.3",
     "dva-loading": "^1.0.4",
+    "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.11",
     "enquire-js": "^0.2.1",
     "lodash": "^4.17.4",
     "lodash-decorators": "^4.4.1",
