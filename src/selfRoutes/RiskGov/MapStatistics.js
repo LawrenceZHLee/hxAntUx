@@ -5,7 +5,7 @@ import 'echarts/lib/chart/map';
 import 'echarts/map/js/china';
 import 'echarts/map/js/province/anhui';
 
-export default ({title,column,data}) => {
+export default ({title,column,data,color='#3F7BD3'}) => {
   const option = {
     geo: {
       name: 'Enroll distribution',
@@ -16,7 +16,6 @@ export default ({title,column,data}) => {
           show: false,
         },
       },
-
       itemStyle: {
         normal: {
           areaColor: '#022548',
@@ -35,7 +34,7 @@ export default ({title,column,data}) => {
       realtime: false,
       calculable: true,
       inRange: {
-        color: ['white', '#3F7BD3']
+        color: ['white', color]
       }
     },
     series: [

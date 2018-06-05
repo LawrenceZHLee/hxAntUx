@@ -29,55 +29,115 @@ const areas = [
   '广德县',
   '宿松县',];
 
-const column = [
-  {
-    title: '排名',
-    dataIndex: 'rank',
-    key: 'rank'
-  },
-  {
-    title: '地区',
-    dataIndex: 'name',
-    key: 'name'
-  },
-  {
-    title: '上报量',
-    dataIndex: 'value',
-    key: 'value',
-    render(value){
-      return (
-        <p className="self-table-list">{value} <span style={{'width': `${value}px`}} className="self-length"/></p>)
-    }
-  }
-];
+// const column = [
+//   {
+//     title: '排名',
+//     dataIndex: 'rank',
+//     key: 'rank'
+//   },
+//   {
+//     title: '地区',
+//     dataIndex: 'name',
+//     key: 'name'
+//   },
+//   {
+//     title: '上报量',
+//     dataIndex: 'value',
+//     key: 'value',
+//     render(value){
+//       return (
+//         <p className="self-table-list">{value} <span style={{'width': `${value}px`}} className="self-length"/></p>)
+//     }
+//   }
+// ];
 
 export default class MapLevel extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
+      column: [
+        {
+          title: '排名',
+          dataIndex: 'rank',
+          key: 'rank'
+        },
+        {
+          title: '地区',
+          dataIndex: 'name',
+          key: 'name'
+        },
+        {
+          title: '上报量',
+          dataIndex: 'value',
+          key: 'value',
+          render(value){
+            return (
+              <p className="self-table-list">{value} <span style={{'width': `${value}px`}} className="self-length"/>
+              </p>)
+          }
+        }
+      ]
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.setDatas();
   };
 
-  setDatas = () => {
+  setDatas = (color) => {
     const values = sortValue(18, 100);
     const data = setData(values, areas);
+    console.log('$PARANScolor',color)
+    const column = [
+      {
+        title: '排名',
+        dataIndex: 'rank',
+        key: 'rank'
+      },
+      {
+        title: '地区',
+        dataIndex: 'name',
+        key: 'name'
+      },
+      {
+        title: '上报量',
+        dataIndex: 'value',
+        key: 'value',
+        render(value){
+          return (
+            <p className="self-table-list">{value} <span style={color ? {'width': `${value}px`,'backgroundColor':`${color}`} : {'width': `${value}px`}} className="self-length"/>
+            </p>)
+        }
+      }
+    ];
     this.setState({
       data,
+      column
     })
   };
 
 
-  callback = () => {
-    this.setDatas();
+  callback = (key) => {
+    let color = '';
+    switch (key) {
+      case "2":
+        color = '#DD4532';
+        break;
+      case "3":
+        color = '#F0C25B';
+        break;
+      case "4":
+        color = '#FFFB72';
+        break;
+      default:
+        break;
+    }
+    this.setDatas(color);
   };
 
   render() {
-    const {data} = this.state;
+    const {data, column} = this.state;
     return (
       <Tabs defaultActiveKey="1" onChange={this.callback}>
         <TabPane tab="全部" key="1">
@@ -94,6 +154,7 @@ export default class MapLevel extends Component {
             column={column}
             data={data}
             rowKey="rank"
+            color="#DD4532"
           />
         </TabPane>
         <TabPane tab="二级" key="3">
@@ -102,6 +163,7 @@ export default class MapLevel extends Component {
             column={column}
             data={data}
             rowKey="rank"
+            color="#F0C25B"
           />
         </TabPane>
         <TabPane tab="三级" key="4">
@@ -110,6 +172,7 @@ export default class MapLevel extends Component {
             column={column}
             data={data}
             rowKey="rank"
+            color="#FFFB72"
           />
         </TabPane>
         <TabPane tab="四级" key="5">

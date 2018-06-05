@@ -11,9 +11,7 @@ export default class MapArea extends Component {
             href="./../../../Indexs/mapAnhui/index.html" target="_blank">全屏</a></Button>
         </div>
         <div>
-          <iframe height="800px" width="100%" src="./../../../Indexs/mapAnhui/index.html">
-
-          </iframe>
+          <iframe height="800px" width="100%" src="./../../../Indexs/mapAnhui/index.html"/>
         </div>
       </div>
     )

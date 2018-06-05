@@ -11,6 +11,7 @@ export function setData(values, arr) {
     dataItem.value = item;
     dataItem.rank = index+1;
     dataItem.name = names[nameIndex];
+    dataItem.key = index;
     names.splice(nameIndex,1);
     return dataItem;
   });
