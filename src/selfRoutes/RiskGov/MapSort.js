@@ -31,7 +31,7 @@ const areas = [
 
 const column = [
   {
-    title: '排名',
+    title: '排序',
     dataIndex: 'rank',
     key: 'rank'
   },

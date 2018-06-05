@@ -58,7 +58,7 @@ export default class MapLevel extends Component {
       data: [],
       column: [
         {
-          title: '排名',
+          title: '排序',
           dataIndex: 'rank',
           key: 'rank'
         },
